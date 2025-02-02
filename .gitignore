@@ -3,3 +3,9 @@
 /obj
 wwwroot/Downloads/encrypted.asc
 /wwwroot/Downloads
+*.config
+*.v2
+*.vsidx
+.vs/BiblePay.BMS.Web/v17/.suo
+*.json
+*.bin
