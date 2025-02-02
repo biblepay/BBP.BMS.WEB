@@ -1,0 +1,13 @@
+@if (Settings.Features.AppSidebar)
+{
+<aside class="page-sidebar">
+	<partial name="Boilerplate/_Logo"/>
+	<nav id="js-primary-nav" class="primary-nav" role="navigation">
+		<partial name="Boilerplate/_NavFilter"/>
+		<partial name="Boilerplate/_NavInfoCard"/>	
+		<vc:navigation />
+		<partial name="Boilerplate/_NavFilterMsg"/>
+	</nav>
+	<partial name="Boilerplate/_NavFooter"/>
+</aside>
+}

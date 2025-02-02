@@ -1,0 +1,98 @@
+﻿
+
+@{ ViewData["Title"] = "Phone - Rates";
+    ViewData["PageName"] = "phone_rates";
+    ViewData["Heading"] = "<i class='fal fa-tachometer'></i> &nbsp;Phone - Rates";
+    ViewData["Category1"] = "Phone";
+    ViewData["PageDescription"] = "Inexpensive High Quality Global Phone Service";
+}
+
+@section HeadBlock 
+{
+
+
+    <!-- BEGIN SYNCFUSION-->
+
+    <partial name="_SyncFusionHead" />
+
+
+    <!-- END SYNCFUSION -->
+
+
+    <script>
+        function calculate(args) 
+        {
+            try {
+                if (args.column.headerText == "₿₿P Rate/Min") {
+                    $(args.cell).text('₿ ' + args.data.rate2.toString());
+                }
+            } catch (e) { 
+            }
+        }
+    </script>
+}
+
+@{
+    List<object> cols = new List<object>();
+    cols.Add(new { field = "description", direction = "Ascending" });
+}
+
+@{
+    List<object> filterColumns = new List<object>();
+    filterColumns.Add(new { field = "Country", matchCase = false, @operator = "startswith", predicate = "and", value = "" });
+    filterColumns.Add(new { field = "Description", matchCase = false, @operator = "startswith", predicate = "and", value = "" });
+}
+
+    <div class="col-lg-9 control-section">
+    <ejs-grid id="Grid" dataSource="ViewBag.RateSource" allowFiltering="true" toolbar="@(new List<string>() {  })"
+              allowSorting="true" allowPaging="true" queryCellInfo="calculate">
+        <e-grid-editSettings allowAdding="false" allowDeleting="false" allowEditing="false" mode="Dialog" newRowPosition="Top"></e-grid-editSettings>
+        <e-grid-filterSettings type="Menu" ></e-grid-filterSettings>
+        <e-grid-pagesettings pageSize="15" pageCount="14"></e-grid-pagesettings>
+            <e-grid-sortsettings columns="cols"></e-grid-sortsettings>
+        <e-grid-columns>
+            <e-grid-column field="id" headerText="Record" isPrimaryKey="true"
+                      validationRules="@(new { required=true, number=true})"  width="0"></e-grid-column>
+
+            <e-grid-column field="country" headerText="Country" textAlign="Center" validationRules="@(new { required=true})"
+                           width="80"></e-grid-column>
+
+            <e-grid-column field="prefix" headerText="Prefix" width="60"></e-grid-column>
+
+            <e-grid-column field="description" headerText="Description" width="250"></e-grid-column>
+
+            <e-grid-column field="rate1" editType="numericedit" allowFiltering="false" headerText="USD Rate/Min" format="C2" width="120"></e-grid-column>
+            <e-grid-column field="rate2" allowFiltering="false" headerText="₿₿P Rate/Min" format="N2" width="120"></e-grid-column>
+
+            </e-grid-columns>
+        </ejs-grid>
+    </div>
+
+
+<ejs-scripts></ejs-scripts>
+
+@section ScriptsBlock {
+
+    <script>
+        
+        function rowPositionChange(args) {
+            var grid = document.getElementById("Grid").ej2_instances[0];
+            grid.editSettings.newRowPosition = this.value;
+        }
+
+        function actionBegin(args) {
+            var grid = document.getElementById("Grid").ej2_instances[0];
+            if (args.requestType === 'save') {
+                if (grid.pageSettings.currentPage !== 1 && grid.editSettings.newRowPosition === 'Top') {
+                    args.index = (grid.pageSettings.currentPage * grid.pageSettings.pageSize) - grid.pageSettings.pageSize;
+                } else if (grid.editSettings.newRowPosition === 'Bottom') {
+                    args.index = (grid.pageSettings.currentPage * grid.pageSettings.pageSize) - 1;
+                }
+            }
+        }
+    </script>
+
+    
+
+
+}

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BiblePay Phone</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/normalize.css" />
+</head>
+
+<body style="background-color:white;">
+
+
+    <div class="row" style="width:100vw;height:100vh;">
+
+
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
+                <button class="nav-link" id="nav-ep-tab" data-bs-toggle="tab" data-bs-target="#nav-ep" type="button" role="tab" aria-controls="nav-ep" aria-selected="false">Endpoint</button>
+                <button class="nav-link" id="nav-settings-tab" data-bs-toggle="tab" data-bs-target="#nav-settings" type="button" role="tab" aria-controls="nav-ep" aria-selected="false">Settings</button>
+                <button class="nav-link" id="nav-action-tab" data-bs-toggle="tab" data-bs-target="#nav-action" type="button" role="tab" aria-controls="nav-action" aria-selected="false">Action</button>
+
+            </div>
+        </nav>
+
+
+        <!-- dialpad -->
+        <div class="tab-content" id="nav-tabContent">
+
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                <div class="container">
+                    <div id="output"></div>
+                    <div class="row">
+                        <div class="digit" id="one">1</div>
+                        <div class="digit" id="two">
+                            2
+                            <div class="sub">ABC</div>
+                        </div>
+                        <div class="digit" id="three">
+                            3
+                            <div class="sub">DEF</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="digit" id="four">
+                            4
+                            <div class="sub">GHI</div>
+                        </div>
+                        <div class="digit" id="five">
+                            5
+                            <div class="sub">JKL</div>
+                        </div>
+                        <div class="digit">
+                            6
+                            <div class="sub">MNO</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="digit">
+                            7
+                            <div class="sub">PQRS</div>
+                        </div>
+                        <div class="digit">
+                            8
+                            <div class="sub">TUV</div>
+                        </div>
+                        <div class="digit">
+                            9
+                            <div class="sub">WXYZ</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="digit">
+                            *
+                        </div>
+                        <div class="digit">
+                            0
+                        </div>
+                        <div class="digit">
+                            #
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="botrow">
+                            <div id="divhangup" onclick="hangup();"><i id="iconhangup" class="fa fa-close faclose" aria-hidden="false"></i></div>
+                            <div id="call" onclick="makecall();"><i id="iconcall" class="fa fa-phone" aria-hidden="false"></i></div>
+                            <div id="erase"><i class="fa fa-long-arrow-left faclose" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--end of dialpad-->
+            </div>
+            
+
+
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                <!-- Incoming call window -->
+                <div class="incoming-call hidden" id="incoming-call">
+                    <div class="incoming-call-window">
+                        <h2>Incomming Call...</h2>
+                        <div class="close-incoming-window"></div>
+                        <div class="caller" id="caller-number">Caller</div>
+                        <div class="checkbox_group">
+                            <div class="checkbox">
+                                <input type="checkbox" id="input-send_video_incoming_call" />
+                                <label for="input-send_video_incoming_call">SendVideo</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" id="input-h264_incoming_call" />
+                                <label for="input-h264_incoming_call">H264</label>
+                            </div>
+                        </div>
+                        <div class="btn_group">
+                            <button class="btn btn__primary" id="incoming-call-answer">Answer</button>
+                            <button class="btn btn__decline" id="incoming-call-decline">Decline</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of incoming call window -->
+                <!-- Remote video -->
+                <div class="action_remote-video">
+                    <h3>Incoming video</h3>
+                    <div class="remote-video-holder empty" id="remote_video_holder"></div>
+                    <div class="timer">00:00:00</div>
+                </div>
+                <!-- End of remote video -->
+                <!-- Local video -->
+                <div class="action_local-video">
+                    <h3>Local Video</h3>
+                    <div class="local-video-holder" id="local_video_holder">
+                        <div class="white-circle"></div>
+                    </div>
+                </div>
+                <!-- End of local video -->
+
+
+
+            </div>
+
+
+
+
+            <div class="tab-pane fade" id="nav-ep" role="tabpanel" aria-labelledby="nav-ep-tab">
+
+                <!-- Info about the looged user -->
+                <div class="action_auth-data">
+                    <h2></h2>
+                    <h3></h3>
+                </div>
+                <!-- End of the info about the logged user -->
+                <!-- Endpoints table section -->
+                <div class="action_endpoints">
+                    <table class="table">
+                        <tr>
+                            <th>ID endpoint</th>
+                            <th>Id Video</th>
+                            <th>ID Audio</th>
+                        </tr>
+                        <tbody id="endpoints-table"></tbody>
+                    </table>
+                </div>
+                <!-- End of endpoints table section -->
+                <!-- Logger section -->
+                <div class="action_logger">
+                    <h2>Data</h2>
+                    <h3>Logger</h3>
+                    <div class="textarea-container">
+                        <textarea id="logarea"></textarea>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div class="tab-pane fade" id="nav-settings" role="tabpanel" aria-labelledby="nav-settings-tab">
+                <!-- Media settings -->
+                <div class="action_media-selector">
+                    <div class="media-selector_block-camera">
+                        <label for="change-camera">Camera</label>
+                        <select name="camera" id="change-camera"></select>
+                        <div class="custom-select camera">
+                            <div class="select-selected selected-camera"></div>
+                            <div class="camera-items select-items hidden"></div>
+                        </div>
+                    </div>
+                    <div class="media-selector_block-microphone">
+                        <label for="change-microphone">Microphone</label>
+                        <select name="microphone" id="change-microphone"></select>
+                        <div class="custom-select microphone">
+                            <div class="select-selected selected-microphone"></div>
+                            <div class="microphone-items select-items hidden"></div>
+                        </div>
+                    </div>
+                    <div class="media-selector_block-speaker">
+                        <label for="change-speaker">Speaker</label>
+                        <select name="speaker" id="change-speaker"></select>
+                        <div class="custom-select speaker">
+                            <div class="select-selected selected-speaker"></div>
+                            <div class="speaker-items select-items hidden"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of media settings -->
+                
+            </div>
+
+            
+
+
+            <div class="tab-pane fade" id="nav-action" role="tabpanel" aria-labelledby="nav-action-tab">
+                
+                <!-- Action page -->
+                <div class="page page_action hidden">
+
+
+                    <div class="action_bordered_holder">
+                        <!-- Connection section -->
+                        <div class="action_connecting action_bordered">
+                            <h2>Connecting</h2>
+                            <!-- Call type selection -->
+                            <div class="radio-group">
+                                <label class="radio-container">
+                                    One-To-One Call
+                                    <input tabindex="0" type="radio" name="radio" class="input-radio" id="one-to-one-call-btn"
+                                           checked />
+                                    <span class="radio"></span>
+                                </label>
+                                <label class="radio-container">
+                                    Conference Call
+                                    <input tabindex="0" type="radio" name="radio" class="input-radio" id="conf-call-btn" />
+                                    <span class="radio"></span>
+                                </label>
+                            </div>
+                            <!-- End of call type selection -->
+                            <!-- Number input -->
+                            <div class="input_group">
+                                <label for="input-number" class="input_label">Number</label>
+                                <input type="text" id="input-number" class="input" />
+                            </div>
+                            <!-- End of number input -->
+                            <!-- Call settings checkbox group -->
+                            <div class="checkbox_group">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="input-send_video_call" />
+                                    <label for="input-send_video_call">SendVideo</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="input-h264_call" />
+                                    <label for="input-h264_call">H264</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="input-receive_video_call" />
+                                    <label for="input-receive_video_call">ReceiveVideo</label>
+                                </div>
+                                <div class="checkbox hidden" id="input-simulcast-container">
+                                    <input type="checkbox" id="input-simulcast" />
+                                    <label for="input-simulcast">Simulcast</label>
+                                </div>
+                            </div>
+                            <!-- End of call settings checkbox group -->
+                            <!-- Call manage button group -->
+                            <div class="btn_group" id="call-btn-group">
+                                <button class="btn btn__primary" id="call-btn">Call</button>
+                                <button class="btn hidden" id="viewer-button">Join as viewer</button>
+                            </div>
+                            <div class="btn_group hidden" id="decline-btn-group">
+                                <button class="btn btn__decline" id="end-call">Decline</button>
+                                <button class="btn" id="hold-btn">Hold</button>
+                            </div>
+                            <div tabindex="0" class="btn__transfer hidden" id="transfer">Transfer</div>
+                        </div>
+                        <!-- End of call manage button group -->
+                        <!-- End of connection section -->
+                        <!-- Transfer call section -->
+                        <div class="action_transfer action_bordered hidden">
+                            <h2>Transfer</h2>
+                            <div class="input_group">
+                                <label for="input-number-transfer" class="input_label">Number</label>
+                                <input type="text" id="input-number-transfer" class="input" />
+                            </div>
+                            <div class="checkbox_group">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="input-send_video_call-transfer" />
+                                    <label for="input-send_video_call-transfer">SendVideo</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="input-h264_call-transfer" />
+                                    <label for="input-h264_call-transfer">H264</label>
+                                </div>
+                            </div>
+                            <!-- Transfer call manage button group -->
+                            <div class="btn_group" id="transfer-btn-group">
+                                <button class="btn btn__primary" id="call-btn-transfer">Call</button>
+                                <button class="btn" id="back-to-call-btn">Back</button>
+                            </div>
+                            <div class="btn_group hidden" id="transfer-confirm-btn-group">
+                                <button class="btn btn__primary" id="confirm-transfer-btn">Confirm</button>
+                                <button class="btn" id="cancel-transfer-btn">Cancel</button>
+                            </div>
+                            <!-- End of transfer call manage button group -->
+                        </div>
+                        <!-- End of transfer call section -->
+                        <!-- Sharing section -->
+                        <div class="action_sharing action_bordered">
+                            <h2>Sharing</h2>
+                            <div class="access_alarm">The options are only accessible during call.</div>
+                            <div class="checkbox_group">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="input-show-local-video" disabled />
+                                    <label for="input-show-local-video">ShowLocalVideo</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="input-replace-video" disabled />
+                                    <label for="input-replace-video">ReplaceVideo</label>
+                                </div>
+                            </div>
+                            <div class="btn_group">
+                                <button class="btn btn__primary" id="start-sharing" disabled>Share</button>
+                                <button class="btn" id="stop-sharing" disabled>Stop sharing</button>
+                            </div>
+                        </div>
+                        <!-- End of sharing settings -->
+                        <!-- Options section -->
+                        <div class="action_options action_bordered">
+                            <h2>Optional</h2>
+                            <div class="access_alarm">The options are only accessible during call.</div>
+                            <div class="switch-group">
+                                <div class="switch-block">
+                                    Show local video
+                                    <label class="switch">
+                                        <input type="checkbox" id="show-local-video-switch" />
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="switch-block disabled" id="switch-mute">
+                                    Mute
+                                    <label class="switch">
+                                        <input type="checkbox" id="mute" disabled />
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="switch-block disabled" id="switch-start-video">
+                                    Start sending video
+                                    <label class="switch">
+                                        <input type="checkbox" id="start-sending-video" disabled />
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of options section -->
+                    <!-- End of action page -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="js/login.js"></script>
+
+    <script>
+
+        var count = 0;
+
+        function GetOutboundNumber() {
+            var n = $("#output").text();
+            return n;
+        }
+
+        $(".digit").on('click', function () {
+            var num = ($(this).clone().children().remove().end().text());
+            if (count < 11) {
+                $("#output").append('<span>' + num.trim() + '</span>');
+                count++
+            }
+        });
+
+        function makecall() {
+            $('#input-number').val(GetOutboundNumber());
+            console.log('calling ' + GetOutboundNumber());
+            $('#call-btn').click();
+        }
+
+        function hangup() {
+            console.log('hanging up...' + GetOutboundNumber());
+            $('#end-call').click();
+        }
+
+
+        $('.fa-long-arrow-left').on('click', function () {
+            $('#output span:last-child').remove();
+            count--;
+        });
+    </script>
+    <script src="https://unpkg.com/voximplant-websdk"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/dropdown-list.js"></script>
+    <script src="js/actions.js"></script>
+    <script src="js/endpoints.js"></script>
+    <script src="js/manage-mediastreams.js"></script>
+    <script src="js/manage-call.js"></script>
+    <script src="js/hardware-settings.js"></script>
+    <script src="index.js"></script>
+    
+</body>
+</html>

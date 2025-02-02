@@ -1,0 +1,71 @@
+@{
+    ViewData["Title"] = "BiblePay - Quant";
+    ViewData["PageName"] = "quant_blackboxedit";
+    ViewData["Heading"] = "<i class='fal fa-rocket'></i> &nbsp;Maintain your Black Box";
+    ViewData["Category1"] = "Strategy";
+    ViewData["PageDescription"] = "Non-Greedy Quatitative Finance striving to align with God's principles";
+}
+@section HeadBlock {
+
+    <script src="https://codemirror.net/5/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="https://codemirror.net/5/lib/codemirror.css" />
+    <link rel="stylesheet" href="https://codemirror.net/5/theme/midnight.css" />
+    <link rel="stylesheet" href="https://codemirror.net/5/addon/hint/show-hint.css" />
+    <script src="https://codemirror.net/5/addon/edit/matchbrackets.js"></script>
+    <script src="https://codemirror.net/5/mode/clike/clike.js"></script>
+    <script src="https://codemirror.net/5/addon/hint/show-hint.js"></script>
+
+
+    <script>
+        function Save() {
+            //editor.save();
+            editor.toTextArea();
+            var o = document.getElementById('mycode');
+            console.log(o.value);
+            //console.log(editor);
+            ToTextArea();
+            DoPostback('quant/Save', 'BlackBox_Edit', '');
+
+        }
+        function BackTest() {
+            location.href = "quant/StrategyBacktest";
+        }
+    </script>
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    <h3>Your Black Box Strategy</h3>
+    <small>
+        Your black box is a strategy that you create with c# code that tells our portfolio analysis engine how to trade.
+        We call your script thousands of times (once for each daily price change, throughout history from inception to the current date).
+        We record your results in the Analysis history report.  If you make a change to your code, your black-box-code-version will increase and analysis results
+        will change.  However our users may run analysis reports on any version of a black box (preserving integrity of the results).
+    </small>
+    <br />
+    <br />
+    <button id="btnSave" data-parentid="g0" class="btn-default" onclick="Save();">Save</button>
+    <button id="btnBackTest" data-parentid="g0" class="btn-default" onclick="BackTest();">Back Test Analysis</button>
+
+    <br />
+
+    <div id='editor1' style="">
+        <textarea id="mycode" data-parentid="g0">@Model.Code</textarea>
+    </div>
+    <script>
+        var editor;
+        function ToTextArea() {
+            editor = CodeMirror.fromTextArea(document.getElementById("mycode"), {
+                lineNumbers: true,
+                matchBrackets: true,
+                mode: "text/x-java",
+                theme: "midnight"
+            });
+
+            editor.setSize(1200, 500);
+
+        }
+        ToTextArea();
+    </script>
+</div>
+
+    @section ScriptsBlock {}

@@ -1,0 +1,127 @@
+﻿@{ ViewData["Title"] = "About";
+    ViewData["PageName"] = "gospel_about";
+    ViewData["Heading"] = "";
+    ViewData["Category1"] = "Gospel";
+    ViewData["PageDescription"] = ""; }
+@section HeadBlock {
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+$(document).ready(function() {
+    var ctrlDown = false,
+        ctrlKey = 17,
+        cmdKey = 91,
+        vKey = 86,
+        cKey = 67, dKey = 68;
+
+    $(document).keydown(function(e) {
+        if (e.keyCode == ctrlKey || e.keyCode == cmdKey) ctrlDown = true;
+    }).keyup(function(e) {
+        if (e.keyCode == ctrlKey || e.keyCode == cmdKey) ctrlDown = false;
+    });
+
+
+    // Document Ctrl + C/V
+    $(document).keydown(function(e) {
+        if (ctrlDown && (e.keyCode == dKey)) 
+        {
+            console.log("Document catch Ctrl+D");
+            //alert("ctrl -d");
+            location.href = 'quantanalyzer/analyzer';
+            return false;
+        }
+
+        if (ctrlDown && (e.keyCode == vKey)) {
+            
+            console.log("Document catch Ctrl+V");
+
+        }
+    });
+});
+</script>
+
+
+}
+
+
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    <!--Red Sea Alert-->
+    <div class="card mb-g" style="">
+        <center> <h3><b>Welcome to Latter-Rain</b></h3> </center>
+        <ul>
+
+            <li>This is our new Decentralized Desktop Application, Unchained</li>
+            <li>This release includes many major changes, Unchained on the Desktop</li>
+            <li>Portfolio Builder and Turnkey Sancs have been retired in favor of Investor Sancs</li>
+            <li>Our new BiblePay Phone System allows you to make Global Phone Calls and you receive a real phone number!</li>
+            <li>For more information about the changes, <a href="https://wiki.biblepay.org/Red_Sea_Release">please read this wiki page.</a></li>
+            <li>Thank for you using BIBLEPAY!</li>
+
+        </ul>
+
+    </div>
+
+
+    <div style="text-align:center">
+        <h3>     Welcome to BiblePay Unchained - v7.85  </h3>
+        <!-- ADMIN TESTING PANEL -->
+        
+
+    </div>
+
+    <div class="container global-header"  style="background-size:cover;min-width:50%;min-height:200px;width:95%;height:350px"></div>
+
+    <div id="AboutBiblePay1">
+
+        <br />
+        <ul>
+            <li>A social media system with a Timeline (like facebook) and Videos (like youtube).
+            <li>Immutable posts stored on our sidechain.  Provable sha256 hashes and timestamps.
+            <li>Censorship resistance.
+            <li>Technology stack is web3 and not tied to big tech or big media.
+            <li>S3AAS, DbAAS, API Services.
+            <li>Defi contracts, NFTs, ERC20 Wallet and BBP Wallet.
+            <br />
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+@section ScriptsBlock {
+
+<script>
+    //Array of images which you want to show: Use path you want.
+    function TimestampStr() { 
+        var nTime = Date.now() / 1000;
+        return nTime.toString();
+    }
+    console.log(TimestampStr());
+
+    var images = new Array('img/jc2.png', 'img/jc3.jpg');
+    var nextimage = 0;
+    var slide = 0;
+    doSlideshow();
+    function doSlideshow()
+    {
+    if(nextimage>=images.length){nextimage=0;}
+    $('.global-header').css('background-image', 'url("' + images[nextimage++] + '")');
+    slide++;
+
+    if (slide == 1) {
+    setTimeout(doSlideshow, 777);
+    }
+    else {
+    setTimeout(doSlideshow, 24000);
+    }
+    }
+
+        window.onload = async function () {
+            console.log('loaded');
+            console.log(TimestampStr());
+        }
+    </script>
+}

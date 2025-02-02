@@ -1,0 +1,76 @@
+﻿@{ ViewData["Title"] = "BiblePay University - Memorize Scriptures";
+    ViewData["PageName"] = "memorizescriptures_memorizescriptures";
+    ViewData["Heading"] = "<i class='fal fa-school'></i> &nbsp;Memorize Scriptures " + ViewBag.lblTitle;
+    ViewData["Category1"] = "BBP University";
+    ViewData["PageDescription"] = "Become a Bible Thumper"; }
+@section HeadBlock {
+    <style>
+       
+    </style>
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+
+    <table width="95%">
+
+        <tr>
+            <td width="15%">    Book:           </td>
+            <td>
+                <select id="ddBook">
+                    @Html.Raw(ViewBag.ddBook);
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Chapter:</td>
+            <td><input id="txtChapter" type='number' value="@ViewBag.txtChapter" /></td>
+        </tr>
+
+        <tr>
+            <td>Verse:</td>
+            <td><input id="txtVerse" type="number" value="@ViewBag.txtVerse"/></td>
+        </tr>
+
+
+        <tr>
+            <td>Scripture:</td>
+            <td><textarea id="txtScripture" cols="100" rows="6">@ViewBag.txtScripture</textarea>
+
+        </tr>
+
+        <tr>
+            <td>  Practice Typing Scripture Here:</td>
+            <td>
+                <textarea id="txtPractice" cols="100" rows="10">@ViewBag.txtPractice</textarea>
+            </td>
+
+        </tr>
+    </table>
+
+    <br />
+
+    <button id="btnNext" onclick="DoCallback('MemorizeScriptures_Next','','memorizescriptures/processdocallback');">Next Scripture</button>
+    <button id="btnSwitch" onclick="DoCallback('MemorizeScriptures_Switch','','memorizescriptures/processdocallback');">Switch Mode</button>
+    <button id="btnGrade" onclick="DoCallback('MemorizeScriptures_Grade','','memorizescriptures/processdocallback');">Grade</button>
+
+    <br />
+    @Html.Raw(@ViewBag.lblInfo);
+
+    <br />
+    <hr />
+    <ul>
+        <li> Become a Bible Thumper!
+        <li>
+            Please read the scripture that is on the screen, then type it in the input box below the scripture.
+            This will help you memorize the scripture.
+        <li>You may also recite the scripture repeatedly.
+        <li>In Learn Mode, you should just type and recite the scriptures, and continue to click Next to learn more.
+        <li>In Test Mode, you will read the scripture and then try to Type the Book, Chapter and Verse in the text boxes.
+        <li>We will keep track of a tally to see how you did, and when you click Done, we will display the Grade!
+        <li>Where do these scriptures come from?  The scripture reference is stored in the sidechain and new ones may be submitted and suggested on our forum expanding and contracting the list.
+    </ul>
+
+
+</div>
+@section ScriptsBlock {}

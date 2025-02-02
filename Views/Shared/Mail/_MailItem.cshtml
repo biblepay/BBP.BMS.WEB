@@ -1,0 +1,68 @@
+@model BiblePay.BMS.Models.MailInbox
+
+
+<style>
+.myhighlight {
+		background-color: #efebf5;
+	width:100%;
+}
+</style>
+
+
+<li class="unread">
+	<div class="d-flex align-items-center px-3 px-sm-4 px-lg-5 py-1 py-lg-0 height-5 height-mobile-auto" style="min-height:90px;">
+		<div class="custom-control custom-checkbox mr-3 order-1">
+			<input type="checkbox" class="custom-control-input" id="msg-1">
+			<label class="custom-control-label" for="msg-1"></label>
+		</div>
+
+		<a href="#" title="starred" class="d-flex align-items-center py-1 ml-2 mt-4 mt-lg-0 ml-lg-0 mr-lg-4 fs-lg color-warning-500 order-3 order-lg-2">
+			<i class="fas fa-envelope"></i>
+			</a>
+
+
+
+		<div class="d-flex flex-row flex-wrap flex-1 align-items-stretch align-self-stretch order-2 order-lg-3">
+
+			
+			<div class="row w-100">
+
+				<a style="font-size:12px;"
+				   xhref="/mail/inboxread" data-internalid="@Model.activeItem.ID"
+				   onclick="SelectMailItem(this);" class="name d-flex width-sm pt-1 pb-0 py-lg-1">
+
+					<label style="font-size:10px;">
+
+						<label style="font-size:12px;">@Model.activeItem.From</label>
+						<br />
+
+						@Model.activeItem.Subject.ToString()        &nbsp;&nbsp;&nbsp;     @Model.activeItem.messagecreatetime.ToString()
+						<br />
+						@Model.activeItem.ShortBody()
+
+					</label>
+				</a>
+
+			</div>
+
+		</div>
+		
+	</div>
+</li>
+
+		<script>
+			var lastitem;
+			function SelectMailItem(a)
+			{
+				var c = 'myhighlight';
+				if (lastitem != null) {
+					lastitem.classList.remove(c);
+				}
+				a.classList.add(c);
+				lastitem = a;
+				// pull the item
+				var e = {};
+				e.messagefilename = a.dataset.internalid;
+				DoCallback('getmailitem', e, 'Mail/RetrieveMailItem');
+			}
+		</script>

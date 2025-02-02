@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "BiblePay - Quant";
+    ViewData["PageName"] = "quant_blackboxedit";
+    ViewData["Heading"] = "<i class='fal fa-rocket'></i> &nbsp;Back Test Analysis of your Black Box Strategy";
+    ViewData["Category1"] = "Strategy";
+    ViewData["PageDescription"] = "Non-Greedy Quatitative Finance striving to align with God's principles";
+}
+@section HeadBlock {
+
+    <script>
+    </script>
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    <small>
+        Our Strategy backtest summarizes the analysis over 15 years of trading.
+        The backtest details consist of a daily pulse (net liquidation value, cash, volatility, trade quantity, UL price, and more).
+        Our summary includes Open Close dates, alpha, beta, leverage, ROI, Win Percentage, and more.
+    </small>
+    <br />
+    @Html.Raw(@Model.Report)
+    <br />
+
+    <button id="btnRun" data-parentid="g0" class="btn-default" onclick="Run();">Run</button>
+</div>
+
+    @section ScriptsBlock {}

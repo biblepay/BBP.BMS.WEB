@@ -1,0 +1,56 @@
+@{ ViewData["Title"] = "Quant";
+    ViewData["PageName"] = "quant_analyzer";
+    ViewData["Heading"] = "";
+    ViewData["PageDescription"] = "Options Analyzer";
+    ViewData["Category1"] = "Quant"; }
+@section HeadBlock {
+    
+}
+
+
+@model  OptionsTradeModel
+
+<div class="row">
+    
+    <div class="card" style="width: 100%; height:40%;">
+        <div class="card-body">
+            <!-- Search panel and add-->
+            Symbol: <input id="txtSymbol" value="@ViewBag.CurSymbol" />  
+            <button class="btn-default" onclick="DoCallback('Quant_Analyzer_Search',  null,'quantanalyzer/processdocallback');" alt="Search by Symbol">
+                <i class="fal fa-search"></i>
+            </button>
+            <button class="btn-default" onclick="DoCallback('Quant_Analyzer_AddTrade',  null,'quantanalyzer/processdocallback');" alt="Add Analysis Trade">
+                <i class="fal fa-plus"></i>
+            </button>
+            <p>
+
+            <img src="data:image/png;base64,@ViewBag.ChartData0" style="width:640;height:400;" alt="Analyzer" />
+            
+        </div>
+    </div>
+    <div class="card" style="width: 100%;height:700px;overflow-y:scroll;font-size:10px;font-face:arial; ">
+        <div class="card-body">
+            @Html.Partial("Trade/_TradePanel", Model)
+            
+        </div>
+        <br />
+
+    </div>
+    <br />
+
+    <button class="btn-default" onclick="window.location.href='QuantAnalyzer/authpanel';" style="font-size:8px;">Auth Panel</button>
+
+
+</div>
+
+
+
+
+
+@section ScriptsBlock {
+    <script>
+    </script>
+
+
+
+}

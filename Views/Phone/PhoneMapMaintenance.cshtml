@@ -1,0 +1,23 @@
+﻿@{ ViewData["Title"] = "Phone Map Maintenance";
+    ViewData["PageName"] = "phone_phonemapmaintenance";
+    ViewData["Heading"] = "<i class='fal fa-tachometer'></i> &nbsp;Phone Map Maintenance";
+    ViewData["Category1"] = "Phone";
+    ViewData["PageDescription"] = "Inexpensive High Quality Global Phone Service"; }
+@section HeadBlock {
+  
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    <h5>BBP Key to Phone Account Map Maintenance</h5>
+
+    @Html.Raw(ViewBag.PhoneMapReport)
+
+    <button class="btn xbtn-info xshadow-0 ml-auto btn-default" id='btnSaveMappings'
+                onclick="this.disabled = true; DoCallback('phone_saveextensionmappings', null, '../../phone/processdocallback'); ">
+                Save Mappings
+                </button>
+
+
+</div>
+
+@section ScriptsBlock {}

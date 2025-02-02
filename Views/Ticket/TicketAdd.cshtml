@@ -1,0 +1,53 @@
+﻿@{ ViewData["Title"] = ViewBag.Title;
+    ViewData["PageName"] = "ticket_ticketadd";
+    ViewData["Heading"] = "<i class='fal fa-palette'></i>&nbsp;" + ViewBag.Title;
+    ViewData["Category1"] = "Ticket";
+    ViewData["PageDescription"] = "10% to Orphan Charity"; }
+@section HeadBlock
+{
+
+
+
+}
+
+
+
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+
+    Name:
+    <br />
+    <input id="txtName" class="form-control" value="@ViewBag.txtName" />
+
+    Description:
+    <br />
+    <textarea id='txtDescription' cols=120 class="form-control" rows=7>@ViewBag.txtDescription</textarea>
+    <br />
+
+    Assign To:
+    <br />
+    @Html.DropDownList("ddAssignTo", (IEnumerable<SelectListItem>)Model.AssignedToList, "--- Assign To ---", new { @class = "form-control" })
+
+    Disposition:
+    <br />
+    @Html.DropDownList("ddDisposition", (IEnumerable<SelectListItem>)Model.DispositionList, "--- Disposition ---", new { @class = "form-control" })
+
+    <button class="btn btn-default" id='btnSubmit' onclick="DoCallback('ticket_submit','','ticket/processdocallback');">Submit</button>
+
+
+</div>
+
+
+@section ScriptsBlock
+{
+
+    <script>
+
+
+        function changeTicketType() {
+        }
+
+
+    </script>
+
+}

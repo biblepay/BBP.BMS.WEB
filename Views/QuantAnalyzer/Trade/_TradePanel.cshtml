@@ -1,0 +1,29 @@
+
+<!--
+<div id="panel-compose" class="panel w-100 position-fixed pos-bottom pos-right mb-0 z-index-cloud mr-lg-4 shadow-3 border-bottom-left-radius-0 border-bottom-right-radius-0 expand-full-height-on-mobile expand-full-width-on-mobile shadow" 
+ style="max-width:40rem; height:35rem; display: none;">
+ -->
+ <style>
+	th, td {
+		border: 1px solid black; /* Solid black border */
+		padding: 0.1rem; /* Optional: Add padding for content */
+	}
+</style>
+	@model OptionsTradeModel
+
+ <table style="width:100%;border:none">
+	@for (int i = 0; i < Model.OptionsTradeList.Count; i++)
+		{
+		<tr>
+			<td>
+				@{
+					var item = Model.OptionsTradeList[i];
+					Model.SetActiveTrade(item);
+				}	
+				@await Html.PartialAsync("Trade/_Trade", Model)
+
+			 </td>
+		 </tr>
+		}
+	</table>
+

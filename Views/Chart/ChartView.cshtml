@@ -1,0 +1,79 @@
+﻿@{ ViewData["Title"] = ViewBag.Title;
+    ViewData["PageName"] = "chart_chartview";
+    ViewData["Heading"] = "<i class='fal fa-palette'></i>&nbsp;" + ViewBag.Title;
+    ViewData["Category1"] = "Charting";
+    ViewData["PageDescription"] = "Charting";
+    Layout = null; }
+
+
+
+<div id="chartid0" onclick="changeActiveLine();">
+    Chart Title
+
+</div>
+
+
+<link rel="stylesheet" href="~/css/site/charting_tradingview.css" />
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+<script src="~/js/charting.js"></script>
+
+
+<script>
+
+    function changeActiveLine() {
+        activeline++;
+        if (activeline >= lineseries.length) {
+            activeline = 0;
+        }
+    }
+    var activeline = 0;
+
+    var chart = LightweightCharts.createChart(container, {
+        width: width,
+        height: height,
+        layout: {
+            backgroundColor: '#000000',
+            textColor: 'rgba(255, 255, 255, 0.9)',
+        },
+        grid: {
+            vertLines: {
+                color: 'rgba(197, 203, 206, 0.4)',
+                style: LightweightCharts.LineStyle.Dotted,
+            },
+            horzLines: {
+                color: 'rgba(197, 203, 206, 0.4)',
+                style: LightweightCharts.LineStyle.Dotted,
+            }
+        },
+        xcrosshair: {
+            horzLine: {
+                visible: false,
+                labelVisible: false
+            },
+            vertLine: {
+                visible: true,
+                style: 0,
+                width: 2,
+                color: 'rgba(32, 38, 46, 0.1)',
+                labelVisible: false,
+            }
+        },
+        rightPriceScale: {
+            borderColor: 'rgba(197, 203, 206, 0.8)',
+        },
+        timeScale: {
+            borderColor: 'rgba(197, 203, 206, 0.8)',
+        },
+    });
+
+
+    @Html.Raw(ViewBag.ChartJS)
+
+    syncToTheme('Dark');
+
+
+
+</script>
+
+
+<script src="~/js/charting_after.js"></script>

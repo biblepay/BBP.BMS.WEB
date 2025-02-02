@@ -1,0 +1,49 @@
+﻿@{ ViewData["Title"] = ViewBag.Title;
+    ViewData["PageName"] = "prayer_prayeradd";
+    ViewData["Heading"] = "<i class='fal fa-cross'></i>&nbsp;" + ViewBag.Title;
+    ViewData["Category1"] = "Prayer - Add New Prayer";
+    ViewData["PageDescription"] = "10% to Orphan Charity"; }
+@section HeadBlock
+{
+
+
+
+}
+
+
+
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+
+    Subject:
+    <br />
+    <input id="txtSubject" class="form-control" value="@ViewBag.txtSubject" />
+
+    Body:
+    <br />
+    <textarea id='txtBody' cols=120 class="form-control" rows=7>@ViewBag.txtBody</textarea>
+    <br />
+
+    Disposition:
+    <br />
+    @Html.DropDownList("ddDisposition", (IEnumerable<SelectListItem>)Model.DispositionList, "--- Disposition ---", new { @class = "form-control" })
+
+    <button class="btn btn-default" id='btnSubmit' onclick="DoCallback('submit','','prayer/processdocallback');">Submit</button>
+
+
+</div>
+
+
+@section ScriptsBlock
+{
+
+    <script>
+
+
+        function changeTicketType() {
+        }
+
+
+    </script>
+
+}

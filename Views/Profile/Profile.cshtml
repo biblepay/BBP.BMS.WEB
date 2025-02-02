@@ -1,0 +1,196 @@
+@{ ViewData["Title"] = "Profile";
+    ViewData["PageName"] = "profile_profile";
+    ViewData["Heading"] = "<i class='subheader-icon fal fa-shield-alt'></i>  Profile";
+    ViewData["PageDescription"] = "Profile layout v1.2";
+    ViewData["Category1"] = "Page Views"; }
+@section HeadBlock {
+    <link rel="stylesheet" media="screen, print" href="~/css/smartcss/fa-brands.css">
+    <link rel="stylesheet" media="screen, print" href="~/css/smartcss/fa-solid.css">
+    <script src="~/lib/bbp/bbpcore.js"></script>
+
+}
+<div class="row">
+    @Html.Raw(ViewBag.Alert)
+    <div class="col-lg-6 col-xl-3 order-lg-1 order-xl-1">
+        <div class="card mb-g rounded-top">
+            <div class="row no-gutters row-grid">
+                <div class="col-12">
+                    <div class="d-flex flex-column align-items-center justify-content-center p-4">
+                        <img src="@ViewBag.BioURL" class="rounded-circle shadow-2 img-thumbnail" onclick="document.getElementById('file').click();" alt="">
+                         <h5 class="mb-0 fw-700 text-center mt-3">
+                            @ViewBag.NickName
+                            <small class="text-muted mb-0">...</small>
+                        </h5>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="text-center py-3">
+                        <h5 class="mb-0 fw-700">
+                            0
+                            <small class="text-muted mb-0">Friends</small>
+                        </h5>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="text-center py-3">
+                        <h5 class="mb-0 fw-700">
+                            @ViewBag.Balance
+                            <small class="text-muted mb-0">BBP</small>
+                        </h5>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="p-3 text-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="card mb-g">
+            <div class="row row-grid no-gutters">
+                <div class="col-12">
+                    <div class="p-3">
+                        <h2 class="mb-0 fs-xl">
+                            Friends
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <a href="javascript:void(0);" class="text-center p-3 d-flex flex-column hover-highlight">
+                        <span class="profile-image rounded-circle d-block m-auto" style="background-image: url('@ViewBag.BioURL'); background-size: cover;"></span>
+                        <span class="d-block text-truncate text-muted fs-xs mt-1">@ViewBag.NickName</span>
+                    </a>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-3 text-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="col-lg-12 col-xl-6 order-lg-3 order-xl-2">
+
+
+
+        <div class="card mb-g">
+            <div class="card-body pb-0 px-4">
+                <h3>General Settings</h3>
+                <br />
+                Nick Name:<br />
+
+                <input id="txtNickName" class="form-control" value="@ViewBag.NickName" />
+                <br />
+
+                
+                <!--
+                BBP Portfolio Builder Address:
+                <br />
+                <input id="txtPortfolioBuilderAddress" class="form-control" value="@ViewBag.PortfolioBuilderAddress" />
+
+                <br />
+                PB Signature: @Html.Raw(ViewBag.SignRPC)
+                <br />
+                <textarea id="txtPBSignature" class="form-control" cols="70" rows="4">@ViewBag.PBSignature</textarea>
+                <br />
+                -->
+                
+
+                E-Mail Address:
+                <br />
+                <input id="txtEmailAddress" class="form-control" value="@ViewBag.EmailAddress" />
+                <br />
+
+                E-Mail Verified:
+                <input id="txtEmailVerified" readonly class="form-control" value="@ViewBag.EmailAddressVerified" />
+
+                
+        @if (false && ViewBag.EmailAddressVerified.ToLower() != "yes")
+        {
+                <button class="btn-default" onclick="DoCallback('Profile_SendVerificationEmail', null, 'profile/processdocallback');">Send Verification Email</button>
+        }
+                <br />
+
+                <br />
+                <button class="btn-default" onclick="var v = {}; v.field1 = '1'; DoCallback('Profile_Save', v, 'profile/processdocallback');">Save </button>
+
+                <br />
+                <br />
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        @if (ViewBag.TwoFactorQRImageUrl != null && false)
+        {
+        <div class="card mb-g">
+            <div class="card-body pb-0 px-4">
+                <h3>Two Factor Authentication</h3>
+
+                <br />
+                <font color=red>Please associate your Two Factor program with this QR code now</font>:
+                <br /><small>Manual Setup Code: @Html.Raw(ViewBag.TwoFactorManualSetupCode)</small>
+                <br />
+
+                <br />
+                <input id="txtMFASecret" class="form-control" value="@ViewBag.MFASecret" type="hidden" />
+
+                <img src="@ViewBag.TwoFactorQRImageUrl" />
+                <br />
+                <br />
+
+                Next, Enter your Two Factor Code:
+                <br />
+                <input id="txtTwoFactorCode" class="form-control" value="@ViewBag.TwoFactorCode" />
+                <br />
+                <button class="btn-default" onclick="DoCallback('Profile_AddTwoFactor', null, 'profile/processdocallback');">Enable Two Factor Authentication</button>
+                <br />
+            </div>
+        </div>
+        }
+
+
+     </div>
+
+</div>
+
+
+<!-- upload stuff -->
+<form id="f1" action="" method="post" enctype="multipart/form-data">
+    <input style="visibility:hidden;" type="file" name="file" id="file" onchange="upl_changed();" />
+    <div>
+        <input style="visibility:hidden;" type="submit" value="Upload" />
+    </div>
+</form>
+
+
+
+@section ScriptsBlock {
+    <script>
+        $(document).ready(function () {
+        });
+    </script>
+
+    <script>
+        function upl_changed() {
+            document.getElementById("f1").submit();
+        };
+    </script>
+
+
+}

@@ -1,0 +1,122 @@
+﻿@{ ViewData["Title"] = "Timeline";
+    ViewData["PageName"] = "timeline_timeline";
+    ViewData["Heading"] = "";
+    ViewData["Category1"] = "BBP";
+    ViewData["PageDescription"] = "Timeline"; }
+@section HeadBlock {
+
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    @Html.Raw(ViewBag.Timeline)
+
+</div>
+
+
+<!-- upload stuff -->
+<form id="f1" action="" method="post" enctype="multipart/form-data">
+    <input style="visibility:hidden;" type="file" name="file" id="file" onchange="upl_changed();" />
+    <div>
+        <input style="visibility:hidden;" type="submit" value="Upload" />
+    </div>
+</form>
+
+
+
+@section ScriptsBlock {
+    <script>
+
+
+
+        function upl_changed() {
+            UploadFile();
+        };
+
+        var fScraping = false;
+        function ProcessPaste() {
+            if (fScraping)
+                return;
+            // This function is called whenever txtBody changes; we use this to detect a Scrappy Paste (this intercepts a web url paste)
+            // The reason is the server needs to call out to the destination URL, scrape the title, description and image (like facebook and Share operations do)
+            var oBody = document.getElementById('txtBody');
+            if (oBody) {
+                if (oBody.value.includes('https://')) {
+                    fScraping = true;
+
+                    // Scrappy paste
+                    var oURL = oBody.value;
+                    //oBody.value = oURL.replace('httpurl://', '');
+                    DoCallback('scrapy_paste');
+                }
+            }
+        }
+
+
+        function UploadFile() {
+            var file = document.getElementById('file').files[0];
+            console.log(file);
+
+            var fileName = file.name;
+            var fd = new FormData();
+            fd.append("file", file);
+            var xhr = new XMLHttpRequest();
+            xhr.upload.addEventListener("progress", function (evt) { UploadProgress(evt); }, false);
+            xhr.addEventListener("load", function (evt) { UploadComplete(evt); }, false);
+            xhr.addEventListener("error", function (evt) { UploadFailed(evt); }, false);
+            xhr.addEventListener("abort", function (evt) { UploadCanceled(evt); }, false);
+            xhr.open("POST", "timeline/uploadfiletimeline", true);
+            xhr.send(fd);
+        }
+
+
+        function UploadProgress(evt) {
+            if (evt.lengthComputable) {
+                var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+                $("#uploading").text(percentComplete + "% ");
+            }
+        }
+
+        function UploadComplete(evt) {
+            if (evt.target.status == 200) {
+                console.log(evt.target.responseText);
+                // This object contains the return value
+                if (evt.target.responseText != null && evt.target.responseText.length > 1) {
+                    var ob1 = JSON.parse(evt.target.responseText);
+                    var obj = JSON.parse(ob1);
+                    if (obj.returntype == "uploadsuccess") {
+                        var oImg = document.getElementById('imgAttachment');
+                        oImg.src = obj.returnurl;
+                        oImg.style.display = "block";
+                    }
+                    else if (obj.returntype == "modal") {
+                        var implant = document.getElementById("implant");
+                        try {
+                            removeAllChildNodes(implant);
+                        }
+                        catch (e) {
+
+                        }
+                        var div = document.createElement('div');
+                        div.innerHTML = obj.returnbody;
+                        implant.appendChild(div);
+                        $('#modalid1').modal('show');
+                    }
+                }
+            }
+            else {
+                alert("Error Uploading File");
+            }
+        }
+
+        function UploadFailed(evt) {
+            alert("There was an error attempting to upload the file.");
+        }
+
+        function UploadCanceled(evt) {
+            alert("The upload has been canceled by the user or the browser dropped the connection.");
+        }
+
+
+    </script>
+
+}

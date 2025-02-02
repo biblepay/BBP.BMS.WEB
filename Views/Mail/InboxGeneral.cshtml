@@ -1,0 +1,158 @@
+@model BiblePay.BMS.Models.MailInbox
+
+
+@{ 
+	ViewData["Title"] = "Inbox";
+	ViewData["PageName"] = "mail_inbox_general";
+	ViewData["Heading"] = "inbox";
+	ViewData["Category1"] = "Page Views";
+	ViewData["PreemptiveClass"] = "nav-function-minify layout-composed";
+}
+@section HeadBlock {
+<link rel="stylesheet" media="screen, print" href="~/css/fa-solid.css" >
+<link rel="stylesheet" media="screen, print" href="~/css/fa-brands.css">
+}
+<div class="d-flex flex-grow-1 p-0">
+
+
+	<div class="d-flex flex-column xflex-grow-1 w-100 bg-white" style="max-width:10%">
+	<partial name="Mail/_Menu"/>
+	</div>
+
+
+	<div class="d-flex flex-column xflex-grow-1 w-100 bg-white" style="max-width:30%">
+		<div class="flex-grow-0">
+
+            <div class="d-flex align-items-center pl-2 pr-3 py-3 pl-sm-3 pr-sm-4 py-sm-4 px-lg-5 py-lg-4  border-faded border-top-0 border-left-0 border-right-0 flex-shrink-0">
+				<a href="javascript:void(0);" class="pl-3 pr-3 py-2 d-flex d-lg-none align-items-center justify-content-center mr-2 btn" data-action="toggle" data-class="slide-on-mobile-left-show" data-target="#js-inbox-menu">
+				<i class="@(Settings.Theme.IconPrefix) fa-ellipsis-v h1 mb-0 "></i>
+				</a>
+				<h1 class="subheader-title ml-1 ml-lg-0">
+					<i class="fas fa-folder-open mr-2 hidden-lg-down"></i> 
+					Inbox 1.1
+				</h1>
+				<div class="d-flex position-relative ml-auto" style="max-width: 23rem;">
+					<i class="fas fa-search position-absolute pos-left fs-lg px-3 py-2 mt-1"></i>
+					<input type="text" class="form-control bg-subtlelight pl-6" placeholder="Filter emails">
+				</div>
+			</div>
+
+
+
+
+
+
+            <div class="d-flex flex-wrap align-items-center pl-3 pr-1 py-2 px-sm-4 px-lg-5 border-faded border-top-0 border-left-0 border-right-0">
+				<div class="flex-1 d-flex align-items-center">
+					<div class="custom-control custom-checkbox mr-2 mr-lg-2 d-inline-block">
+						<input type="checkbox" class="custom-control-input" id="js-msg-select-all">
+						<label class="custom-control-label bolder" for="js-msg-select-all"></label>
+					</div>
+					<a href="javascript:void(0);" class="btn btn-icon rounded-circle mr-1">
+					<i class="fas fa-redo fs-md"></i>
+					</a>
+					<a href="javascript:void(0);" class="btn btn-icon rounded-circle mr-1">
+					<i class="fas fa-exclamation-circle fs-md"></i>
+					</a>
+					<a href="javascript:void(0);" id="js-delete-selected" class="btn btn-icon rounded-circle mr-1">
+					<i class="fas fa-trash fs-md"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+		<!--			<partial name="../Shared/Mail/_MailItem.cshtml" />-->
+
+
+		<div class="flex-wrap align-items-center flex-grow-1 position-relative bg-gray-50">
+			<div class="position-absolute pos-top pos-bottom w-100 custom-scroll">
+				<div class="d-flex h-100 flex-column height-7">
+					<ul id="js-emails" class="notification notification-layout-2">
+
+						@foreach(var mailItem in Model.mailMessages)
+						{
+							Model.activeItem = mailItem;
+							@Html.PartialAsync("../Shared/Mail/_MailItem.cshtml", Model).Result;
+
+						}
+	
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="divMailPreview">
+	    <partial name="../Shared/Mail/_MailPreview" />
+	</div>
+
+    <partial name="../Shared/Mail/_Compose"/>
+
+	<div id="implant">
+		<!--Implant area-->
+	</div>
+
+
+</div>
+@section ScriptsBlock {
+<script type="text/javascript">
+	// push settings with "false" save to local
+	initApp.pushSettings("nav-function-minify layout-composed", false);
+	// the codes below are just for example use, you may need to change the scripts according to your requirement
+	// select all checkbox function
+	var title = document.title,
+		newEmailDisplayTab = function() {
+			var count = $('#js-emails .unread').length
+			var newTitle = title + ' (' + count + ')';
+			document.title = newTitle;
+			$(".js-unread-emails-count").text(' (' + count + ')');
+		},
+		deleteEmail = function(threadID){
+			// delete after animation is complete
+			threadID.animate({ height: 'toggle', opacity: 'toggle' }, '200', 'easeOutExpo', function(){
+				//remove email after animation is complete
+			 	$(this).remove();
+				//update unread email count
+				newEmailDisplayTab();
+			});
+			//we remove any tooltips (this is a bug with bootstrap where the tooltip stays on screen after removing parent)
+			$('.tooltip').tooltip('dispose');
+			//uncheck master select all
+			if( $("#js-msg-select-all").is(":checked") ) {
+				$("#js-msg-select-all").prop('checked',false);
+			}
+			return this;
+		}
+	// select all component demo
+	$("#js-msg-select-all").on("change", function (e) {
+    	if(this.checked) {
+        	$('#js-emails :checkbox').prop("checked",$(this).is(":checked")).closest("li").addClass("state-selected"); 
+    	} else {
+    		$('#js-emails :checkbox').prop("checked",$(this).is(":checked")).closest("li").removeClass("state-selected"); 
+    	}
+	});
+	// add or remove state-selected class to emails when they are checked
+	$('#js-emails :checkbox').on("change" , function () {
+		if ($("#js-msg-select-all").is(":checked")) {
+			$('#js-msg-select-all').prop('indeterminate', true);
+		}
+		if(this.checked) {
+			$(this).closest("li").addClass("state-selected");
+		} else {
+			$(this).closest("li").removeClass("state-selected");
+		}
+	});
+	// email delete button triggers
+	$(".js-delete-email").on('click', function()   {	 deleteEmail( $(this).closest("li") );	                    })
+	$("#js-delete-selected").on('click', function(){	 deleteEmail( $("#js-emails input:checked").closest("li") ) });
+	// show unread email count (once)
+	newEmailDisplayTab();
+</script>
+}

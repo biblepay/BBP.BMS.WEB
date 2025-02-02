@@ -1,0 +1,21 @@
+@model BiblePay.BMS.Models.MailInbox
+
+<div id="js-inbox-menu" class="flex-wrap position-relative bg-white slide-on-mobile slide-on-mobile-left"
+	 style="background-color:transparent !important;width:50vw;height:99%; overflow-y:scroll;padding-left:10px; padding-top:15px; vertical-align: top;">
+
+	<div class="position-absolute pos-top pos-bottom w-100 flex-grow-1">
+		<br />
+		<b>@Model.activeItem.From</b>
+		<br />
+		@Model.activeItem.Subject
+		<br />
+	    To:&nbsp; @Model.activeItem.To[0]
+		<br />
+		@Html.Raw(Model.activeItem.GetAttachments())
+
+		<hr>
+		<br />
+		@Html.Raw(Model.activeItem.ActiveBody())
+	</div>
+</div>
+<div class="slide-backdrop" data-action="toggle" data-class="slide-on-mobile-left-show" data-target="#js-inbox-menu"></div>

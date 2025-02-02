@@ -1,0 +1,138 @@
+@{ ViewData["Title"] = "Profile";
+    ViewData["PageName"] = "profile_wallet";
+    ViewData["Heading"] = "<i class='subheader-icon fal fa-shield-alt'></i>  Wallet";
+    ViewData["PageDescription"] = "Wallet";
+    ViewData["Category1"] = "Page Views"; }
+@section HeadBlock {
+    <link rel="stylesheet" media="screen, print" href="~/css/smartcss/fa-brands.css">
+    <link rel="stylesheet" media="screen, print" href="~/css/smartcss/fa-solid.css">
+    <script src="~/lib/bbp/bbpcore.js"></script>
+    <script src="~/js/loading-spinner.js"></script>
+    <script>
+    async function Send(o)
+    {
+        Spinner();
+        o.disabled=true;
+        Spinner.show();
+        await DoCallback('Profile_SendBBP','','profile/processdocallback');
+        o.disabled=false;
+        Spinner.hide();
+    }
+    </script>
+}
+<div class="row">
+    @Html.Raw(ViewBag.Alert)
+    <div class="col-lg-6 col-xl-3 order-lg-1 order-xl-1">
+        <div class="card mb-g rounded-top">
+            <div class="row no-gutters row-grid">
+                <div class="col-12">
+                    <div class="d-flex flex-column align-items-center justify-content-center p-4">
+                        <img src="@ViewBag.BioURL" class="rounded-circle shadow-2 img-thumbnail" onclick="document.getElementById('file').click();" alt="">
+                         <h5 class="mb-0 fw-700 text-center mt-3">
+                            @ViewBag.NickName
+                            <small class="text-muted mb-0">...</small>
+                        </h5>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="text-center py-3">
+                        <h5 class="mb-0 fw-700">
+                            0
+                            <small class="text-muted mb-0">Friends</small>
+                        </h5>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="text-center py-3">
+                        <h5 class="mb-0 fw-700">
+                            @ViewBag.Balance
+                            <small class="text-muted mb-0">BBP</small>
+                        </h5>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="p-3 text-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card mb-g">
+            <div class="row row-grid no-gutters">
+                <div class="col-12">
+                    <div class="p-3">
+                        <h2 class="mb-0 fs-xl">
+                            Friends
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <a href="javascript:void(0);" class="text-center p-3 d-flex flex-column hover-highlight">
+                        <span class="profile-image rounded-circle d-block m-auto" style="background-image: url('@ViewBag.BioURL'); background-size: cover;"></span>
+                        <span class="d-block text-truncate text-muted fs-xs mt-1">@ViewBag.NickName</span>
+                    </a>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-3 text-center">
+                        <!--<a href="javascript:void(0);" class="btn-link font-weight-bold">View all</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-lg-12 col-xl-6 order-lg-3 order-xl-2">
+
+        <div class="card mb-g">
+            <div class="card-body pb-0 px-4">
+                <h3>Wallet</h3>
+
+                <br />
+                BBP Address:
+                <br />
+                <input readonly id="txtBBPAddress" class="form-control" value="@ViewBag.BBPAddress" />
+
+                <br />
+                BBP Balance:
+                <br />
+                <input id="txtBalance" class="form-control" readonly value="@ViewBag.Balance" />
+
+                <br />
+                Send to BBP Address:
+                <br />
+                <input id="txtSendToAddress" class="form-control" />
+                <br />
+                Amount to Send:
+                <br />
+                <input id="txtAmountToSend" type="number" class="form-control" />
+                <button class="btn-default" onclick="Send(this);">
+                    Send BBP
+                </button>
+                <button class="btn-default" onclick="DoCallback('Profile_RefreshBalance','','profile/processdocallback');">Refresh Balance</button>
+
+                <br />
+                <br />
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+
+
+
+@section ScriptsBlock {
+    <script>
+    </script>
+
+
+
+}

@@ -1,0 +1,39 @@
+﻿@{ ViewData["Title"] = ViewBag.Title;
+    ViewData["PageName"] = "attachment_attachmentlist";
+    ViewData["Heading"] = "<i class='fal fa-palette'></i>&nbsp;" + ViewBag.Title;
+    ViewData["Category1"] = "Attachment";
+    ViewData["PageDescription"] = "10% to Orphan Charity";
+    Layout = "~/Views/Shared/_LayoutNoMenu.cshtml"; }
+
+
+@section HeadBlock
+{
+
+
+}
+
+<form id="f1" action="" method="POST" enctype="multipart/form-data">
+    <script src="~/js/UploadFile.js"></script>
+    <input style="visibility:hidden;" type="file" name="file" id="file" onchange="UploadFile();" />
+</form>
+
+<div>
+    @Html.Raw(ViewBag.Attachments)
+    <div class="card mb-g rounded-top">
+        <button id='btnUpload' style="width:200px;" class="rounded-circle"
+                onclick="document.getElementById('file').click(); return false;" alt="Upload Attachment" />
+        Add Attachment
+    </div>
+</div>
+
+
+@section ScriptsBlock
+{
+
+    <script>
+
+
+
+    </script>
+
+}

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<partial name="Boilerplate/_CopyrightHeader"/>
+<html lang="en">
+	<head>
+		<partial name="Boilerplate/_Head"/>
+	
+		@RenderSection("HeadBlock", required: false)
+
+</head>
+	<body class="mod-bg-1 mod-nav-link mod-nav-link @ViewBag.PreemptiveClass">
+		<partial name="Boilerplate/_ScriptsLoadingSaving"/>
+		<div class="page-wrapper">
+			<div class="page-inner">
+				<partial name="_LeftPanel"/>
+				<div class="page-content-wrapper">
+					<partial name="Boilerplate/_PageHeader"/>
+                    <main id="js-page-content" role="main" class="page-content">
+
+						@Html.AntiForgeryToken() 
+
+
+
+                        @if (ViewBag.PreemptiveClass?.Length > 0)
+						{
+                        }
+						else {
+                            <partial name="Boilerplate/_PageBreadcrumb"/>
+                            <div class="subheader"><partial name="Boilerplate/_PageHeading"/>@RenderSection("Subheaderblock", required: false)</div>
+                        }
+                        @RenderBody()
+                    </main>
+					<partial name="Boilerplate/_PageContentOverlay"/>
+					<partial name="Boilerplate/_PageFooter"/>
+					<partial name="Boilerplate/_ShortcutModal"/>
+					<partial name="Boilerplate/_ColorProfileReference"/>
+				</div>
+			</div>
+		</div>
+		<partial name="Boilerplate/_ShortcutMenu"/>
+		<partial name="Boilerplate/_ShortcutMessenger"/>
+		<partial name="Boilerplate/_PageSettings"/>
+		<!--<partial name="_GoogleAnalytics"/>-->
+		
+		<partial name="_ScriptsBasePlugins"/>
+		@RenderSection("ScriptsBlock", required: false)
+
+
+
+
+	</body>
+
+	<!--SYNC FUSION BEGIN-->
+
+</html>

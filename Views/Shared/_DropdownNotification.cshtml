@@ -1,0 +1,28 @@
+
+<div class="dropdown-header bg-trans-gradient d-flex justify-content-center align-items-center rounded-top mb-2">
+    <h4 class="m-0 text-center color-white">
+        @ViewBag.NotificationCount
+        <small class="mb-0 opacity-80"> Notifications</small>
+    </h4>
+</div>
+<ul class="nav nav-tabs nav-tabs-clean" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link px-4 fs-md js-waves-on fw-500" data-toggle="tab" href="#tab-messages" data-i18n="drpdwn.messages">Messages</a>
+    </li>
+
+</ul>
+<div class="tab-content tab-notification">
+    <div class="tab-pane active" id="tab-messages" role="tabpanel">
+        <div class="custom-scroll h-100">
+            <ul class="notification">
+
+                @Html.Raw(ViewBag.Notifications)
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+<div class="py-2 px-3 bg-faded d-block rounded-bottom text-right border-faded border-bottom-0 border-right-0 border-left-0">
+</div>
+

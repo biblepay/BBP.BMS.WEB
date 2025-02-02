@@ -1,0 +1,31 @@
+﻿@{ ViewData["Title"] = ViewBag.Title;
+    ViewData["PageName"] = "ticket_ticketlist";
+    ViewData["Heading"] = "<i class='fal fa-palette'></i>&nbsp;" + ViewBag.Title;
+    ViewData["Category1"] = "Ticket";
+    ViewData["PageDescription"] = "10% to Orphan Charity"; }
+@section HeadBlock
+{
+
+}
+
+
+
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+
+        @Html.Raw(ViewBag.TicketList)
+
+
+</div>
+
+
+@section ScriptsBlock
+{
+
+    <script>
+
+
+
+    </script>
+
+}

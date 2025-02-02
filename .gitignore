@@ -1,0 +1,5 @@
+/bin
+*.user
+/obj
+wwwroot/Downloads/encrypted.asc
+/wwwroot/Downloads

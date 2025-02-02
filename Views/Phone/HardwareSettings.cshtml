@@ -1,0 +1,28 @@
+﻿@{ ViewData["Title"] = "Hardware Phones";
+    ViewData["PageName"] = "phone_hardwaresettings";
+    ViewData["Heading"] = "<i class='fal fa-tachometer'></i> &nbsp;Hardware Phone - Settings";
+    ViewData["Category1"] = "Phone";
+    ViewData["PageDescription"] = "Inexpensive High Quality Global Phone Service"; }
+@section HeadBlock {
+  
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    <table>
+        <tr><th colspan="2">Grandstream GXP-1610</th></tr>
+        <tr><td>Provision URL</td><td>http://your_phone_ip</td></tr>
+        <tr><td>Username</td><td>admin</td></tr>
+        <tr><td>Password</td><td>admin</td></tr>
+        <tr><td>Buy URL</td><td><a href="https://www.amazon.com/Grandstream-Business-Single-account-GXP1610/dp/B01318HLCC/">Buy one on Amazon</a></td></tr>
+        <tr><td>Price</td><td>$35.99</td></tr>
+        <tr><th colspan="2">General Settings (Accounts | Account 1 | General Settings)</th></tr>
+        <tr><td>Account Name</td><td>Any Nickname</tr>
+        <tr><td>SIP Server</td><td>sip.biblepay.org</td></tr>
+        <tr><td>SIP User ID</td><td style="font-size:8px;">@ViewBag.SIPUserID</td></tr>
+        <tr><td>Authenticate ID</td><td>@ViewBag.BBPAddress</td></tr>
+        <tr><td width="40%">Authenticate Password</td><td>dumpprivkey @ViewBag.BBPAddress</td></tr>
+    </table>
+
+</div>
+
+@section ScriptsBlock {}

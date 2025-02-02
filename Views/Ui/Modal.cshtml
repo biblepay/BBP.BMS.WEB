@@ -1,0 +1,819 @@
+@using static BiblePay.BMS.DSQL.HtmlHelperExtensions;
+
+@{ ViewData["Title"] = "Modal";
+    ViewData["PageName"] = "ui_modal";
+    ViewData["Heading"] = "<i class='subheader-icon fal fa-window'></i>  Modal";
+    ViewData["Category1"] = "UI Components";
+    ViewData["PageDescription"] = "Modal dialogs for lightboxes, user notifications, or completely custom content"; }
+@section HeadBlock {
+    <link rel="stylesheet" media="screen, print" href="~/css/theme-demo.css">
+}
+<div class="alert alert-primary">
+    <div class="d-flex flex-start w-100">
+        <div class="mr-2 hidden-md-down">
+            <span class="icon-stack icon-stack-lg">
+                <i class="base base-6 icon-stack-3x opacity-100 color-primary-500"></i>
+                <i class="base base-10 icon-stack-2x opacity-100 color-primary-300 fa-flip-vertical"></i>
+                <i class="ni ni-blog-read icon-stack-1x opacity-100 color-white"></i>
+            </span>
+        </div>
+        <div class="d-flex flex-fill">
+            <div class="flex-fill">
+                <span class="h5">About</span>
+
+                <input class="btn btn-primary" name="submitButton" id="btnSave" value="Save" type="button">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xl-6">
+        <div id="panel-1" class="panel">
+            <div class="panel-hdr">
+                <h2>
+                    Basic <span class="fw-300"><i>Modals</i></span>
+                </h2>
+                <div class="panel-toolbar">
+                    <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+                    <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+                    <button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+                </div>
+            </div>
+            <div class="panel-container show">
+                <div class="panel-content">
+                    <div class="panel-tag">
+
+
+                        non bold  @Html.Bold("This text will be in bold-face!")
+
+
+                        Below is a static modal example (meaning its position and display have been overridden). Included are the modal header, modal body (required for padding), and modal footer (optional). We ask that you include modal headers with dismiss actions whenever possible, or provide another explicit dismiss action.
+                    </div>
+                    <h5 class="frame-heading">
+                        Default
+                    </h5>
+                    <div class="frame-wrap">
+                        <div class="demo">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#default-example-modal-sm">Default Modal Small</button>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#default-example-modal">Default Modal</button>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#default-example-modal-lg">Default Modal Large</button>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="default-example-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">
+                                        Basic Modals
+                                        <small class="m-0 text-muted">
+                                            Below is a static modal example
+                                        </small>
+                                    </h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="@(Settings.Theme.IconPrefix) fa-times"></i></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="default-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="@(Settings.Theme.IconPrefix) fa-times"></i></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="modal fade" id="default-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-sm" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="@(Settings.Theme.IconPrefix) fa-times"></i></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+...
+</div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <h5 class="frame-heading">
+                        Centered
+                    </h5>
+                    <div class="frame-wrap mb-0">
+                        <div class="demo">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#default-example-modal-sm-center">Centered Small</button>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#default-example-modal-center">Centered Normal</button>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#default-example-modal-lg-center">Centered Large</button>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="default-example-modal-center" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">
+                                        Basic Modals
+                                        <small class="m-0 text-muted">
+                                            Below is a static modal example
+                                        </small>
+                                    </h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="@(Settings.Theme.IconPrefix) fa-times"></i></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="default-example-modal-lg-center" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="@(Settings.Theme.IconPrefix) fa-times"></i></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="default-example-modal-sm-center" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="@(Settings.Theme.IconPrefix) fa-times"></i></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="panel-2" class="panel">
+            <div class="panel-hdr">
+                <h2>
+                    Side <span class="fw-300"><i>Modals</i></span>
+                </h2>
+                <div class="panel-toolbar">
+                    <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+                    <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+                    <button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+                </div>
+            </div>
+            <div class="panel-container show">
+                <div class="panel-content">
+                    <div class="panel-tag">
+                        Modals can also be positioned to the side of the page. Therefore the modifier classes <code>.modal-dialog-left</code>, <code>.modal-dialog-right</code>, <code>.modal-dialog-bottom</code>, <code>.modal-dialog-top</code> can be placed on a <code>.modal-dialog</code>. These side modals are compatible with the sizes classes.
+                    </div>
+                    <h5 class="frame-heading">
+                        Right
+                    </h5>
+                    <div class="frame-wrap">
+                        <div class="demo">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target=".default-example-modal-right-sm">Right Small</button>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target=".default-example-modal-right">Right Normal</button>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target=".default-example-modal-right-lg">Right Large</button>
+                        </div>
+                    </div>
+                    <div class="modal fade default-example-modal-right" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-right">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title h4">Large right side modal</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="@(Settings.Theme.IconPrefix) fa-times"></i></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card mb-5">
+                                        <div class="card-body p-3">
+                                            <h5>
+                                                ADP System Migration
+                                                <small class="mt-0 mb-3 text-muted">
+                                                    Migration of new API to local servers
+                                                </small>
+                                                <span class="badge badge-primary fw-n position-absolute pos-top pos-right mt-3 mr-3">A</span>
+                                            </h5>
+                                            <div class="row fs-b fw-300">
+                                                <div class="col text-left">
+                                                    Progress
+                                                </div>
+                                                <div class="col text-right">
+                                                    90%
+                                                </div>
+                                            </div>
+                                            <div class="progress progress-xs d-flex mb-2 mt-1">
+                                                <span class="progress-bar bg-primary-500 progress-bar-striped" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></span>
+                                            </div>
+                                            <div class="fw-300 mb-0">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        Budget
+                                                    </div>
+                                                    <div class="col text-right">
+                                                        $1,325,987.30
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-g">
+                                        <div class="card-body p-3">
+                                            <h5 class="text-danger">
+                                                ADP System Migration
+                                                <small class="mt-0 mb-3 text-muted">
+                                                    Migration of new API to local servers
+                                                </small>
+                                                <span class="badge badge-danger fw-n position-absolute pos-top pos-right mt-3 mr-3">Delayed</span>
+                                            </h5>
+                                            <div class="row fs-b fw-300">
+                                                <div class="col text-left">
+                                                    Progress
+                                                </div>
+                                                <div class="col text-right">
+                                                    26%
+                                                </div>
+                                            </div>
+                                            <div class="progress progress-xs d-flex mb-2 mt-1">
+                                                <span class="progress-bar bg-danger-500 progress-bar-striped" role="progressbar" style="width: 26%" aria-valuenow="26" aria-valuemin="0" aria-valuemax="100"></span>
+                                            </div>
+                                            <div class="fw-300 mb-3">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        Budget
+                                                    </div>
+                                                    <div class="col text-right text-danger">
+                                                        -$155,473.70
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="fs-xs mb-3 fw-300">
+                                                <ul class="list-unstyled mb-1">
+                                                    <li>
+                                                        <i class="@(Settings.Theme.IconPrefix) fa-circle text-muted"></i> <span class="text-muted"><s> Heated maps generated</s></span>
+                                                    </li>
+                                                    <li>
+                                                        <i class="@(Settings.Theme.IconPrefix) fa-circle text-danger"></i> Turncated syndicate rated
+                                                    </li>
+                                                    <li>
+                                                        <i class="@(Settings.Theme.IconPrefix) fa-dot-circle text-danger"></i> ADP forms needs approval and review
+                                                    </li>
+                                                    <li>
+                                                        <i class="@(Settings.Theme.IconPrefix) fa-exclamation-triangle text-danger"></i> Bug review
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="text-left fw-400 ">
+                                                <div class="text-secondary mb-1">Project Owners</div>
+                                                <div class="fs-sm d-flex align-items-center">
+                                                    <a href="#" class="btn-m-s">
+                                                        <img src="~/img/demo/avatars/avatar-a.png" class="profile-image-sm rounded-circle" alt="aa">
+                                                    </a>
+                                                    <a href="#" class="btn-m-s">
+                                                        <img src="~/img/demo/avatars/avatar-b.png" class="profile-image-sm rounded-circle" alt="aa">
+                                                    </a>
+                                                    <a href="#" class="btn-m-s">
+                                                        <img src="~/img/demo/avatars/avatar-c.png" class="profile-image-sm rounded-circle" alt="aa">
+                                                    </a>
+                                                    <a href="#" class="btn-m-s">
+                                                        <img src="~/img/demo/avatars/avatar-e.png" class="profile-image-sm rounded-circle" alt="aa">
+                                                    </a>
+                                                    <a href="#" class="btn-m-s">
+                                                        <img src="~/img/demo/avatars/avatar-h.png" class="profile-image-sm rounded-circle" alt="aa">
+                                                    </a>
+                                                    <a href="#" class="btn-m-s">
+                                                        <img src="~/img/demo/avatars/avatar-k.png" class="profile-image-sm rounded-circle" alt="aa">
+                                                    </a>
+                                                    <a href="#" class="btn-m-s fs-xs">
+                                                        <span data-hasmore="+7" class="rounded-circle profile-image-sm">
+                                                            <img src="~/img/demo/avatars/avatar-j.png" class="profile-image-sm rounded-circle" alt="aa">
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-g">
+                                        <div class="card-body p-3">
+                                            <h5 class="text-success">
+                                                ADP System Migration
+                                                <small class="mt-0 mb-3 text-muted">
+                                                    Migration of new API to local servers
+                                                </small>
+                                                <span class="badge badge-success fw-n position-absolute pos-top pos-right mt-3 mr-3">D</span>
+                                            </h5>
+                                            <div class="row fs-b fw-300 text-secondar">
+                                                <div class="col text-left">
+                                                    COMPLETE
+                                                </div>
+                                            </div>
+                                            <div class="progress progress-xs d-flex mb-2 mt-1">
+                                                <span class="progress-bar bg-success-500 progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></span>
+                                            </div>
+                                            <div class="fw-300 mb-3">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        Budget
+                                                    </div>
+                                                    <div class="col text-right">
+                                                        $134
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-right">
+                                                    <a href="#" class="btn btn-default btn-sm">APPROVE</a>
+                                                    <a href="#" class="btn btn-default btn-sm">DECLINE</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade default-example-modal-right-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-right modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title h4">Large right side modal</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="@(Settings.Theme.IconPrefix) fa-times"></i></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card mb-g">
+                                        <div class="card-body p-3">
+                                            <h5>
+                                                ADP System Migration
+                                                <small class="mt-0 mb-3 text-muted">
+                                                    Migration of new API to local servers
+                                                </small>
+                                                <span class="badge badge-primary fw-n position-absolute pos-top pos-right mt-3 mr-3">A</span>
+                                            </h5>
+                                            <div class="row fs-b fw-300">
+                                                <div class="col text-left">
+                                                    Progress
+                                                </div>
+                                                <div class="col text-right">
+                                                    90%
+                                                </div>
+                                            </div>
+                                            <div class="progress progress-xs d-flex mb-2 mt-1">
+                                                <span class="progress-bar bg-primary-500 progress-bar-striped" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></span>
+                                            </div>
+                                            <div class="fw-300 mb-0">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        Budget
+                                                    </div>
+                                                    <div class="col text-right">
+                                                        $1,325,987.30
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-g">
+                                        <div class="card-body p-3">
+                                            <h5 class="text-danger">
+                                                ADP System Migration
+                                                <small class="mt-0 mb-3 text-muted">
+                                                    Migration of new API to local servers
+                                                </small>
+                                                <span class="badge badge-danger fw-n position-absolute pos-top pos-right mt-3 mr-3">Delayed</span>
+                                            </h5>
+                                            <div class="row fs-b fw-300">
+                                                <div class="col text-left">
+                                                    Progress
+                                                </div>
+                                                <div class="col text-right">
+                                                    26%
+                                                </div>
+                                            </div>
+                                            <div class="progress progress-xs d-flex mb-2 mt-1">
+                                                <span class="progress-bar bg-danger-500 progress-bar-striped" role="progressbar" style="width: 26%" aria-valuenow="26" aria-valuemin="0" aria-valuemax="100"></span>
+                                            </div>
+                                            <div class="fw-300 mb-3">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        Budget
+                                                    </div>
+                                                    <div class="col text-right text-danger">
+                                                        -$155,473.70
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="fs-xs mb-3 fw-300">
+                                                <ul class="list-unstyled mb-1">
+                                                    <li>
+                                                        <i class="@(Settings.Theme.IconPrefix) fa-circle text-muted"></i> <span class="text-muted"><s> Heated maps generated</s></span>
+                                                    </li>
+                                                    <li>
+                                                        <i class="@(Settings.Theme.IconPrefix) fa-circle text-danger"></i> Turncated syndicate rated
+                                                    </li>
+                                                    <li>
+                                                        <i class="@(Settings.Theme.IconPrefix) fa-dot-circle text-danger"></i> ADP forms needs approval and review
+                                                    </li>
+                                                    <li>
+                                                        <i class="@(Settings.Theme.IconPrefix) fa-exclamation-triangle text-danger"></i> Bug review
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="text-left fw-400 ">
+                                                <div class="text-secondary mb-1">Project Owners</div>
+                                                <div class="fs-sm d-flex align-items-center">
+                                                    <a href="#" class="btn-m-s">
+                                                        <img src="~/img/demo/avatars/avatar-a.png" class="profile-image-sm rounded-circle" alt="aa">
+                                                    </a>
+                                                    <a href="#" class="btn-m-s">
+                                                        <img src="~/img/demo/avatars/avatar-b.png" class="profile-image-sm rounded-circle" alt="aa">
+                                                    </a>
+                                                    <a href="#" class="btn-m-s">
+                                                        <img src="~/img/demo/avatars/avatar-c.png" class="profile-image-sm rounded-circle" alt="aa">
+                                                    </a>
+                                                    <a href="#" class="btn-m-s">
+                                                        <img src="~/img/demo/avatars/avatar-e.png" class="profile-image-sm rounded-circle" alt="aa">
+                                                    </a>
+                                                    <a href="#" class="btn-m-s">
+                                                        <img src="~/img/demo/avatars/avatar-h.png" class="profile-image-sm rounded-circle" alt="aa">
+                                                    </a>
+                                                    <a href="#" class="btn-m-s">
+                                                        <img src="~/img/demo/avatars/avatar-k.png" class="profile-image-sm rounded-circle" alt="aa">
+                                                    </a>
+                                                    <a href="#" class="btn-m-s fs-xs">
+                                                        <span data-hasmore="+7" class="rounded-circle profile-image-sm">
+                                                            <img src="~/img/demo/avatars/avatar-j.png" class="profile-image-sm rounded-circle" alt="aa">
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-g">
+                                        <div class="card-body p-3">
+                                            <h5 class="text-success">
+                                                ADP System Migration
+                                                <small class="mt-0 mb-3 text-muted">
+                                                    Migration of new API to local servers
+                                                </small>
+                                                <span class="badge badge-success fw-n position-absolute pos-top pos-right mt-3 mr-3">D</span>
+                                            </h5>
+                                            <div class="row fs-b fw-300 text-secondar">
+                                                <div class="col text-left">
+                                                    COMPLETE
+                                                </div>
+                                            </div>
+                                            <div class="progress progress-xs d-flex mb-2 mt-1">
+                                                <span class="progress-bar bg-success-500 progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></span>
+                                            </div>
+                                            <div class="fw-300 mb-3">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        Budget
+                                                    </div>
+                                                    <div class="col text-right">
+                                                        $134
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-right">
+                                                    <a href="#" class="btn btn-default btn-sm">APPROVE</a>
+                                                    <a href="#" class="btn btn-default btn-sm">DECLINE</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade default-example-modal-right-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-right modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title h4">Large right side modal</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="@(Settings.Theme.IconPrefix) fa-times"></i></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="frame-heading">
+                        Left
+                    </h5>
+                    <div class="frame-wrap">
+                        <div class="demo">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target=".default-example-modal-left-sm">Left Small</button>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target=".default-example-modal-left">Left Normal</button>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target=".default-example-modal-left-lg">Left Large</button>
+                        </div>
+                    </div>
+                    <div class="modal fade default-example-modal-left" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-left">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title h4">Large right side modal</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="@(Settings.Theme.IconPrefix) fa-times"></i></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade default-example-modal-left-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-left modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title h4">Large right side modal</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="@(Settings.Theme.IconPrefix) fa-times"></i></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade default-example-modal-left-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-left modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title h4">Large right side modal</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="@(Settings.Theme.IconPrefix) fa-times"></i></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="frame-heading">
+                        Top
+                    </h5>
+                    <div class="frame-wrap">
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target=".default-example-modal-top">Top Side</button>
+                    </div>
+                    <div class="modal fade default-example-modal-top" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-top">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="icon-stack fa-6x mr-4 mb-0">
+                                        <i class="base-4 icon-stack-3x color-danger-500"></i>
+                                        <i class="base-4 icon-stack-1x color-danger-400"></i>
+                                        <i class="ni ni-envelope icon-stack-1x text-white"></i>
+                                    </div>
+                                    <div class="icon-stack fa-6x mr-4 mb-0">
+                                        <i class="base-19 icon-stack-3x color-primary-400"></i>
+                                        <i class="base-7 icon-stack-2x color-primary-300"></i>
+                                        <i class="base-7 icon-stack-1x fs-xxl color-primary-200"></i>
+                                        <i class="base-7 icon-stack-1x color-primary-500"></i>
+                                        <i class="@(Settings.Theme.IconPrefix) fa-globe icon-stack-1x text-white opacity-85"></i>
+                                    </div>
+                                    <div class="icon-stack fa-6x mr-4 mb-0">
+                                        <i class="base-16 icon-stack-3x color-fusion-500"></i>
+                                        <i class="base-10 icon-stack-1x color-primary-50 opacity-30"></i>
+                                        <i class="base-10 icon-stack-1x fs-xl color-primary-50 opacity-20"></i>
+                                        <i class="@(Settings.Theme.IconPrefix) fa-dot-circle icon-stack-1x text-white opacity-85"></i>
+                                    </div>
+                                    <div class="icon-stack fa-6x mr-4 mb-0">
+                                        <i class="base-7 icon-stack-3x color-info-500"></i>
+                                        <i class="base-7 icon-stack-2x color-info-700"></i>
+                                        <i class="ni ni-graph icon-stack-1x text-white"></i>
+                                    </div>
+                                    <div class="icon-stack fa-6x mr-4 mb-0">
+                                        <i class="base-9 icon-stack-3x color-success-400"></i>
+                                        <i class="base-2 icon-stack-2x color-success-500"></i>
+                                        <i class="ni ni-shield icon-stack-1x text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div id="panel-3" class="panel">
+            <div class="panel-hdr">
+                <h2>
+                    Modifications <span class="fw-300"><i>for modals</i></span>
+                </h2>
+                <div class="panel-toolbar">
+                    <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+                    <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+                    <button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+                </div>
+            </div>
+        
+        </div>
+
+
+
+
+
+        <div id="panel-4" class="panel">
+            <div class="panel-hdr">
+                <h2>
+                    Transparent <span class="fw-300"><i>Modal (Tinted)</i></span>
+                </h2>
+                <div class="panel-toolbar">
+                    <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+                    <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+                    <button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+                </div>
+            </div>
+            <div class="panel-container show">
+                <div class="panel-content">
+                    <div class="panel-tag">
+                        Give modals a 'transparent tinted glass' feel. It increases focus to the UI elements by creating contrast. We add the modifier class <code>.modal-transparent</code>. These modals are compatible with their respected size classes.
+                    </div>
+                    <h5 class="frame-heading">
+                        Default
+                    </h5>
+                    <div class="frame-wrap mb-0">
+                        <button type="button" class="btn btn btn-dark" data-toggle="modal" data-target=".example-modal-bottom-transparent">Transparent Bottom</button>
+                    </div>
+                    <div class="modal fade example-modal-centered-transparent" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-transparent" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title text-white">
+                                        Basic Modals
+                                        <small class="m-0 text-white opacity-70">
+                                            Below is a static modal example
+                                        </small>
+                                    </h4>
+                                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="@(Settings.Theme.IconPrefix) fa-times"></i></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade example-modal-default-transparent" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-transparent" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title text-white">
+                                        Basic Modals
+                                        <small class="m-0 text-white opacity-70">
+                                            Below is a static modal example
+                                        </small>
+                                    </h4>
+                                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="@(Settings.Theme.IconPrefix) fa-times"></i></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section ScriptsBlock {
+
+
+    <script type="text/javascript">
+
+    $(function () {
+        $("#btnSave").click(function ()
+        {
+            var std = {};
+            std.Name = '1'; 
+            std.Address = '2';
+
+            $.ajax({
+                type: "POST",
+                url: 'PushAction1',
+                data: '{std: ' + JSON.stringify(std) + '}',
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function ()
+                {
+                    alert("Data has been pushed successfully.");
+                },
+                error: function () {
+                    alert("Error while inserting data");
+                }
+            });
+            return false;
+        });
+    });
+
+    </script>
+}

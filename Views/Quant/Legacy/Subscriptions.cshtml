@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "BiblePay - Quant";
+    ViewData["PageName"] = "quant_subscriptions";
+    ViewData["Heading"] = "<i class='fal fa-rocket'></i> &nbsp;My Subscriptions";
+    ViewData["Category1"] = "Strategy";
+    ViewData["PageDescription"] = "Non-Greedy Quatitative Finance striving to align with God's principles";
+}
+@section HeadBlock {
+
+   
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+
+    <br />
+    @Html.Raw(@Model.Report)
+    <br />
+</div>
+
+@section ScriptsBlock {}

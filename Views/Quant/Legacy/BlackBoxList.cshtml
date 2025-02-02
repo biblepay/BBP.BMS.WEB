@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "BiblePay - Quant";
+    ViewData["PageName"] = "quant_blackboxlist";
+    ViewData["Heading"] = "<i class='fal fa-rocket'></i> &nbsp;Our Black Box Algorithms";
+    ViewData["Category1"] = "Strategy";
+    ViewData["PageDescription"] = "Non-Greedy Quatitative Finance striving to align with God's principles";
+}
+@section HeadBlock {
+
+    <script>
+        function DeleteBackTests() {
+            DoPostback('quant/DeleteBackTests', 'BlackBox_DeleteBackTests', '');
+        }
+    </script>
+
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    <small>
+    </small>
+
+    <br />
+       @Html.Raw(@Model.Report)
+    <br />
+</div>
+
+@section ScriptsBlock {}

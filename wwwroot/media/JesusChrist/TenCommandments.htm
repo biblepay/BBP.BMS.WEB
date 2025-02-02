@@ -1,0 +1,74 @@
+<html>
+
+
+
+<head>
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	<script>
+		var refTagger = {
+			settings: {
+				bibleVersion: 'NKJV'
+			}
+		};
+
+		(function (d, t) {
+			var n = d.querySelector('[nonce]');
+			refTagger.settings.nonce = n && (n.nonce || n.getAttribute('nonce'));
+			var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+			g.src = 'https://api.reftagger.com/v2/RefTagger.js';
+			g.nonce = refTagger.settings.nonce;
+			s.parentNode.insertBefore(g, s);
+		}(document, 'script'));
+	</script>
+</head>
+
+<style>
+body {margin:60;padding:20}
+</style>
+
+<body>
+
+
+
+<h1>
+	The Ten Commandments
+</h1>
+
+
+<ul>
+
+<h2>
+<li>
+
+I am the Lord your God	:  You shall have no other gods before me
+<li>
+
+You shall not make for yourself an idol
+<li>
+
+You shall not make wrongful use of the name of your God
+<li>
+
+Remember the Sabbath and keep it holy
+<li>
+
+Honor your Father and Mother
+<li>
+
+You shall not murder
+<li>
+
+You shall not commit adultery
+<li>
+
+You shall not steal
+<li>
+
+You shall not bear false witness against your neighbor
+<li>
+
+You shall not covet
+</ul>
+
+</body>
+</html>

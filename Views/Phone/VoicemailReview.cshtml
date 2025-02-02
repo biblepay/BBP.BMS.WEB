@@ -1,0 +1,33 @@
+﻿@{ ViewData["Title"] = "Phone - Rates";
+    ViewData["PageName"] = "phone_voicemailreview";
+    ViewData["Heading"] = "<i class='fal fa-tachometer'></i> &nbsp;Voicemail Review";
+    ViewData["Category1"] = "Phone";
+    ViewData["PageDescription"] = "Inexpensive High Quality Global Phone Service"; }
+@section HeadBlock {
+  
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    @Html.Raw(ViewBag.VoicemailReport)
+
+    <hr />
+
+    <h4>Your BBP Phone Greeting</h4>
+    <br />
+
+    Answer with this greeting:
+    <br />
+    <textarea rows="2" id="txtGreeting" maxlength="512" class="form-control">@ViewBag.txtGreeting</textarea>
+    <br />
+    Answer after this many ringing seconds:
+    <br />
+    <input id="txtDuration" type="number" step="1" maxlength="2" min="7" max="89" class="form-control" value="@ViewBag.txtDuration" />
+
+    <button class="btn ml-auto btn-default" id='btnSave'
+            onclick="this.disabled=true; DoCallback('phone_update_greeting', null, '../../phone/processdocallback'); ">
+            Save Voicemail Settings
+    </button>
+
+</div>
+
+@section ScriptsBlock {}

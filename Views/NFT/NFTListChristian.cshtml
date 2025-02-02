@@ -1,0 +1,18 @@
+﻿@{ ViewData["Title"] = "BiblePay - Christian NFTs";
+    ViewData["PageName"] = "nft_nftlistchristian";
+    ViewData["Heading"] = "<i class='fal fa-palette'></i> &nbsp;Christian NFTs";
+    ViewData["Category1"] = "NFT";
+    ViewData["PageDescription"] = "NFTs with integrity"; }
+@section HeadBlock {
+    <style>
+    </style>
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    @Html.Raw(ViewBag.NFTList)
+
+    <hr />
+    @Html.Raw(ViewBag.NFTListOwned)
+
+</div>
+@section ScriptsBlock {}

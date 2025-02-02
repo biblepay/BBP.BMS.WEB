@@ -1,0 +1,13 @@
+﻿@{ ViewData["Title"] = @ViewBag.Title;
+    ViewData["PageName"] = "bbp_messagepage";
+    ViewData["Heading"] = "<i class='fal fa-tachometer'></i> " + ViewBag.Heading;
+    ViewData["Category1"] = "BBP";
+    ViewData["PageDescription"] = "Sanctuary Mining with Orphan Charity"; }
+@section HeadBlock {
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    @Html.Raw(ViewBag.Body)
+
+</div>
+@section ScriptsBlock {}

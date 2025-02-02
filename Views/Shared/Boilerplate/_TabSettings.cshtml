@@ -1,0 +1,106 @@
+<div class="settings-panel">
+
+    <!--
+
+
+
+        -->
+
+
+    <hr class="mb-0 mt-4">
+    <div class="mt-4 d-table w-100 pl-5 pr-3">
+        <div class="d-table-cell align-middle">
+            <h5 class="p-0 pr-2 d-flex">
+                Theme colors
+                <a href="#" class="ml-auto fw-400 fs-xs" data-toggle="popover" data-trigger="focus" data-placement="top" title="" data-html="true"
+                   data-content="The theme below is stored in <code>localStorage</code> for your browsing preference. "
+                   data-original-title="<span class='text-primary'><i class='@(Settings.Theme.IconPrefix) fa-exclamation-triangle mr-1'></i> Information</span>" data-template="<div class=&quot;popover bg-white border-white&quot; role=&quot;tooltip&quot;><div class=&quot;arrow&quot;></div><h3 class=&quot;popover-header bg-transparent&quot;></h3><div class=&quot;popover-body fs-xs&quot;></div></div>"><i class="@(Settings.Theme.IconPrefix) fa-info-circle mr-1"></i> more info</a>
+            </h5>
+        </div>
+    </div>
+    <div class="expanded theme-colors pl-5 pr-3">
+        <ul class="m-0">
+
+            
+            <li>
+                <a href="#"
+                   id="myapp-15"
+                   data-action="theme-update"
+                   data-themesave
+                   data-theme="/css/themes/cust-theme-15.css"
+                   data-toggle="tooltip"
+                   data-placement="top"
+                   title="BBP"
+                   data-original-title="Hoki"></a>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <hr class="mb-0 mt-4">
+
+
+
+    <div class="pl-5 pr-3 py-3">
+
+
+
+        <div class="ie-only alert alert-warning d-none">
+            <h6>Internet Explorer Issue</h6>
+            This particular component may not work as expected in Internet Explorer. Please use with caution.
+        </div>
+        <div class="row no-gutters">
+            <div class="col-4 pr-2 text-center">
+                <div id="skin-default"
+                     data-action="toggle-replace" data-replaceclass="mod-skin-light mod-skin-dark" data-class=""
+                     data-toggle="tooltip"
+                     data-placement="top"
+                     title=""
+                     class="d-flex bg-white border border-primary rounded overflow-hidden text-success js-waves-on"
+                     data-original-title="Default Mode"
+                     style="height: 80px">
+                    <div class="bg-primary-600 bg-primary-gradient px-2 pt-0 border-right border-primary"></div>
+                    <div class="d-flex flex-column flex-1">
+                        <div class="bg-white border-bottom border-primary py-1"></div>
+                        <div class="bg-faded flex-1 pt-3 pb-3 px-2">
+                            <div class="py-3" style="background:url('/img/demo/s-1.png') top left no-repeat;background-size: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+                Default
+            </div>
+            
+            <div class="col-4 pl-2 text-center">
+                <div id="skin-dark"
+                     data-action="toggle-replace" data-replaceclass="mod-skin-light" data-class="mod-skin-dark"
+                     data-toggle="tooltip"
+                     data-placement="top"
+                     title=""
+                     class="d-flex bg-white border border-dark rounded overflow-hidden text-success js-waves-on"
+                     data-original-title="Dark Mode"
+                     style="height: 80px">
+                    <div class="bg-fusion-500 px-2 pt-0 border-right"></div>
+                    <div class="d-flex flex-column flex-1">
+                        <div class="bg-fusion-600 border-bottom py-1"></div>
+                        <div class="bg-fusion-300 flex-1 pt-3 pb-3 px-2">
+                            <div class="py-3 opacity-30" style="background:url('/img/demo/s-1.png') top left no-repeat;background-size: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+                Dark
+            </div>
+        </div>
+    </div>
+    <hr class="mb-0 mt-4">
+    <div class="pl-5 pr-3 py-3 bg-faded">
+        <div class="row no-gutters">
+            <div class="col-6 pr-1">
+                <a href="#" class="btn btn-outline-danger fw-500 btn-block" data-action="app-reset">Reset Settings</a>
+            </div>
+            <div class="col-6 pl-1">
+                <a href="#" class="btn btn-danger fw-500 btn-block" data-action="factory-reset">Factory Reset</a>
+            </div>
+        </div>
+    </div>
+</div>

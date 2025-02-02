@@ -1,0 +1,126 @@
+﻿<div class="row">
+    <div class="col-lg-12">
+        <div id="panel@tableid" class="panel">
+            <div class="panel-hdr">
+                <h2>
+                    <span class="fw-300">@tablename</span>
+                </h2>
+            </div>
+            <div class="panel-container show">
+                <div class="panel-content">
+                    <table id="@tableid" class="table table-bordered table-hover table-striped w-100">
+                        <thead class="bg-warning-200">
+                            <tr>
+                                <!--
+                                <th>CustomerID</th>
+                                <th>Name</th>
+                                <th>PurchaseDate</th>
+                                <th>CustomerEmail</th>
+                                <th>CustomerCVV</th>
+                                <th>Country</th>
+                                <th>InvoiceAmount</th>
+                                <th>Controls</th>
+                                    -->
+                                @tableheaders
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--
+                                <tr>
+                                    <td>268410636</td>
+                                    <td>Cooley, Walker J.</td>
+                                    <td>03-13-19</td>
+                                    <td>odio.auctor@@orcilobortis.edu</td>
+                                    <td>717</td>
+                                    <td>Timor-Leste</td>
+                                    <td>$7,007</td>
+                                    <td>1</td>
+                                </tr>
+                                -->
+                            @tablerows
+
+
+                        </tbody>
+
+                        <!--
+                        <tfoot>
+                            <tr>
+                                <th>CustomerID</th>
+                            </tr>
+                        </tfoot>
+                            -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+    <!--<script src="~/lib/jquery/dist/jquery.js"></script>
+
+    <script src="~/js/datagrid/datatables/datatables.bundle.js"></script>
+    -->
+
+
+    <script>
+
+        function linktable() {
+            /* init datatables */
+            $('#@tableid').dataTable(
+                {
+                    responsive: true,
+                    paging: true,
+                    buttons: [
+                        {
+                            extend: 'colvis',
+                            text: 'Column Visibility',
+                            titleAttr: 'Col visibility',
+                            className: 'btn-outline-default'
+                        },
+                        {
+                            extend: 'csvHtml5',
+                            text: 'CSV',
+                            titleAttr: 'Generate CSV',
+                            className: 'btn-outline-default'
+                        },
+                        {
+                            extend: 'copyHtml5',
+                            text: 'Copy',
+                            titleAttr: 'Copy to clipboard',
+                            className: 'btn-outline-default'
+                        },
+                        {
+                            extend: 'print',
+                            text: '<i class="fa-print"></i>',
+                            titleAttr: 'Print Table',
+                            className: 'btn-outline-default'
+                        }
+                    ],
+                    columnDefs: [
+                        {
+                            targets: -1,
+                            title: '',
+                            orderable: true
+                        },
+                    ]
+                });
+        }
+
+        try {
+            linktable();
+        } catch (e) {
+
+        }
+
+
+
+    </script>
+
+
+    <script type="text/javascript">
+        /* Activate smart panels */
+        /*        $('#js-page-content').smartPanel();*/
+        //setTimeout('linktable();', 3000);
+    </script>

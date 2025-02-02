@@ -1,0 +1,16 @@
+@{ ViewData["Title"] = "Profile";
+    ViewData["PageName"] = "phone_callhistory";
+    ViewData["Heading"] = "<i class='subheader-icon fal fa-shield-alt'></i>Call History Report";
+    ViewData["PageDescription"] = "10% to orphan charity";
+    ViewData["Category1"] = "Phone";
+    Layout = null;
+        }
+
+    
+<div style="overflow-y:scroll;max-height:90vh;">
+    <h5>Call History Report</h5>
+    @Html.Raw(ViewBag.CallHistoryReport)
+
+</div>
+
+

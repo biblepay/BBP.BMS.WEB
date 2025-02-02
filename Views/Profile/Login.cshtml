@@ -1,0 +1,42 @@
+@{ ViewData["Title"] = "Profile";
+    ViewData["PageName"] = "profile_login";
+    ViewData["Heading"] = "<i class='subheader-icon fal fa-shield-alt'></i>  Log In";
+    ViewData["PageDescription"] = "Log In";
+    ViewData["Category1"] = "Authentication"; }
+@section HeadBlock {
+    
+}
+<div class="row">
+    
+    <div class="card" style="width: 50%;">
+        <div class="card-header">
+            Log In
+        </div>
+        <div class="card-body">
+            <br />
+            Nick Name:
+            <input id="txtUserName" class="form-control" value="" />
+            <br />
+            Password:
+            <input id="txtPassword" type="password" class="form-control" value="" />
+            <br />
+
+            <button class="btn-default" onclick="DoCallback('Profile_Login','','profile/processdocallback');">Log In</button>
+            &nbsp;
+            <button class="btn-default" onclick="DoCallback('Profile_Redirect_Register','','profile/processdocallback');">Register</button>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section ScriptsBlock {
+    <script>
+    </script>
+
+
+
+}

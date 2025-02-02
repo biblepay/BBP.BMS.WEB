@@ -1,0 +1,40 @@
+@{ ViewData["Title"] = "Quant";
+    ViewData["PageName"] = "quantanalyzer_authpanel";
+    ViewData["Heading"] = "<i class='subheader-icon fal fa-shield-alt'></i> Auth Panel";
+    ViewData["PageDescription"] = "Auth Panel";
+    ViewData["Category1"] = "Quant"; }
+@section HeadBlock {
+    
+}
+
+
+@model  OptionsTradeModel
+
+<div class="row">
+    
+    <div class="card" style="width: 100%;">
+           Auth Pin:
+           <input id="txtPin" class="form-control" value="" />
+           <br />
+
+           Auth URL:
+           <input id="txtURL" class="form-control" value="" />
+
+           <button class="btn-default" onclick="DoCallback('Profile_GetInitialURL','','profile/processdocallback');">Get Initial URL</button>
+
+           <button class="btn-default" onclick="DoCallback('Profile_AuthWithOAuth','','profile/processdocallback');">Authenticate With OAuth</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section ScriptsBlock {
+    <script>
+    </script>
+
+
+
+}

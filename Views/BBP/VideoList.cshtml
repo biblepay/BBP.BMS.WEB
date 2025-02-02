@@ -1,0 +1,17 @@
+﻿@{ ViewData["Title"] = "BiblePay - Sidechain Videos";
+    ViewData["PageName"] = "bbp_videolist";
+    ViewData["Heading"] = "<i class='fal fa-palette'></i> &nbsp;Videos";
+    ViewData["Category1"] = "Video";
+    ViewData["PageDescription"] = "Sidechain Social Media"; }
+@section HeadBlock {
+    <style>
+    </style>
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+    <!--AddVideo-->
+
+    <button onclick="location.href='upload/uploadfile';">Add</button>
+    @Html.Raw(ViewBag.VideoList)
+
+</div>
+

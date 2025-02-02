@@ -1,0 +1,254 @@
+@{  ViewData["Title"] = "BBP Telephone Service";
+    ViewData["PageName"] = "phone_phoneservice";
+    ViewData["Heading"] = "<i class='subheader-icon fal fa-shield-alt'></i>Phone Service I";
+    ViewData["PageDescription"] = "10% to orphan charity";
+    ViewData["Category1"] = "Phone";
+    Layout = null;
+}
+
+<!--Layout = null;-->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BiblePay Phone</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://malsup.github.io/jquery.blockUI.js"></script>
+    <script src="~/lib/bbp/bbpstandard.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/phone/style/style.css" />
+    <link rel="stylesheet" href="/phone/style/normalize.css" />
+</head>
+
+<div id="implant">
+    <!--Implant area-->
+</div>
+
+<div class="row" style="width:100vw;height:100vh;">
+
+
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" onclick="location.reload();" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Phone</button>
+            <button class="nav-link hidden" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
+            <button class="nav-link hidden" id="nav-ep-tab" data-bs-toggle="tab" data-bs-target="#nav-ep" type="button" role="tab" aria-controls="nav-ep" aria-selected="false">Endpoint</button>
+            <button class="nav-link hidden" id="nav-action-tab" data-bs-toggle="tab" data-bs-target="#nav-action" type="button" role="tab" aria-controls="nav-action" aria-selected="false">Action</button>
+            <button class="nav-link" id="nav-settings-tab" data-bs-toggle="tab" data-bs-target="#nav-settings" type="button" role="tab" aria-controls="nav-ep" aria-selected="false">Settings</button>
+            <!--
+            <button class="nav-link" id="nav-provision-tab" data-bs-toggle="tab" data-bs-target="#nav-provision" onclick="$('#partial-load-provision').load('');" type="button" role="tab" aria-controls="nav-provision" aria-selected="false">Provision</button>
+            -->
+            <button class="nav-link" id="nav-callhistory-tab" data-bs-toggle="tab" data-bs-target="#nav-callhistory" onclick="$('#partial-load-callhistory').load('/Phone/CallHistory');" type="button" role="tab" aria-controls="nav-provision" aria-selected="false">Call History</button>
+          
+        </div>
+    </nav>
+
+
+
+    <div class="tab-content" id="nav-tabContent">
+
+        <partial name="_Dialpad" />
+
+        <partial name="_DebugTab" />
+
+        <div class="tab-pane fade" id="nav-provision" role="tabpanel" aria-labelledby="nav-provision-tab">
+            <div class="row provision" style="width:95%;height:90%;">
+            </div>
+        </div>
+
+
+        <div class="tab-pane fade" id="nav-callhistory" role="tabpanel" aria-labelledby="nav-callhistory-tab">
+            <div class="row provision" style="width: 95%; height: 90%;">
+                <div class="card">
+                    <div id="partial-load-callhistory"></div>
+                    <br />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="tab-pane fade" id="nav-settings" role="tabpanel" aria-labelledby="nav-settings-tab">
+            <div class="row" style="width: 95%; height:95%;">
+                <div class="card">
+                    <!-- Media settings -->
+                    <div class="action_media-selector modernselect">
+                        <div class="media-selector_block-camera">
+                            <label for="change-camera">Camera</label>
+                            <select name="camera" id="change-camera"></select>
+                            <div class="custom-select camera">
+                                <div class="select-selected selected-camera"></div>
+                                <div class="camera-items select-items hidden"></div>
+                            </div>
+                        </div>
+                        <div class="media-selector_block-microphone">
+                            <label for="change-microphone">Microphone</label>
+                            <select name="microphone" id="change-microphone"></select>
+                            <div class="custom-select microphone">
+                                <div class="select-selected selected-microphone"></div>
+                                <div class="microphone-items select-items hidden"></div>
+                            </div>
+                        </div>
+                        <div class="media-selector_block-speaker">
+                            <label for="change-speaker">Speaker</label>
+                            <select name="speaker" id="change-speaker"></select>
+                            <div class="custom-select speaker">
+                                <div class="select-selected selected-speaker"></div>
+                                <div class="speaker-items select-items hidden"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of media settings -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://unpkg.com/voximplant-websdk"></script>
+<script src="/phone/js/timer.js"></script>
+<script src="/phone/js/utils.js"></script>
+<script src="/phone/js/dropdown-list.js"></script>
+<script src="/phone/js/actions.js"></script>
+<script src="/phone/js/endpoints.js"></script>
+<script src="/phone/js/manage-mediastreams.js"></script>
+<script src="/phone/js/login.js"></script>
+<script src="/phone/js/manage-call.js"></script>
+<script src="/phone/js/hardware-settings.js"></script>
+<script src="/phone/index.js"></script>
+
+<script>
+
+
+        function GetOutboundNumber() {
+            var n = $("#numberDisplay").text();
+            return n;
+        }
+
+        function GetCount() {
+            var ct = GetOutboundNumber().length;
+            return ct;
+        }
+
+        function ClearOutboundNumber() {
+            $("#numberDisplay").innerHTML('');
+            console.log('clearing...');
+        }
+
+        $(".digit").on('click', function () {
+            var num = ($(this).clone().children().remove().end().text());
+            if (GetCount() < 17) {
+                $("#numberDisplay").append('<span>' + num.trim() + '</span>');
+            }
+        });
+
+        function makecall() {
+            if (nBBPBalance==0)
+            {
+                console.log('7');
+                location.reload();  
+                return;
+            }
+            console.log('8');
+            if (nBBPBalance < 1000) {
+                alert('Please top up your BBP balance first to be above 1000 BBP. [Balance: ' + nBBPBalance + ']');
+                location.reload();
+                return;
+            }
+            console.log('calling ' + GetOutboundNumber());
+            $('#call-btn').click();
+        }
+
+        function hangup() {
+            console.log('hanging up...');
+            $('#end-call').click();
+        }
+
+
+        $('.fa-long-arrow-left').on('click', function () {
+            $('#numberDisplay span:last-child').remove();
+        });
+
+        // login
+        const login = async () => {
+            const serverIps = lastDataFromLocalStorage && lastDataFromLocalStorage.serverIps.length
+                ? lastDataFromLocalStorage.serverIps : [];
+
+            const username = '@ViewBag.PhoneUser.UserName';
+            const password = '@ViewBag.PhoneUser.UserPassword';
+            const errormsg = '@ViewBag.PhoneUser.Error';
+
+            lastData.username = username;
+            lastData.password = password;
+            lastData.serverIp = null;
+            lastData.serverIps = serverIps;
+            lastData.isDebugInfo = false;
+            lastData.connectivityCheck = false;
+            // reconnect to BBP Phone Service if connection was closed because of network issues
+            sdk.on(VoxImplant.Events.ConnectionClosed, () => {
+                connectToVoxCloud(username, password, false);
+            });
+            if (sdk.alreadyInitialized) {
+                console.log('already initialized');
+                await signIn(username, password);
+            } else {
+                console.log('initializing');
+                await init(username, password);
+            }
+
+            if (sdk.getClientState() === VoxImplant.ClientState.LOGGED_IN) {
+                lastData.serverIps = Array.from(new Set([...serverIps, lastData.serverIp])).filter(
+                    (server) => 0
+                );
+            }
+            localStorage.setItem('lastData', JSON.stringify(lastData));
+        };
+
+
+
+
+
+
+
+        var nBBPBalance = 0;
+        document.addEventListener('DOMContentLoaded', async () => 
+        {
+            console.log('1000');
+
+            await login();
+            await setHardwareSettings(); // get available cameras, microphones and output devices and create a dropdown for selection (./js/hardware-settings.js)
+            console.log('1001');
+
+            
+            accessFunctionality();       // add event listeners to interactive elements ('./js/actions.js')
+            manageConnectingView();      // changes connection window interactive elements, depending on chosen option (./js/action.js)
+            // Programatically choose the correct tab
+            var sBBPPhoneID = '@ViewBag.PhoneUser.id';
+            var sBBPBalance = '@ViewBag.PhoneUser.WalletBalance';
+            console.log(sBBPBalance);
+
+            var nPhoneID = parseInt('0' + sBBPPhoneID);
+            nBBPBalance = parseInt('0' + sBBPBalance);
+            console.log(nBBPBalance);
+
+            if (true) {
+                if (nPhoneID == 0) {
+                    $('#nav-home-tab').hide();
+                    $('#nav-provision-tab').tab('show');
+                    $('#nav-provision-tab').trigger('click');
+                }
+                else {
+                    $('#nav-provision-tab').hide();
+                    $('nav-home-tab').tab('show');
+                }
+            }
+            console.log('31');
+        });
+
+</script>
+
+

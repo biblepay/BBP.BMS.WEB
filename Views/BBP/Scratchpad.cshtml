@@ -1,0 +1,26 @@
+﻿@{ ViewData["Title"] = "Scratchpad";
+    ViewData["PageName"] = "bbp_scratchpad";
+    ViewData["Heading"] = "<i class='fal fa-chart-bar'></i> &nbsp;Scratchpad";
+    ViewData["Category1"] = "BBP";
+    ViewData["PageDescription"] = "10% to Orphan Charity"; }
+@section HeadBlock {
+   
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    Scratchpad ID (Usually a 4 digit pin, or a hash etc):
+    <br />
+    <input id="txtScratchID" style="width:400px;"/>
+    <br />
+    <br />
+
+    Scratchpad Value:
+    <br />
+
+    <textarea cols="120" rows="10" id="txtScratchValue"></textarea>
+    <br />
+
+    <button id="btnSubmit" onclick="DoCallback('scratch_submit');">Store Scratchpad Value</button>
+
+</div>
+@section ScriptsBlock {}

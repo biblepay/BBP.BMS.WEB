@@ -1,0 +1,87 @@
+﻿@model BiblePay.BMS.Models.City
+@{ ViewData["Title"] = ViewBag.Title;
+    ViewData["PageName"] = "test_testpage";
+    ViewData["Heading"] = "<i class='fal fa-palette'></i>&nbsp;" + ViewBag.Title;
+    ViewData["Category1"] = "BBP";
+    ViewData["PageDescription"] = "TestPage"; }
+@section HeadBlock
+{
+
+    <link rel="stylesheet" href="css/site/bbp.css">
+}
+
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    <h6>    The Main Page.</h6>
+    <div>
+        Autocomplete sample:<br />
+        <input id='txtCity2' name="txtCity2" style='width:450px;' class="form-control" value='@ViewBag.txtCity2' />
+    </div>
+
+
+    <br />
+    <br />
+
+
+    <div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+        <div id="partial-load-section10"></div>
+    </div>
+
+
+
+
+
+
+    <div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+        <div id="partial-load-section1"></div>
+    </div>
+
+
+    <div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+        <div id="partial-load-section2"></div>
+    </div>
+
+    <div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+        <div id="partial-load-section3"></div>
+    </div>
+
+</div>
+
+
+
+@section ScriptsBlock
+{
+
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            //$('#partial-load-section10').load('/Test/TestSection10');
+            DoCallback('test10', '', 'Test/TestSection10');
+            DoCallback('test1', '', 'Test/TestSection1');
+            DoCallback('test3', '', 'Test/TestSection3');
+            DoCallback('test2', '', 'Test/TestSection2');
+            // Autocomplete
+            
+            $("#txtCity2").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Test/AutoCity",
+                        type: "POST",
+                        dataType: "json",
+                        data: { Prefix: request.term },
+                        success: function (data) {
+                            console.log(data);
+                            response($.map(data, function (item) {
+                                return { label: item.name1, value: item.name1 };
+                            }))
+                        }
+                    })
+                }
+            });
+
+        });
+    </script>
+
+
+}

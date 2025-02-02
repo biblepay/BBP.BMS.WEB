@@ -1,0 +1,29 @@
+﻿@{ ViewData["Title"] = "Phone - Rates";
+    ViewData["PageName"] = "phone_rateoverride";
+    ViewData["Heading"] = "<i class='fal fa-tachometer'></i> &nbsp;Rate Override";
+    ViewData["Category1"] = "Phone";
+    ViewData["PageDescription"] = "Inexpensive High Quality Global Phone Service"; }
+@section HeadBlock {
+  
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    @Html.Raw(ViewBag.RateOverrideReport)
+    <hr />
+
+    <br />
+    <h4>Add Rate Authorization Override:</h4>
+    <label>*** If you add a Country Code here, you authorize the BBP phone system to make calls greater than $0.05 USD per minute (to that Country).</label>
+    <br />
+    <br />
+    Add New Country Code Override authorizing this country:
+    <input id="txtCountry" minlength="1" maxlength="4" class="form-control" />
+    <button class="btn xbtn-info xshadow-0 ml-auto btn-default" id='btnAddCountry'
+            onclick="this.disabled = true; DoCallback('phone_addcountryoverride', null, '../../phone/processdocallback'); ">
+        Add Country Code Rate Authorization Override
+    </button>
+
+
+</div>
+
+@section ScriptsBlock {}

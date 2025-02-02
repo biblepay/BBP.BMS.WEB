@@ -1,0 +1,33 @@
+﻿
+CREATE PROCEDURE `insShare`
+(
+in_bbpaddress varchar(100),
+in_shareAdj float,
+in_failAdj float,
+in_height float,
+in_sucxmr float,
+in_failxmr float,
+in_sucxmrc float,
+in_failxmrc float,
+in_bxmr float,
+in_bxmrc float)
+
+BEGIN
+
+DECLARE rc float;
+
+UPDATE @share1 Set Shares=Shares + in_shareAdj,
+Fails=Fails+in_failAdj,
+SucXMR=sucxmr+in_sucxmr, 	
+FailXMR=failXMR + in_failxmr, 	
+SucXMRC=sucXMRC+in_sucxmrc, 
+FailXMRC=failXMRC + in_failxmrc,
+    BXMR = BXMR + in_bxmr, BXMRC = BXMRC + in_bxmrc,     
+updated = now() WHERE Height = in_height and bbpaddress = in_bbpaddress;
+
+IF (SELECT ROW_COUNT() = 0) THEN
+       Insert into @share1 (bbpaddress, shares, fails,  sucxmr, failxmr, sucxmrc, failxmrc, bxmr, bxmrc, height, updated)
+   	   values (in_bbpaddress, in_shareAdj, in_failAdj, in_sucxmr, in_failxmr, in_sucxmrc, in_failxmrc, in_bxmr, in_bxmrc, in_height, now());
+END IF;
+
+END;

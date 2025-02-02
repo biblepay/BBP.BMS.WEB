@@ -1,0 +1,180 @@
+﻿<style>
+
+    .floating-tooltip-2 {
+        width: 196px;
+        height: 100px;
+        position: absolute;
+        display: none;
+        padding: 8px;
+        box-sizing: border-box;
+        font-size: 12px;
+        color: '#20262E';
+        background-color: rgba(255, 255, 255, 0.23);
+        text-align: left;
+        z-index: 1000;
+        top: 252px;
+        left: 12px;
+        pointer-events: none;
+        border-radius: 4px 4px 0px 0px;
+        border-bottom: none;
+        box-shadow: 0 2px 5px 0 rgba(117, 134, 150, 0.45);
+    }
+</style>
+
+
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+
+<script>
+    function createSimpleSwitcher(items, activeItem, activeItemChangedCallback)
+    {
+        var switcherElement = document.createElement('div');
+        switcherElement.classList.add('switcher');
+        var intervalElements = items.map(function (item) {
+            var itemEl = document.createElement('button');
+            itemEl.innerText = item;
+            itemEl.classList.add('switcher-item');
+            itemEl.classList.toggle('switcher-active-item', item === activeItem);
+            itemEl.addEventListener('click', function () {
+                onItemClicked(item);
+            });
+            switcherElement.appendChild(itemEl);
+            return itemEl;
+        });
+
+        function onItemClicked(item) {
+            if (item === activeItem) {
+                return;
+            }
+
+            intervalElements.forEach(function (element, index) {
+                element.classList.toggle('switcher-active-item', items[index] === item);
+            });
+
+            activeItem = item;
+
+            activeItemChangedCallback(item);
+        }
+        return switcherElement;
+    }
+
+
+
+    var switcherElement = createSimpleSwitcher(['Dark', 'Light'], 'Dark', syncToTheme);
+    var container = document.getElementById('@chartid0');
+    var width = 650;
+    var height = 350;
+
+
+    var darkTheme = {
+        chart: {
+            layout: {
+                backgroundColor: '#2B2B43',
+                lineColor: '#2B2B43',
+                textColor: '#D9D9D9',
+            },
+            watermark: {
+                color: 'rgba(0, 0, 0, 0)',
+            },
+            crosshair: {
+                color: '#758696',
+            },
+            grid: {
+                vertLines: {
+                    color: '#2B2B43',
+                },
+                horzLines: {
+                    color: '#363C4E',
+                },
+            },
+        },
+        series: {
+            topColor: 'rgba(32, 226, 47, 0.56)',
+            bottomColor: 'rgba(32, 226, 47, 0.04)',
+            lineColor: 'rgba(32, 226, 47, 1)',
+        },
+    };
+
+    const lightTheme = {
+        chart: {
+            layout: {
+                backgroundColor: '#FFFFFF',
+                lineColor: '#2B2B43',
+                textColor: '#191919',
+            },
+            watermark: {
+                color: 'rgba(0, 0, 0, 0)',
+            },
+            grid: {
+                vertLines: {
+                    visible: false,
+                },
+                horzLines: {
+                    color: '#f0f3fa',
+                },
+            },
+        },
+        series: {
+            topColor: 'rgba(33, 150, 243, 0.56)',
+            bottomColor: 'rgba(33, 150, 243, 0.04)',
+            lineColor: 'rgba(33, 150, 243, 1)',
+        },
+    };
+
+
+    function businessDayToString(businessDay) {
+        return new Date(Date.UTC(businessDay.year, businessDay.month - 1, businessDay.day, 0, 0, 0)).toLocaleDateString();
+    }
+
+
+    var toolTipWidth = 96;
+    var toolTipHeight = 80;
+    var toolTipMargin = 15;
+    var priceScaleWidth = 50;
+
+    var toolTip = document.createElement('div');
+    toolTip.className = 'floating-tooltip-2';
+    container.appendChild(toolTip);
+    container.appendChild(switcherElement);
+
+    var themesData = {
+        Dark: darkTheme,
+        Light: lightTheme,
+    };
+
+
+    function syncToTheme(theme) {
+        chart.applyOptions(themesData[theme].chart);
+        areaSeries.applyOptions(themesData[theme].series);
+    }
+
+    chart.subscribeCrosshairMove(function (param) {
+        if (!param.time || param.point.x < 0 || param.point.x > width || param.point.y < 0 || param.point.y > height) {
+            toolTip.style.display = 'none';
+            return;
+        }
+
+        var dateStr = LightweightCharts.isBusinessDay(param.time)
+            ? businessDayToString(param.time)
+            : new Date(param.time * 1000).toLocaleDateString();
+
+        toolTip.style.display = 'block';
+        var price = param.seriesPrices.get(areaSeries);
+        console.log(price);
+        toolTip.innerHTML = '<div style="color: rgba(0, 120, 255, 0.9)">⬤ symbol</div>' +
+            '<div style="font-size: 24px; margin: 4px 0px; color: #20262E">' + (Math.round(price.close * 100) / 100).toFixed(2) + '</div>' +
+            '<div>' + dateStr + '</div>';
+
+        var left = param.point.x;
+
+        if (left > width - toolTipWidth - toolTipMargin) {
+            left = width - toolTipWidth;
+        } else if (left < toolTipWidth / 2) {
+            left = priceScaleWidth;
+        }
+
+        toolTip.style.left = left + 'px';
+        toolTip.style.top = container.top + 200 + 'px';
+        console.log(toolTip);
+    });
+
+</script>

@@ -1,0 +1,114 @@
+﻿<div class="d-flex flex-grow-1 p-0 border-faded shadow-4" style="max-height:800px;">
+
+    <div class="d-flex flex-column flex-grow-1 bg-white">
+        <div class="flex-grow-0">
+            <div class="d-flex align-items-center p-0 border-faded border-top-0 border-left-0 border-right-0 flex-shrink-0">
+                <div class="d-flex align-items-center w-100 pl-3 px-lg-4 py-2 position-relative">
+                    <div class="d-flex flex-row align-items-center mt-1 mb-1">
+                        <div class="mr-2 d-inline-block">
+                            <span class="rounded-circle profile-image d-block" style="background-image:url('@FriendsAvatar'); background-size: cover;"></span>
+                        </div>
+                        <div class="info-card-text">
+                            <a href="javascript:void(0);" class="fs-lg text-truncate text-truncate-lg" data-toggle="dropdown" aria-expanded="false">
+                                @FriendsName
+                                <i class="fal fa-angle-down d-inline-block ml-1 fs-md"></i>
+                            </a>
+                           
+
+
+                            <span class="text-truncate text-truncate-md opacity-80">My Title</span>
+                        </div>
+                    </div>
+                    
+                </div>
+
+
+                <a href="javascript:void(0);" class="px-3 py-2 d-flex d-lg-none align-items-center justify-content-center mr-2 btn" data-action="toggle" data-class="slide-on-mobile-left-show" data-target="#js-chat-contact">
+                    <i class="fal fa-ellipsis-v h1 mb-0 "></i>
+                </a>
+            </div>
+        </div>
+        <div class="flex-wrap align-items-center flex-grow-1 position-relative bg-gray-50">
+            <div class="position-absolute pos-top pos-bottom w-100 overflow-hidden">
+                <div class="d-flex h-100 flex-column">
+
+
+                    <!-- starting here we populate the sms body v1.1 -->
+                    <!-- then we populate the chat user list -->
+
+                    <div class="msgr-list d-flex flex-column bg-faded border-faded border-top-0 border-right-0 border-bottom-0 position-absolute pos-top pos-bottom">
+
+                        <div>
+                            <div class="height-4 width-3 h3 m-0 d-flex justify-content-center flex-column color-primary-500 pl-3 mt-2">
+                                <i class="fal fa-search"></i>
+                            </div>
+                            <input type="text" class="form-control bg-white" id="msgr_listfilter_input" placeholder="Filter contacts" aria-label="FriendSearch" data-listfilter="#js-msgr-listfilter">
+                        </div>
+
+                        <div class="flex-1 h-100 custom-scroll">
+                            <div class="w-100">
+                                <ul id="js-msgr-listfilter" class="list-unstyled m-0">
+                                    @contactlistitems
+                                    <!-- the list of contacts here -->
+
+
+
+                                </ul>
+                                <div class="filter-message js-filter-message"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <a class="fs-xl d-flex align-items-center p-3">
+                                <i class="fal fa-cogs"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="msgr d-flex h-100 flex-column bg-white">
+                        <div class="custom-scroll flex-1 h-100">
+                            <div id="chat_container" class="w-100 p-4">
+                               
+
+                                @chatmessages
+                                
+                            </div>
+                        </div>
+
+
+                        <!-- this is the area we type our message into -->
+                        <div class="d-flex flex-column">
+
+                            <div class="border-faded border-right-0 border-bottom-0 border-left-0 flex-1 mr-3 ml-3 position-relative shadow-top">
+                                <div class="pt-3 pb-1 pr-0 pl-0 rounded-0" tabindex="-1">
+                                    <textarea id="msgr_input" cols="120" rows="5" placeholder="Type your message here..." class="form-control"></textarea>
+
+                                </div>
+                            </div>
+                            <div class="height-8 px-3 d-flex flex-row align-items-center flex-wrap flex-shrink-0">
+                                <a href="javascript:void(0);" class="btn btn-icon fs-xl width-1 mr-1" data-toggle="tooltip" data-original-title="More options" data-placement="top">
+                                    <i class="fal fa-ellipsis-v-alt color-fusion-300"></i>
+                                </a>
+                                <a href="javascript:void(0);" class="btn btn-icon fs-xl mr-1" data-toggle="tooltip" data-original-title="Attach files" data-placement="top">
+                                    <i class="fal fa-paperclip color-fusion-300"></i>
+                                </a>
+                                <a href="javascript:void(0);" class="btn btn-icon fs-xl mr-1" data-toggle="tooltip" data-original-title="Insert photo" data-placement="top">
+                                    <i class="fal fa-camera color-fusion-300"></i>
+                                </a>
+
+                                <!--In this area we send the SMS 1.1-->
+
+                                <div class="ml-auto"></div>
+
+
+                                <button id="mySendBtn" onclick="var e={};DoCallback('sms_send',e,'sms/processdocallback');" value="SMS">
+                                    Send SMS <i class='fal fa-envelope'></i>
+                                </button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

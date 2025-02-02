@@ -1,0 +1,157 @@
+﻿
+@{ ViewData["Title"] = ViewBag.Title;
+    ViewData["PageName"] = "ticket_ticketview";
+    ViewData["Heading"] = "<i class='fal fa-palette'></i>&nbsp;" + ViewBag.Title;
+    ViewData["Category1"] = "Ticket";
+    ViewData["PageDescription"] = "10% to Orphan Charity"; }
+@section HeadBlock
+{
+
+    <script src="~/js/loading-spinner.js"></script>
+
+    <!-- BEGIN SYNCFUSION-->
+    <partial name="_SyncFusionHead" />
+
+    <script>
+        //  Rich Text Editor Stuff 
+
+        var rteObj;
+        var selection = new ej.richtexteditor.NodeSelection();
+        var range;
+        let saveSelection;
+
+        function onImageUploadSuccess(args) {
+            console.log(args);
+
+            if (args.e.currentTarget.getResponseHeader('name') != null) {
+                args.file.name = args.e.currentTarget.getResponseHeader('name');
+                var filename = document.querySelectorAll(".e-file-name")[0];
+                filename.innerHTML = args.file.name.replace(document.querySelectorAll(".e-file-type")[0].innerHTML, '');
+                filename.title = args.file.name;
+            }
+        }
+
+
+        async function TicketEdit(o) 
+        {
+            var obj = document.getElementById('txtNotes').ej2_instances[0];
+            console.log(obj.value);
+            Spinner();
+            o.disabled = true; 
+            Spinner.show();
+            await DoCallback(`ticket_edit`,null,'ticket/processdocallback');
+            o.disabled = false;
+            Spinner.hide();
+        }
+
+    </script>
+    <!-- END SYNCFUSION -->
+}
+
+
+
+
+@{
+    var tools = new[] {
+        "Bold", "Italic", "Underline", "StrikeThrough",
+        "FontName", "FontSize", "FontColor", "BackgroundColor",
+        "LowerCase", "UpperCase", "|",
+        "Formats", "Alignments", "OrderedList", "UnorderedList",
+        "Outdent", "Indent", "|",
+        "CreateLink", "Image", "CreateTable", "|", "ClearFormat", "Print",
+        "SourceCode", "FullScreen", "|", "Undo", "Redo"
+    };
+    var atypes = new[] { ".jpg", ".jpeg", ".png", ".pdf" };
+}
+
+
+
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    Ticket # @ViewBag.Ticket.TicketNumber:
+    <input id="txtName" readonly class="form-control" value="@ViewBag.Ticket.Title" />
+
+    Description:
+    <br />
+    <textarea id='txtDescription' readonly cols=120 class="form-control" rows=7>@ViewBag.Ticket.Description</textarea>
+    <br />
+
+    Submitted By: @Html.Raw(ViewBag.Ticket.BioURL) 
+
+    <br />
+
+    <input id="txtID" type="hidden" value="@ViewBag.Ticket.id" />
+    <hr />
+
+    Assign To:
+    <br />
+    @Html.DropDownList("ddAssignTo", (IEnumerable<SelectListItem>)Model.AssignedToList, "--- Assign To ---", new { @class = "form-control" })
+
+    Disposition:
+    <br />
+    @Html.DropDownList("ddDisposition", (IEnumerable<SelectListItem>)Model.DispositionList, "--- Disposition ---", new { @class = "form-control" })
+
+    Add a Note:
+    <br />
+    <!--    <textarea id='txtNotes' cols=120 class="form-control" rows=7></textarea>-->
+    <form>
+
+    <div style='padding-top:40px;'>
+        <input type="hidden" id="idTicketIDHidden" value="1234" />
+            <ejs-richtexteditor id="txtNotes" imageUploadSuccess="onImageUploadSuccess">
+            <e-richtexteditor-insertimagesettings allowedTypes="atypes" saveUrl="/ticket/SaveMyFiles" path="/upload/tickets/@ViewBag.Ticket.id/">
+                </e-richtexteditor-insertimagesettings>
+
+            <e-richtexteditor-toolbarsettings items="tools"></e-richtexteditor-toolbarsettings>
+            </ejs-richtexteditor>
+    </div>
+    </form>
+
+    
+    <br />
+    <button class='btn btn-default' onclick="TicketEdit(this);" id='btnEdit'>
+        Edit
+    </button>
+
+
+    <br />
+    <hr />
+    <!--history here-->
+    History:
+    <br />
+    <div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+        @Html.Raw(ViewBag.TicketHistory)
+    </div>
+
+    <br />
+
+    <!--
+    Attachments:
+    <div class="card mb-g rounded-top" style="height:300px">
+        <iframe style='width:100%;height:100%;border:1px;' src='attachment/attachmentlist?parentid=@ViewBag.TicketID' />
+    </div>
+    -->
+
+
+
+
+</div>
+
+<ejs-scripts></ejs-scripts>
+
+
+@section ScriptsBlock
+{
+
+    <script>
+
+
+        function changeTicketType() {
+        }
+
+        
+
+
+    </script>
+
+}

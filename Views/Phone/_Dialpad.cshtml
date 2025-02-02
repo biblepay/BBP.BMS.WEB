@@ -1,0 +1,119 @@
+<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+
+    <table width="75%">
+        <tr><td>Address:</td><td>@ViewBag.PhoneUser.bbpaddress</td></tr>
+        <tr><td>BBP Balance:</td><td>@ViewBag.PhoneUser.WalletBalance BBP</td></tr>
+        <tr><td>Outstanding Owed:<td>@ViewBag.PhoneUser.OutstandingOwed BBP</td></tr>
+        <tr><td>Error:</td><td>@ViewBag.PhoneUser.Error</td></tr>
+        <tr><td>Phone Number:</td><td>@ViewBag.PhoneUser.PhoneNumber</td></tr>
+    </table>
+
+    <br />
+
+
+    <div class="phonecontainer">
+        <div id="slogan" class="phonetoprow">BBP Phone <small>v1.2</small></div>
+        <div id="numberDisplay" class="clsPhoneDisplay"> </div>
+
+        <div class="row">
+            <div class="digit" id="one">1</div>
+            <div class="digit" id="two">
+                2
+                <div class="sub">ABC</div>
+            </div>
+            <div class="digit" id="three">
+                3
+                <div class="sub">DEF</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="digit" id="four">
+                4
+                <div class="sub">GHI</div>
+            </div>
+            <div class="digit" id="five">
+                5
+                <div class="sub">JKL</div>
+            </div>
+            <div class="digit">
+                6
+                <div class="sub">MNO</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="digit">
+                7
+                <div class="sub">PQRS</div>
+            </div>
+            <div class="digit">
+                8
+                <div class="sub">TUV</div>
+            </div>
+            <div class="digit">
+                9
+                <div class="sub">WXYZ</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="digit">
+                *
+            </div>
+            <div class="digit">
+                0
+            </div>
+            <div class="digit">
+                #
+            </div>
+        </div>
+        <div class="row">
+            <div class="botrow">
+                <div id="divhangup" class="btnhangup" onclick="hangup();">
+                    <i id="iconhangup" class="fa fa-close faclose" aria-hidden="false"></i>
+                </div>
+                <div id="call" class="btncall" onclick="makecall();">
+                    <i id="iconcall" class="fa fa-phone" aria-hidden="false"></i>
+                </div>
+                <div id="erase" class="btnhangup">
+                    <i class="fa fa-long-arrow-left faclose" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <!--
+        <div class="smsarea" id="smsarea">
+            <button onclick="var e={};e.id=GetOutboundNumber();DoCallback('sms_select',e,'../../phone/processdocallback');" value="SMS">
+                SMS <i class='fa fa-envelope'></i>
+            </button> 
+        </div>
+        -->
+
+        <div class="phoneoutput" id="divPhoneOutput">  </div>
+
+
+    </div>
+
+    <!--end of dialpad-->
+    <!-- Incoming call window -->
+    <div class="incoming-call hidden" id="incoming-call">
+        <div class="incoming-call-window">
+            <h2>Incoming Call...</h2>
+            <div class="close-incoming-window"></div>
+            <div class="caller" id="caller-number">Caller</div>
+            <div class="checkbox_group hidden">
+                <div class="checkbox">
+                    <input type="checkbox" id="input-send_video_incoming_call" />
+                    <label for="input-send_video_incoming_call">SendVideo</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="input-h264_incoming_call" />
+                    <label for="input-h264_incoming_call">H264</label>
+                </div>
+            </div>
+            <div class="btn_group">
+                <button class="btn btn__primary" id="incoming-call-answer">Answer</button>
+                <button class="btn btn__decline" id="incoming-call-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <!-- End of incoming call window -->
+</div>

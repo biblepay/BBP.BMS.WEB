@@ -1,0 +1,22 @@
+﻿@{ ViewData["Title"] = "Gospel Viewer";
+    ViewData["PageName"] = "gospel_viewer";
+    ViewData["Heading"] = "";
+    ViewData["Category1"] = "Gospel";
+    ViewData["PageDescription"] = "Sharing the Gospel of Jesus Christ"; }
+@section HeadBlock {
+    <style>
+        body {
+            font-family:arial;
+            margin: 65;
+            padding: 10
+        }
+    </style>
+
+
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g" style="font-family:Arial;">
+
+    @Html.Raw(ViewBag.GospelData)
+
+</div>
+@section ScriptsBlock {}

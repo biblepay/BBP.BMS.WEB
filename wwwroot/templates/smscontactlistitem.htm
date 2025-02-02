@@ -1,0 +1,15 @@
+﻿<li>
+    <a onclick="var e = {};e.id = '@uid';DoCallback('sms_select',e,'sms/processdocallback');" class="d-table w-100 px-2 py-2 text-dark hover-white" style="cursor:pointer;" data-filter-tags="@datafiltertag">
+        <div class="d-table-cell align-middle status @messengerstatus status-sm">
+            <span class="profile-image-md rounded-circle d-block" style="background-image:url('@avatar'); background-size: cover;"></span>
+        </div>
+        <div class="d-table-cell w-100 align-middle pl-2 pr-2">
+            <div class="text-truncate text-truncate-md">
+                @myname
+                <small class="d-block font-italic fs-xs text-danger">
+                    @status
+                </small>
+            </div>
+        </div>
+    </a>
+</li>

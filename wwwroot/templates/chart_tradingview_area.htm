@@ -1,0 +1,70 @@
+﻿
+
+<div id="@chartid0">
+
+</div>
+
+
+<script>
+
+
+	var chart = LightweightCharts.createChart(container, {
+		width: width,
+		height: height,
+        layout: {
+            backgroundColor: '#000000',
+            textColor: 'rgba(255, 255, 255, 0.9)',
+        },
+        grid: {
+            vertLines: {
+                color: 'rgba(197, 203, 206, 0.5)',
+            },
+            horzLines: {
+                color: 'rgba(197, 203, 206, 0.5)',
+            },
+        },
+        crosshair: {
+            horzLine: {
+                visible: false,
+                labelVisible: false
+            },
+            vertLine: {
+                visible: true,
+                style: 0,
+                width: 2,
+                color: 'rgba(32, 38, 46, 0.1)',
+                labelVisible: false,
+            }
+        },
+        rightPriceScale: {
+            borderColor: 'rgba(197, 203, 206, 0.8)',
+        },
+        timeScale: {
+            borderColor: 'rgba(197, 203, 206, 0.8)',
+        },
+	});
+
+
+	var areaSeries = chart.addAreaSeries({
+        topColor: 'rgba(0, 120, 255, 0.2)',
+        bottomColor: 'rgba(0, 120, 255, 0.0)',
+        lineColor: 'rgba(0, 120, 255, 1)',
+        lineWidth: 3
+	});
+
+    	
+	areaSeries.setData([seriesdata0]);
+	syncToTheme('Dark');
+
+	//seriesdata1
+    //seriesdata2
+    //seriesdata3
+    //seriesdata4
+    //seriesdata5
+    //seriesdata6
+    //seriesdata7
+    //seriesdata8
+    //seriesdata9
+    //seriesdata10
+
+</script>

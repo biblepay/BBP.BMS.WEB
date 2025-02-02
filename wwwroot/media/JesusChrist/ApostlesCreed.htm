@@ -1,0 +1,86 @@
+<html>
+
+
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <script>
+        var refTagger = {
+            settings: {
+                bibleVersion: 'NKJV'
+            }
+        };
+
+        (function (d, t) {
+            var n = d.querySelector('[nonce]');
+            refTagger.settings.nonce = n && (n.nonce || n.getAttribute('nonce'));
+            var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            g.src = 'https://api.reftagger.com/v2/RefTagger.js';
+            g.nonce = refTagger.settings.nonce;
+            s.parentNode.insertBefore(g, s);
+        }(document, 'script'));
+    </script>
+</head>
+
+<style>
+body {margin:65;padding:10}
+</style>
+
+<body>
+
+<H1>The Apostles Creed</h1>
+<h2>
+
+
+    <br>
+
+    <p>
+        I believe in God, the Father Almighty,
+    <p>
+        the Creator of heaven and earth,
+    <p>
+        and in Jesus Christ, his only Son, our Lord;
+    <p>
+        Who was conceived by the Holy Spirit,
+    <p>
+        born of the Virgin Mary,
+    <p>
+        suffered under Pontius Pilate,
+    <p>
+        was crucified, died, and was buried.
+    <p>
+
+        He descended to the dead.
+    <p>
+        The third day he arose again from the dead.
+    <p>
+        He ascended into heaven
+    <p>
+        and sits at the right hand of God the Father Almighty,
+    <p>
+        whence he shall come to judge the living and the dead.
+    <p>
+        I believe in the Holy Spirit,
+    <p>
+        the holy universal Church,
+    <p>
+        the communion of saints,
+    <p>
+        the forgiveness of sins,
+    <p>
+        the resurrection of the body,
+    <p>
+        and the life everlasting.
+    <p>
+        Amen.
+    <p>
+
+
+</body>
+</html>
+
+
+
+
+
+

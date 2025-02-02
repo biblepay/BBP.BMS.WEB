@@ -1,0 +1,41 @@
+﻿@{ ViewData["Title"] = @ViewBag.Title;
+    ViewData["PageName"] = "bbp_admin";
+    ViewData["Heading"] = "<i class='fal fa-tachometer'></i> Admin" + ViewBag.Heading;
+    ViewData["Category1"] = "BBP";
+    ViewData["PageDescription"] = "Sanctuary Mining with Orphan Charity"; }
+@section HeadBlock {
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+
+    Enter Quarterly Expense:
+    <br />
+    <br />
+    Added:<br />
+    <input id="txtAdded" />
+    <br />
+
+
+    Charity Name:<br />
+    <input id="txtCharityName" />
+    <br />
+
+    Amount:<br />
+
+    <input id="txtAmount" />
+
+    <br />
+    <br />
+
+    Notes:
+    <br />
+
+    <input id="txtNotes" style="width:800px;" />
+    <br />
+    <br />
+
+    <button onclick="var e = {}; e.OpType = 'PAYMENT';DoCallback('admin_addexpense',e);">Add PAYMENT,Expense,And Revenue Record for Quarter</button>
+    <button onclick="var e = {}; e.OpType = 'CHARGE'; DoCallback('admin_addexpense',e);">Add CHARGE for Month</button>
+
+</div>
+@section ScriptsBlock {}

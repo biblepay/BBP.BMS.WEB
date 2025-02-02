@@ -1,0 +1,76 @@
+﻿@model BiblePay.BMS.Models.DummyModel;
+
+@{  ViewData["Title"]    = "Watch";
+    ViewData["PageName"] = "bbp_report1";
+    ViewData["Heading"]  = ""; 
+    ViewData["Category1"] = "BBP";
+    ViewData["PageDescription"] = "Christian Videos"; }
+@section HeadBlock {
+    <!-- BEGIN SYNCFUSION-->
+    <partial name="_SyncFusionHead" />
+    <!-- END SYNCFUSION -->
+
+
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+
+
+
+
+
+
+    <div class="col-lg-9 control-section">
+        <ejs-grid id="Grid" dataSource="ViewBag.DataSource" allowFiltering="true" toolbar="@(new List<string>() {  })" allowSorting="true" allowPaging="true" >
+            <e-grid-editSettings allowAdding="false" allowDeleting="false" allowEditing="false" mode="Dialog"></e-grid-editSettings>
+            <e-grid-filterSettings type="Menu"></e-grid-filterSettings>
+            <e-grid-pagesettings pageSize="15" pageCount="10"></e-grid-pagesettings>
+            <!--<e-grid-sortsettings columns="cols"></e-grid-sortsettings>-->
+
+            <e-grid-columns>
+                 @foreach (var item in Model.MyCols)
+                {
+                    <e-grid-column field="@item.FieldName" allowFiltering="true"  headerText="@item.FieldName" textAlign="Center" width="100"></e-grid-column>
+                }
+            </e-grid-columns>
+        </ejs-grid>
+    </div>
+    <table class="saved">
+        <tr><th>Col A</th><th>Col B</th><th>Col C</th></tr>
+        @foreach (var item in Model.MyItems)
+        {
+            <tr>
+                <td>
+                    @item.A
+                </td>
+                <td>
+                    @item.B
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.C)
+                </td>
+            </tr>
+        }
+    </table>
+    <hr />
+
+
+    <ejs-scripts></ejs-scripts>
+
+
+
+
+
+
+</div>
+@section ScriptsBlock {
+
+    <script>
+
+    </script>
+
+
+
+
+
+}

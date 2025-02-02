@@ -1,0 +1,16 @@
+﻿@{ ViewData["Title"] = "BiblePay - Wells";
+    ViewData["PageName"] = "bbp_wells";
+    ViewData["Heading"] = "<i class='fal fa-cross'></i> &nbsp;Water Wells";
+    ViewData["Category1"] = "Video";
+    ViewData["PageDescription"] = "Digging Water Wells for Children in Pakistan in Jesus Mighty Name";
+}
+@section HeadBlock {
+    <style>
+    </style>
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    @Html.Raw(ViewBag.WellsReport)
+
+</div>
+@section ScriptsBlock {}

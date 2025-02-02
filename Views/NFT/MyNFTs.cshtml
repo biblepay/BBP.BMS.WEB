@@ -1,0 +1,15 @@
+﻿@{ ViewData["Title"] = "My NFTs";
+    ViewData["PageName"] = "nft_mynfts";
+    ViewData["Heading"] = "<i class='fal fa-palette'></i> &nbsp;My NFTs";
+    ViewData["Category1"] = "NFT";
+    ViewData["PageDescription"] = "NFTs with integrity"; }
+@section HeadBlock {
+    <style>
+    </style>
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    @Html.Raw(ViewBag.NFTList)
+
+</div>
+@section ScriptsBlock {}

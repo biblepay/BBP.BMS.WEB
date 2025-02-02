@@ -1,0 +1,356 @@
+{
+  "version": "4.5",
+  "lists": [
+    {
+      "title": "BiblePay",
+      "roles": []
+    },
+    {
+      "title": "Authentication",
+      "icon": "fal fa-shield-alt",
+      "roles": [
+        "Administrator"
+      ],
+      "items": [
+        {
+          "title": "Profile",
+          "href": "profile_profile.html",
+          "roles": []
+        },
+        {
+          "title": "Wallet",
+          "href": "profile_wallet.html",
+          "roles": []
+        },
+        {
+          "title": "Login",
+          "href": "profile_login.html",
+          "roles": []
+
+        }
+      ]
+    },
+
+
+    {
+      "title": "Home",
+      "icon": "fal fa-home",
+      "roles": [
+        ""
+      ],
+      "items": [
+        {
+          "title": "Home Page",
+          "href": "gospel_about.html",
+          "roles": []
+        }
+
+      ]
+    },
+    {
+      "title": "Prayer",
+      "icon": "fal fa-cross",
+      "roles": [ "" ],
+      "items": [
+        {
+          "title": "Prayer Room",
+          "href": "prayer_prayerlist.html",
+          "roles": []
+        },
+        {
+          "title": "Prayer - Add",
+          "href": "prayer_prayeradd.html",
+          "roles": []
+        }
+
+      ]
+    },
+    {
+      "title": "Governance",
+      "icon": "fal fa-vote-yea",
+      "roles": [
+        ""
+      ],
+      "items": [
+        {
+          "title": "Add Proposal",
+          "href": "proposal_proposaladd.html",
+          "roles": []
+        },
+        {
+          "title": "List Proposals",
+          "href": "proposal_proposallist.html",
+          "roles": []
+        }
+
+      ]
+    },
+
+
+
+
+    {
+      "title": "NFT",
+      "icon": "fal fa-palette",
+      "roles": [
+        ""
+      ],
+      "items": [
+        {
+          "title": "Christian NFTs",
+          "href": "nft_nftlistchristian.html",
+          "roles": []
+        },
+        {
+          "title": "General NFTs",
+          "href": "nft_nftlistgeneral.html",
+          "roles": []
+        },
+        {
+          "title": "Orphan NFTs",
+          "href": "nft_nftlistorphans.html",
+          "roles": []
+        },
+
+        {
+          "title": "My NFTs",
+          "href": "nft_mynfts.html",
+          "roles": []
+        },
+
+
+        {
+          "title": "Create NFT",
+          "href": "nft_NFTAdd.html",
+          "roles": []
+        }
+
+
+
+      ]
+    },
+
+
+
+    {
+      "title": "BBP University",
+      "icon": "fal fa-school",
+      "roles": [
+        ""
+      ],
+      "items": [
+        {
+          "title": "BiblePay University",
+          "href": "bbp_univ.html",
+          "roles": []
+        },
+        {
+          "title": "Scripture Memorizer",
+          "href": "memorizescriptures_memorizescriptures.html",
+          "roles": []
+        }
+
+      ]
+    },
+
+    {
+      "title": "Accountability",
+      "icon": "fal fa-table",
+      "roles": [
+        ""
+      ],
+      "items": [
+        {
+          "title": "Accountability Reports",
+          "href": "gospel_accountability.html",
+          "roles": []
+        },
+        {
+          "title": "Orphan Collage",
+          "href": "gospel_collage.html",
+          "roles": []
+        },
+        {
+          "title": "Water Wells for Children",
+          "href": "bbp_wells.html",
+          "roles": []
+        }
+
+
+      ]
+    },
+    {
+      "title": "Social Media",
+      "icon": "fal fa-comment",
+      "roles": [
+        "Administrator"
+      ],
+      "items": [
+        {
+          "title": "Chat",
+          "href": "chat_chat.html",
+          "roles": []
+        },
+        {
+          "title": "Favorite Gospel Videos",
+          "href": "gospel_gospelvideos.html",
+          "disabled": false,
+          "roles": []
+        }
+
+      ]
+    },
+
+    {
+      "title": "Phone Service",
+      "icon": "fal fa-phone",
+      "roles": [ "" ],
+      "items": [
+        {
+          "title": "Phone",
+          "href": "phone_phoneservice.html",
+          "roles": [ "AnyUser" ],
+          "target": "_blank"
+        },
+        {
+          "title": "Rates",
+          "href": "phone_rates.html",
+          "roles": [ "AnyUser" ]
+        },
+        {
+          "title": "Rate Override",
+          "href": "phone_rateoverride.html",
+          "roles": [ "AnyUser" ]
+        },
+        {
+          "title": "Voice Mail",
+          "href": "phone_voicemailreview.html",
+          "roles": [ "AnyUser" ]
+        },
+        {
+          "title": "Hardware",
+          "href": "phone_hardwaresettings.html",
+          "roles": [ "AnyUser" ]
+        },
+        {
+          "title": "SMS",
+          "href": "sms_sms.html",
+          "roles": [ "AnyUser" ]
+        },
+        {
+          "title": "Extension Mapping",
+          "href": "phone_phonemapmaintenance.html",
+          "roles": [ "AnyUser" ]
+        },
+        {
+          "title": "Add Phone Number",
+          "href": "phone_addphonenumber.html",
+          "roles": [ "AnyUser" ]
+        }
+
+      ]
+    },
+
+
+
+
+    {
+      "title": "Gospel of Jesus",
+      "roles": [
+        "Administrator"
+      ]
+    },
+    {
+      "title": "Gospel",
+      "icon": "fal fa-book",
+      "roles": [
+        "Administrator"
+      ],
+      "items": [
+        {
+          "title": "Core Beliefs",
+          "href": "gospel_coregospel.html",
+          "roles": []
+        },
+        {
+          "title": "Illustrations",
+          "href": "gospel_illustrations.html",
+          "roles": []
+        },
+        {
+          "title": "Wiki Theology",
+          "href": "gospel_wikitheology.html",
+          "roles": []
+        },
+        {
+          "title": "Theological Studies",
+          "href": "gospel_theologicalstudy.html",
+          "roles": []
+        },
+        {
+          "title": "Bible Viewer",
+          "href": "https://www.biblegateway.com/passage/?search=Genesis+1&version=NKJV",
+          "roles": []
+        }
+      ]
+    },
+
+
+
+
+    {
+      "title": "In Development",
+      "roles": [
+        "Administrator"
+      ]
+    },
+    {
+      "title": "Quant",
+      "icon": "fal fa-rocket",
+      "roles": [
+        "Administrator"
+      ],
+      "items": [
+
+        {
+          "title": "Mail Inbox",
+          "href": "mail_inboxgeneral.html",
+          "roles": []
+        },
+        {
+          "title": "Product List",
+          "href": "quant_productlist.html",
+          "roles": []
+        },
+        {
+          "title": "My Subscriptions",
+          "href": "quant_subscriptions.html",
+          "roles": []
+        },
+        {
+          "title": "Quant Analyzer",
+          "href": "quantanalyzer_analyzer.html",
+          "roles": []
+        },
+        {
+          "title": "Transaction History",
+          "href": "quant_transactionhistory.html",
+          "roles": []
+        },
+        {
+          "title": "Ticket List",
+          "href": "ticket_ticketlist.html",
+          "roles": []
+        },
+        {
+          "title": "Ticket Add",
+          "href": "ticket_ticketadd.html",
+          "roles": []
+        }
+
+      ]
+    }
+
+
+  ]
+    }

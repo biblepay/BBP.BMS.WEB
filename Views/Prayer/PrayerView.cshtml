@@ -1,0 +1,140 @@
+﻿
+@{ ViewData["Title"] = ViewBag.Title;
+    ViewData["PageName"] = "prayer_prayerview";
+    ViewData["Heading"] = "<i class='fal fa-cross'></i>&nbsp;" + ViewBag.Title;
+    ViewData["Category1"] = "View Prayer";
+    ViewData["PageDescription"] = "10% to Orphan Charity"; }
+@section HeadBlock
+{
+    <script src="~/js/loading-spinner.js"></script>
+
+    <!-- BEGIN SYNCFUSION-->
+    <partial name="_SyncFusionHead" />
+
+    <script>
+
+        async function AddComment(o) {
+            var obj = document.getElementById('txtNotes').ej2_instances[0];
+            console.log(obj.value);
+            Spinner();
+            o.disabled = true;
+            Spinner.show();
+            await DoCallback(`prayer_addcomment`, null, 'prayer/processdocallback');
+            o.disabled = false;
+            Spinner.hide();
+        }
+
+        //  Rich Text Editor Stuff 
+
+        var rteObj;
+        var selection = new ej.richtexteditor.NodeSelection();
+        var range;
+        let saveSelection;
+
+        function onImageUploadSuccess(args) {
+            console.log(args);
+
+            if (args.e.currentTarget.getResponseHeader('name') != null) {
+                args.file.name = args.e.currentTarget.getResponseHeader('name');
+                var filename = document.querySelectorAll(".e-file-name")[0];
+                filename.innerHTML = args.file.name.replace(document.querySelectorAll(".e-file-type")[0].innerHTML, '');
+                filename.title = args.file.name;
+            }
+        }
+
+    </script>
+    <!-- END SYNCFUSION -->
+}
+
+
+
+
+@{
+    var tools = new[] {
+        "Bold", "Italic", "Underline", "StrikeThrough",
+        "FontName", "FontSize", "FontColor", "BackgroundColor",
+        "LowerCase", "UpperCase", "|",
+        "Formats", "Alignments", "OrderedList", "UnorderedList",
+        "Outdent", "Indent", "|",
+        "CreateLink", "Image", "CreateTable", "|", "ClearFormat", "Print",
+        "SourceCode", "FullScreen", "|", "Undo", "Redo"
+    };
+    var atypes = new[] { ".jpg", ".jpeg", ".png", ".pdf" };
+}
+
+
+
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    Prayer # @ViewBag.Prayer.id:
+    <input id="txtSubject" readonly class="form-control" value="@ViewBag.Prayer.Subject" />
+
+    Body:
+    <br />
+    <textarea id='txtBody' readonly cols=120 class="form-control" rows=7>@ViewBag.Prayer.Body</textarea>
+    <br />
+
+    Submitted By: @Html.Raw(ViewBag.Prayer.BioURL)  
+    <button onclick="DoCallback(`prayer_delete`, null, 'prayer/processdocallback');">
+        &nbsp;<span aria-hidden="true"><i class="@(Settings.Theme.IconPrefix) fa-trash-alt"></i></span>
+    </button>
+
+    <br />
+
+    <input id="txtID" type="hidden" value="@ViewBag.Prayer.id" />
+    <hr />
+
+    Disposition:
+    <br />
+    @Html.DropDownList("ddDisposition", (IEnumerable<SelectListItem>)Model.DispositionList, "--- Disposition ---", new { @class = "form-control" })
+
+    Add a Note:
+    <br />
+    <!--    <textarea id='txtNotes' cols=120 class="form-control" rows=7></textarea>-->
+    <form>
+
+    <div style='padding-top:40px;'>
+        <input type="hidden" id="idTicketIDHidden" value="1234" />
+            <ejs-richtexteditor id="txtNotes" imageUploadSuccess="onImageUploadSuccess">
+            <e-richtexteditor-insertimagesettings allowedTypes="atypes" saveUrl="/ticket/SaveMyFiles" path="/upload/tickets/@ViewBag.Prayer.id/">
+                </e-richtexteditor-insertimagesettings>
+
+            <e-richtexteditor-toolbarsettings items="tools"></e-richtexteditor-toolbarsettings>
+            </ejs-richtexteditor>
+    </div>
+    </form>
+
+    
+    <br />
+    <button class='btn btn-default' onclick="AddComment(this);" id='btnEdit'>
+        Add Comment
+    </button>
+
+
+    <br />
+    <hr />
+    <!--history here-->
+    Comments:
+    <br />
+    <div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+        @Html.Raw(ViewBag.Comments)
+    </div>
+
+    <br />
+
+
+
+
+</div>
+
+<ejs-scripts></ejs-scripts>
+
+
+@section ScriptsBlock
+{
+
+    <script>
+        
+    </script>
+
+}

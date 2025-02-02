@@ -1,0 +1,43 @@
+﻿@{ ViewData["Title"] = "Email Maintenance";
+    ViewData["PageName"] = "profile_emailmaintenance";
+    ViewData["Heading"] = "<i class='fal fa-envelope'></i> &nbsp;E-Mail Maintenance";
+    ViewData["Category1"] = "E-Mail";
+    ViewData["PageDescription"] = "10% to Orphan Charity"; }
+@section HeadBlock {
+}
+
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    <h3><font color="red"><small></small></font></h3>
+
+
+    <br />
+
+    <table>
+            <tr>
+                <td width="40%">E-Mail Username:</td>
+                <td width="70%">
+                    <input id="txtUserName" class="form-control" value="@ViewBag.txtUserName" />
+                    <font color="red">@@biblepay.org</font>
+                </td>
+            </tr>
+    </table>
+    <table>
+        <tr><th>Mail Settings for @ViewBag.BBPAddress</th></tr>
+        <tr><td>Username: </td><td>@ViewBag.txtUserName</td>
+        <tr><td>E-Mail Address:</td><td>@ViewBag.EmailAddress</td></tr>
+        <tr><td>IMAP Port</td><td>993 SSL/TLS</td></tr>
+        <tr><td>SMTP Port</td><td>465 SSL/TLS</td></tr>
+        <tr><td>Inbound Server:</td><td>seven.biblepay.org</td></tr>
+        <tr><td>Outbound Server:</td><td>seven.biblepay.org</td></tr>
+        <tr><td>Password:</td><td>dumpprivkey @ViewBag.BBPAddress</td></tr>
+
+    </table>
+    <br />
+    @if (ViewBag.ButtonDisabled == String.Empty)
+    {
+        <button id="btnSubmit" onclick="this.disabled = true; DoCallback('Profile_AddEmail', null, 'profile/processdocallback'); return false;">Submit</button>
+    }
+
+</div>
+@section ScriptsBlock {}

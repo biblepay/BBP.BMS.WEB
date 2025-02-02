@@ -1,0 +1,18 @@
+﻿@{ ViewData["Title"] = "Videos";
+    ViewData["PageName"] = "bbp_videos";
+    ViewData["Heading"] = "<i class='fal fa-tachometer'></i> &nbsp;Videos";
+    ViewData["Category1"] = "BBP";
+    ViewData["PageDescription"] = "Sidechain Social Media"; }
+@section HeadBlock {
+  
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    <div>
+    <input class='form-control' style="width:97%;" id="txtSearcher" /> <button class="btn btn-primary" onclick="DoCallback('video_search');">Search</button></div>
+    <br />
+
+    @Html.Raw(ViewBag.VideoList)
+
+</div>
+@section ScriptsBlock {}

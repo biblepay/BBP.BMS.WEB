@@ -1,0 +1,20 @@
+<div>
+
+    <h5>Test Section 1</h5>
+
+    <span>   This is section 1.</span>
+
+    <form id="f1" method="post" action="Test/PostSection1">
+
+        <br />
+        @Html.Raw(ViewBag.txtError)
+
+        Question 1:          @Html.Raw(ViewBag.txtName)
+
+        <input id='txtName' name="txtName" style='width:450px;' class="form-control" value='@ViewBag.txtName' />
+        
+        <button type="button" onclick="DoCallback('PopulateSection1','','Test/TestSection1','');">
+            Submit
+        </button>
+    </form>
+</div>

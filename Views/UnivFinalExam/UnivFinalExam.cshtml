@@ -1,0 +1,42 @@
+﻿@{ ViewData["Title"] = "BiblePay University - Final Exam";
+    ViewData["PageName"] = "univfinalexam_univfinalexam";
+    ViewData["Heading"] = "<i class='fal fa-school'></i> &nbsp;Final Exam - " + ViewBag.lblTitle;
+    ViewData["Category1"] = "BBP";
+    ViewData["PageDescription"] = "Earn your theological degree"; }
+@section HeadBlock {
+    <style>
+       
+    </style>
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    <font color="red">@ViewBag.TestingMode</font>
+    <br />
+     Question No: @Html.Raw(ViewBag.txtQuestionNo)
+     <br />
+        <textarea cols=140 rows=6>@Html.Raw(ViewBag.txtQuestion)</textarea>
+        <br />
+        Your Answer:
+        <br>
+
+              <input type="radio" id="radioAnswerA" name="radioAnswer" @ViewBag.radioAnswerA value="A">@ViewBag.lblA
+        <br />
+              <input type="radio" id="radioAnswerB" name="radioAnswer" @ViewBag.radioAnswerB value="B">@ViewBag.lblB
+        <br />
+              <input type="radio" id="radioAnswerC" name="radioAnswer" @ViewBag.radioAnswerC value="C">@ViewBag.lblC
+        <br />
+              <input type="radio" id="radioAnswerD" name="radioAnswer" @ViewBag.radioAnswerD value="D">@ViewBag.lblD
+        <br />
+              @Html.Raw(ViewBag.lblGrade)
+        <br />
+
+        Comments/Answer:
+        <br />
+            <textarea cols=140 rows=6>@Html.Raw(ViewBag.txtAnswer)</textarea>
+        <br />
+        <button onclick="DoCallback('Univ_Back','','univfinalexam/processdocallback');">Back</button>
+        <button onclick="DoCallback('Univ_Next','','univfinalexam/processdocallback');">Next</button>
+        <button onclick="DoCallback('Univ_Switch','','univfinalexam/processdocallback');">@ViewBag.btnSwitch</button>
+        <button onclick="DoCallback('Univ_Grade','','univfinalexam/processdocallback');">Grade</button>
+</div>
+@section ScriptsBlock {}

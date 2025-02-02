@@ -1,0 +1,57 @@
+
+<!--
+<div id="panel-compose" class="panel w-100 position-fixed pos-bottom pos-right mb-0 z-index-cloud mr-lg-4 shadow-3 border-bottom-left-radius-0 border-bottom-right-radius-0 expand-full-height-on-mobile expand-full-width-on-mobile shadow" 
+ style="max-width:40rem; height:35rem; display: none;">
+ -->
+ <style>
+	th, td {
+		border: 1px solid black; /* Solid black border */
+		padding: 0.5rem; /* Optional: Add padding for content */
+	}
+</style>
+	@model OptionsTradeModel
+	
+ <table style="width:100%;border:solid 1px">
+	 
+	 <tr><th>Enabled</th><th>Strategy</th><th>Action</th><th>Qty</th><th>Symbol</th><th>Expiration</th>
+		 <th>Strike</th><th>Type</th><th>Price</th>
+		 <th>
+			<!-- Add,Save,Delete,Clone,OppositeClone,CreateOrder-->
+			<button class="btn-default" onclick="var v={};v.spreadid=`@Model.ActiveTrade.id`;DoCallback('Quant_Analyzer_Add',   v,'quantanalyzer/processdocallback');" alt="Add Another Row">
+				<i class="fal fa-plus"></i></button>
+			<button class="btn-default" onclick="var v={};v.spreadid=`@Model.ActiveTrade.id`;DoCallback('Quant_Analyzer_Save',  v,'quantanalyzer/processdocallback');" alt="Save">
+				<i class="fal fa-folder"></i>
+			</button>
+			<button class="btn-default" onclick="var v={};v.spreadid=`@Model.ActiveTrade.id`;DoCallback('Quant_Analyzer_Delete',v,'quantanalyzer/processdocallback');" alt="Delete">
+				<i class="fal fa-trash"></i>
+			</button>
+			<button class="btn-default" onclick="var v={};v.spreadid=`@Model.ActiveTrade.id`;DoCallback('Quant_Analyzer_Order', v,'quantanalyzer/processdocallback');" alt="Convert To Order">
+				<i class="fal fa-running"></i>
+				</button>
+		 </th>
+		 
+	 
+	 </tr>
+		@foreach (var item in Model.ActiveTrade.Positions)
+		{
+	
+		  <tr>
+			<td width="5%"><input type="checkbox" id="chkEnabled" value="checked" checked="@item.Enabled" data-parentid="@item.ParentID"/></td>
+			<td width="5%">@item.Strategy</td>
+			<td width="10%">@item.Action</td>
+			<td width="10%"><input id="txtQuantity" value="@item.Quantity" data-parentid="@item.ParentID" style="width:50px;" /></td>
+			<td width="10%">@item.Symbol</td>
+			<td width="15%"><input id="txtExpiration" value="@item.Expiration.ToShortDateString()" style="width:120px;" data-parentid="@item.ParentID" /></td>
+			<td width="10%"><input id="txtStrike" value="@item.Strike.ToString()" data-parentid="@item.ParentID" style="width:50px;" /></td>
+			<td width="10%">@Html.Raw(Model.GetDropDown("txtDropDownType", Model.DropDownType, item.Type, item.ParentID))</td>
+			<td width="10%"><input id="txtPrice" value="@item.Price" style="width:110px;" data-parentid="@item.ParentID" /></td>
+			<td width="15%">
+				<button class="btn-default" onclick="var v={};v.rowid=`@item.ParentID`;v.spreadid=`@Model.ActiveTrade.id`;DoCallback('Quant_Analyzer_Detail_Delete',v,'quant/processdocallback');" alt="Delete">
+					<i class="fal fa-trash"></i>
+
+				</button>
+			</td>
+		  </tr>
+		}
+
+	</table>

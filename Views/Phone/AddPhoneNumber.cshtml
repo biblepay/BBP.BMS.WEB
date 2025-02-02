@@ -1,0 +1,27 @@
+@{ ViewData["Title"] = "Profile";
+    ViewData["PageName"] = "phone_addphonenumber";
+    ViewData["Heading"] = "<i class='subheader-icon fal fa-shield-alt'></i>  Add Phone Number";
+    ViewData["PageDescription"] = "10% to orphan charity";
+    ViewData["Category1"] = "Phone";
+ }
+
+
+<head>
+</head>
+
+
+
+    <div id="partial-load-provision">
+    </div>
+
+    
+@section ScriptsBlock {
+
+<script>
+
+        $(document).ready(function () {
+            $('#partial-load-provision').load('/Phone/_Provision');
+        });
+    
+</script>
+}

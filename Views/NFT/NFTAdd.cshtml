@@ -1,0 +1,208 @@
+﻿@{ ViewData["Title"] = ViewBag.Title;
+    ViewData["PageName"] = "nft_nftadd";
+    ViewData["Heading"] = "<i class='fal fa-palette'></i>&nbsp;" + ViewBag.Title;
+    ViewData["Category1"] = "BBP";
+    ViewData["PageDescription"] = "NFTs with Integrity"; }
+@section HeadBlock 
+{
+    
+}
+
+
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    Image:
+    <br>
+    <img id='imgNFT' style="max-width:400px;max-height:400px;height:400px;width:400px" src="@ViewBag.AssetURL" 
+         class="rounded-circle shadow-2 img-thumbnail" onclick="document.getElementById('file').click();" alt="">
+    &nbsp;Click on Image to Upload your Asset
+    <br>
+    Name:
+    <br />
+    <input id='txtName' style='' class="form-control" value='@ViewBag.txtName' />
+
+    <br />
+
+
+    Description:
+    <br />
+    <textarea id='txtDescription' cols=120 class="form-control" rows=7>@ViewBag.txtDescription</textarea>
+
+    <br />
+
+    Asset Image URL: <small><font color="red">(This is the Image URL.  You can either populate it here, or click the image above to upload one.)</font></small>
+    <br />
+    <input id='txtURL' style='' class="form-control" value='@ViewBag.AssetURL' />
+
+    <div id="divBIO" style="visibility:hidden;">
+        <br />
+        Child Bio URL: <small><font color="red">(This is the Orphan Bio URL.)</font></small>
+        <br />
+        <input id='txtBIOURL' class="form-control" value='@ViewBag.txtBIOURL' />
+    </div>
+
+    <br />
+    Buy It Now Amount:
+    <br>
+    <input id="txtid" type="hidden" value="@ViewBag.txtid" />
+    <input id="txtBuyItNowAmount" type="number" class="form-control" value="@ViewBag.txtBuyItNowAmount" />
+    <br />
+<!--    Reserve Price:
+    <br />
+    <input id="txtReserveAmount" type="number" class="form-control" value="@ViewBag.txtReserveAmount" />
+    <br />
+    -->
+
+
+
+    <br />
+
+    NFT Type:
+    <br />
+    <select id='ddNFTType' class="form-control" onchange="changeNFTType();">
+        @Html.Raw(ViewBag.ddNFTType);
+    </select>
+
+    <br />
+
+    <input id='chkMarketable' class="xform-control" value='1' @ViewBag.chkMarketableChecked type='checkbox'>&nbsp;Marketable?
+
+    <br />
+    <input id='chkDelete' class="xform-control" value='1' @ViewBag.chkDeleteChecked type='checkbox'>&nbsp;Delete this NFT?
+    <br />
+
+
+    <button class="btn btn-info xshadow-0 ml-auto btn-default" id='btnSubmit' onclick="DoCallback('nft_@ViewBag.Mode',null,'nft/processdocallback');">Submit</button>
+    <br />
+
+    <span>@ViewBag.lblInfo</span>
+
+</div>
+
+<!-- upload stuff -->
+<form id="f1" action="" method="post" enctype="multipart/form-data">
+    <!--<button class="btn btn-primary" onclick="document.getElementById('file').click(); return false;">Click it</button>-->
+
+    <input style="visibility:hidden;" type="file" name="file" id="file" onchange="upl_changed();" />
+    <div>
+        <input style="visibility:hidden;" type="submit" value="Upload" />
+    </div>
+</form>
+
+
+
+@section ScriptsBlock
+{
+
+    <script>
+
+        window.onload = changeNFTType();
+
+        function changeNFTType() {
+            
+
+            // When they choose Orphan, BIO should be visible.
+            var o = document.getElementById('ddNFTType');
+            var oDiv = document.getElementById('divBIO');
+            if (o.value == "Orphan") {
+                oDiv.style.visibility = 'visible';
+            }
+            else
+            {
+                oDiv.style.visibility = 'none';
+            }
+        }
+
+    function upl_changed() 
+    {
+            var mode = '@ViewBag.Mode';
+            console.log(mode);
+            if (mode == 'editme' || mode =='edit')
+            {
+                alert('Sorry, only the price, deleted, and marketable fields can be edited.');
+            }
+            else
+            {
+                UploadFile();
+            }
+    };
+
+
+
+function UploadFile() {
+    var file = document.getElementById('file').files[0];
+    console.log(file);
+
+
+    var fileName = file.name;    
+    var fd = new FormData();    
+    fd.append("file", file);    
+    var xhr = new XMLHttpRequest();
+    xhr.upload.addEventListener("progress", function (evt) { UploadProgress(evt); }, false);
+    xhr.addEventListener("load", function (evt) { UploadComplete(evt); }, false);
+    xhr.addEventListener("error", function (evt) { UploadFailed(evt); }, false);
+    xhr.addEventListener("abort", function (evt) { UploadCanceled(evt); }, false);
+    xhr.open("POST", "nft/uploadfilenft", true); 
+    xhr.send(fd);
+}
+
+
+function UploadProgress(evt) {
+    if (evt.lengthComputable) {
+        var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+        $("#uploading").text(percentComplete + "% ");        
+    }
+    }
+
+function UploadComplete(evt) 
+{
+    if (evt.target.status == 200)
+    {
+        console.log(evt.target.responseText);
+       // This object contains the return value
+       if (evt.target.responseText != null && evt.target.responseText.length > 1) 
+       {
+             var ob1 = JSON.parse(evt.target.responseText);
+             var obj  = JSON.parse(ob1);
+             if (obj.returntype == "uploadsuccess") 
+             {
+                    var oImg = document.getElementById('imgNFT');
+                    oImg.src = obj.returnurl;
+                    var oURLField = document.getElementById('txtURL');
+                    oURLField.value = obj.returnurl;
+             } 
+             else if (obj.returntype == "modal") 
+             {
+                    var implant = document.getElementById("implant");
+                    try 
+                    {
+                        removeAllChildNodes(implant);
+                    }
+                    catch (e) {
+
+                    }
+                    var div = document.createElement('div');
+                    div.innerHTML = obj.returnbody;
+                    implant.appendChild(div);
+                    $('#modalid1').modal('show');
+             }
+        }
+    }
+    else 
+    {
+        alert("Error Uploading File");
+    }
+    }
+
+function UploadFailed(evt) {    
+    alert("There was an error attempting to upload the file.");
+}
+
+function UploadCanceled(evt) {    
+    alert("The upload has been canceled by the user or the browser dropped the connection.");
+}
+
+
+</script>
+
+}

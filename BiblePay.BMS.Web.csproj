@@ -1,0 +1,598 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <UserSecretsId>aspnet-BiblePay.BMS-1757DFEF-8A50-4CF6-A39D-79B9DFFE19FC</UserSecretsId>
+    <AssemblyName>BiblePay.BMS</AssemblyName>
+    <RootNamespace>BiblePay.BMS</RootNamespace>
+    <RChecksumAlgorithm>SHA1</RChecksumAlgorithm>
+<ChecksumAlgorithm>SHA1</ChecksumAlgorithm>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;SYSLIB00;ASP0000;SYSLIB00;CS0618;</NoWarn>
+    <WarningsAsErrors>;NU1605;NU1701;</WarningsAsErrors>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <Compile Remove="bin\**" />
+    <Compile Remove="Views\AspNetCore\**" />
+    <Compile Remove="wwwroot\media\**" />
+    <Compile Remove="wwwroot\Univ\**" />
+    <Content Remove="bin\**" />
+    <Content Remove="Models\Tetris\**" />
+    <Content Remove="Views\AspNetCore\**" />
+    <Content Remove="Views\Docs\**" />
+    <Content Remove="Views\FormPlugins\**" />
+    <Content Remove="Views\Statistics\**" />
+    <Content Remove="wwwroot\media\**" />
+    <Content Remove="wwwroot\Univ\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <EmbeddedResource Remove="BMS.BMSD\**" />
+    <EmbeddedResource Remove="BMSCommon\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <EmbeddedResource Remove="Models\Tetris\**" />
+    <EmbeddedResource Remove="Views\AspNetCore\**" />
+    <EmbeddedResource Remove="Views\Docs\**" />
+    <EmbeddedResource Remove="Views\FormPlugins\**" />
+    <EmbeddedResource Remove="Views\Statistics\**" />
+    <EmbeddedResource Remove="wwwroot\media\**" />
+    <EmbeddedResource Remove="wwwroot\Univ\**" />
+    <None Remove="bin\**" />
+    <None Remove="BMS.BMSD\**" />
+    <None Remove="BMSCommon\**" />
+    <None Remove="Data\**" />
+    <None Remove="Models\Tetris\**" />
+    <None Remove="Views\AspNetCore\**" />
+    <None Remove="Views\Docs\**" />
+    <None Remove="Views\FormPlugins\**" />
+    <None Remove="Views\Statistics\**" />
+    <None Remove="wwwroot\media\**" />
+    <None Remove="wwwroot\Univ\**" />
+	  <!-- publish items -->
+	  <!-- 	  <Content Remove="wwwroot\media\*" />-->
+	  
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\BBPCointroller - Copy.cs" />
+    <Compile Remove="Controllers\BBPCointroller0.cs" />
+    <Compile Remove="Controllers\DatatablesController.cs" />
+    <Compile Remove="Controllers\DocsController.cs" />
+    <Compile Remove="Controllers\DocumentationController.cs" />
+    <Compile Remove="Controllers\FormController.cs" />
+    <Compile Remove="Controllers\FormPluginsController.cs" />
+    <Compile Remove="Controllers\IconsController.cs" />
+    <Compile Remove="Controllers\MiscellaneousController.cs" />
+    <Compile Remove="Controllers\PluginsController.cs" />
+    <Compile Remove="Controllers\SettingsController.cs" />
+    <Compile Remove="Controllers\StatisticsController.cs" />
+    <Compile Remove="Controllers\TablesController.cs" />
+    <Compile Remove="Controllers\UiController.cs" />
+    <Compile Remove="ErrorViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="App.razor" />
+    <Content Remove="Views\Shared\_LeftPanel.cshtml" />
+    <Content Remove="wwwroot\phone\index.html" />
+    <Content Remove="_Imports.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include=".config\dotnet-tools.json" />
+    <Content Include="wwwroot\media\data\2500.json" />
+    <Content Include="wwwroot\media\data\ch.json" />
+    <Content Include="wwwroot\media\data\en.json" />
+    <Content Include="wwwroot\media\data\es.json" />
+    <Content Include="wwwroot\media\data\fa-brand-list.json" />
+    <Content Include="wwwroot\media\data\fa-duotone.json" />
+    <Content Include="wwwroot\media\data\fa-icon-list.json" />
+    <Content Include="wwwroot\media\data\ng-bg-colors.json" />
+    <Content Include="wwwroot\media\data\ng-icon-base.json" />
+    <Content Include="wwwroot\media\data\ng-icon-list.json" />
+    <Content Include="wwwroot\media\data\ng-text-colors.json" />
+    <Content Include="wwwroot\media\data\plugin-reference.json" />
+    <Content Include="wwwroot\media\data\project-structure.json" />
+    <Content Include="wwwroot\media\data\server-demo.json" />
+    <Content Include="wwwroot\media\JesusChrist\AbrahamIsaacJacob.htm" />
+    <Content Include="wwwroot\media\JesusChrist\AbsoluteTruth.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Ages.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Ananias.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Apostles.htm" />
+    <Content Include="wwwroot\media\JesusChrist\ApostlesCreed.htm" />
+    <Content Include="wwwroot\media\JesusChrist\beatitudes.htm" />
+    <Content Include="wwwroot\media\JesusChrist\BibleReferences.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Blessings.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Clock.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Crowns.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Crusades.htm" />
+    <Content Include="wwwroot\media\JesusChrist\css\bootstrap.css" />
+    <Content Include="wwwroot\media\JesusChrist\Darwinism.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Elijah.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Elisha.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Enoch.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Esther.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Ezekiel38.htm" />
+    <Content Include="wwwroot\media\JesusChrist\FaithfulAndSlothful.htm" />
+    <Content Include="wwwroot\media\JesusChrist\FortySigns.htm" />
+    <Content Include="wwwroot\media\JesusChrist\GenesisTimeline.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Gentiles.htm" />
+    <Content Include="wwwroot\media\JesusChrist\GetToHeaven1.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Grace.htm" />
+    <Content Include="wwwroot\media\JesusChrist\GraceWorks.htm" />
+    <Content Include="wwwroot\media\JesusChrist\HellIsReal.htm" />
+    <Content Include="wwwroot\media\JesusChrist\HellIsReal2.htm" />
+    <Content Include="wwwroot\media\JesusChrist\HowToBeReady.htm" />
+    <Content Include="wwwroot\media\JesusChrist\images\Armageddon.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\images\CampaignOfArmageddon5.gif" />
+    <Content Include="wwwroot\media\JesusChrist\images\clouds.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\images\DetailedEvents7YrTribulation.gif" />
+    <Content Include="wwwroot\media\JesusChrist\images\EventsInMiddleTribulation3.gif" />
+    <Content Include="wwwroot\media\JesusChrist\images\FirstHalfGreatTribulation2.gif" />
+    <Content Include="wwwroot\media\JesusChrist\images\firsthalftrib_seals1-7.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\images\GloriousLion.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\images\hellfire.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\images\JesusArmageddon1.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\images\KnockKnock.png" />
+    <Content Include="wwwroot\media\JesusChrist\images\Luke2127.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\images\Maranatha.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\images\r900.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\images\Rainbow1.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\images\SecondHalfTribulation4.gif" />
+    <Content Include="wwwroot\media\JesusChrist\images\SeventyFiveDayInterval6.gif" />
+    <Content Include="wwwroot\media\JesusChrist\images\the-second-coming-of-jesus-christ1.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\images\TheChurchAge1.gif" />
+    <Content Include="wwwroot\media\JesusChrist\images\TheMessianicKingdomEternalOrder8.gif" />
+    <Content Include="wwwroot\media\JesusChrist\JesusBothManAndGod\ManAndGod.html" />
+    <Content Include="wwwroot\media\JesusChrist\JesusBothManAndGod\ManAndGod_files\apj-icon-76x76-855a50fbbd647cc5dba63fa9fb255c83f70bc4310df9948401f6b5b8c5393aaf.png" />
+    <Content Include="wwwroot\media\JesusChrist\JesusBothManAndGod\ManAndGod_files\application-54674147c5bb8e44d2d1aec5da060c4037cf84bdd7c0008b418c752d59acc5d1.css" />
+    <Content Include="wwwroot\media\JesusChrist\JesusBothManAndGod\ManAndGod_files\lab-icon-76x76-df1ebf85b1aaec3a9675a5c6a6eb2f751cfec317155c56025bf86481aa216cfa.png" />
+    <Content Include="wwwroot\media\JesusChrist\JesusBothManAndGod\ManAndGod_files\solid-joys-766ad548d81f4b4457555f516faaca560de29c7c16bb5e8b72b65856587d6fdb.png" />
+    <Content Include="wwwroot\media\JesusChrist\JesusBothManAndGod\ManAndGod_files\thumb_author-david-mathis.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\JesusBothManAndGod\ManAndGod_files\thumb_author-john-piper.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\JesusBothManAndGod\ManAndGod_files\thumb_author-tony-reinke.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\JesusChrist.htm" />
+    <Content Include="wwwroot\media\JesusChrist\JesusCommandments.htm" />
+    <Content Include="wwwroot\media\JesusChrist\JesusConciseCommandments.htm" />
+    <Content Include="wwwroot\media\JesusChrist\JesusInPsalms.htm" />
+    <Content Include="wwwroot\media\JesusChrist\JesusIsReal.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\filelist.xml" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image001.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image002.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image003.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image004.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image005.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image006.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image007.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image008.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image009.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image010.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image011.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image012.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image013.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image014.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image015.gif" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image016.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image017.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image018.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image019.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image020.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image021.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image022.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image023.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image024.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image025.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image026.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image027.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image028.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image029.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image030.gif" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image031.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image032.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image033.gif" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image034.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image035.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image036.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image037.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image038.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image039.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image040.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image041.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image042.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image043.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image044.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image045.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image046.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image047.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image048.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image049.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image050.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image051.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image052.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image053.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image054.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image055.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\index_files\image057.gif" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\filelist.xml" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image001.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image002.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image003.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image004.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image005.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image006.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image007.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image008.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image009.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image010.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image011.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image012.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image013.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image014.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image015.gif" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image016.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image017.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image018.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image019.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image020.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image021.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image022.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image023.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image024.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image025.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image026.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image027.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image028.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image029.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image030.gif" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image031.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image032.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image033.gif" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image034.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image035.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image036.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image037.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image038.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image039.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image040.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image041.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image042.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image043.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image044.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image045.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image046.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image047.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image048.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image049.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image050.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image051.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image052.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image053.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image054.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image055.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image057.gif" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\filelist.xml" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image001.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image002.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image003.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image004.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image005.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image006.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image007.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image008.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image009.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image010.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image011.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image012.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image013.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image014.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image015.gif" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image016.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image017.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image018.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image019.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image020.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image021.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image022.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image023.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image024.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image025.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image026.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image027.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image028.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image029.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image030.gif" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image031.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image032.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image033.gif" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image034.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image035.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image036.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image037.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image038.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image039.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image040.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image041.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image042.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image043.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image044.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image045.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image046.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image047.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image048.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image049.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image050.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image051.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image052.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image053.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image054.png" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image055.jpg" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image057.gif" />
+    <Content Include="wwwroot\media\JesusChrist\Jesus\old1.html" />
+    <Content Include="wwwroot\media\JesusChrist\Jezebel.htm" />
+    <Content Include="wwwroot\media\JesusChrist\job.htm" />
+    <Content Include="wwwroot\media\JesusChrist\JW.htm" />
+    <Content Include="wwwroot\media\JesusChrist\KeyVerses.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Leviticus\GodAndMan.html" />
+    <Content Include="wwwroot\media\JesusChrist\Leviticus\SinOfferings.html" />
+    <Content Include="wwwroot\media\JesusChrist\LoveJews.htm" />
+    <Content Include="wwwroot\media\JesusChrist\main.htm" />
+    <Content Include="wwwroot\media\JesusChrist\mainmenu.htm" />
+    <Content Include="wwwroot\media\JesusChrist\mainold.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Matthew25.htm" />
+    <Content Include="wwwroot\media\JesusChrist\mobile.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Mobile.html" />
+    <Content Include="wwwroot\media\JesusChrist\NiceneCreed.htm" />
+    <Content Include="wwwroot\media\JesusChrist\NonChristianReligions.htm" />
+    <Content Include="wwwroot\media\JesusChrist\NonChristianReligions.txt" />
+    <Content Include="wwwroot\media\JesusChrist\OffGrid.htm" />
+    <Content Include="wwwroot\media\JesusChrist\OnceSaved.htm" />
+    <Content Include="wwwroot\media\JesusChrist\OSAS.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Pharisees.htm" />
+    <Content Include="wwwroot\media\JesusChrist\ProblemsWithJW.htm" />
+    <Content Include="wwwroot\media\JesusChrist\psalm23.htm" />
+    <Content Include="wwwroot\media\JesusChrist\RaptureImages.htm" />
+    <Content Include="wwwroot\media\JesusChrist\RaptureReadyChecklist.htm" />
+    <Content Include="wwwroot\media\JesusChrist\RCC.htm" />
+    <Content Include="wwwroot\media\JesusChrist\ReasonsForEnd.htm" />
+    <Content Include="wwwroot\media\JesusChrist\RichMan.htm" />
+    <Content Include="wwwroot\media\JesusChrist\RomanCatholics.htm" />
+    <Content Include="wwwroot\media\JesusChrist\SeventyWeeks.htm" />
+    <Content Include="wwwroot\media\JesusChrist\ShouldChristiansKeepSabbath.htm" />
+    <Content Include="wwwroot\media\JesusChrist\sinner1.htm" />
+    <Content Include="wwwroot\media\JesusChrist\sinner2.htm" />
+    <Content Include="wwwroot\media\JesusChrist\sinner3.htm" />
+    <Content Include="wwwroot\media\JesusChrist\sinner4.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Sins.htm" />
+    <Content Include="wwwroot\media\JesusChrist\SixDayWar.htm" />
+    <Content Include="wwwroot\media\JesusChrist\StudyOfDaniel.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Styles\gradient_green.png" />
+    <Content Include="wwwroot\media\JesusChrist\Styles\master.css" />
+    <Content Include="wwwroot\media\JesusChrist\Styles\menu.css" />
+    <Content Include="wwwroot\media\JesusChrist\Styles\oie_432212Gzc63IMC %281%29.png" />
+    <Content Include="wwwroot\media\JesusChrist\Styles\site_biohazard.css" />
+    <Content Include="wwwroot\media\JesusChrist\Styles\Site_Black - Copy.css" />
+    <Content Include="wwwroot\media\JesusChrist\Styles\Site_Black.css" />
+    <Content Include="wwwroot\media\JesusChrist\Styles\site_daylight.css" />
+    <Content Include="wwwroot\media\JesusChrist\Styles\white.png" />
+    <Content Include="wwwroot\media\JesusChrist\TakeUpCross.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Temples.htm" />
+    <Content Include="wwwroot\media\JesusChrist\TenCommandments.htm" />
+    <Content Include="wwwroot\media\JesusChrist\TheLordsPrayer.htm" />
+    <Content Include="wwwroot\media\JesusChrist\TheLordsPrayer.txt" />
+    <Content Include="wwwroot\media\JesusChrist\TheSinnersPrayer.htm" />
+    <Content Include="wwwroot\media\JesusChrist\ThreeDays.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Tribulation.htm" />
+    <Content Include="wwwroot\media\JesusChrist\WillJewsBeSaved.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Yeshua.htm" />
+    <Content Include="wwwroot\media\JesusChrist\Zealous.htm" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BouncyCastle.Cryptography" Version="2.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="7.0.10" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.7.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="7.7.0" />
+    <PackageReference Include="PgpCore" Version="5.10.0" />
+    <PackageReference Include="ScrapySharp" Version="3.0.0" />
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="22.2.8" />
+    <PackageReference Include="Syncfusion.Licensing" Version="22.2.8" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.36.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="System.Net.Http.Json" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BBP.BBPCLIENTAPI.API\BBP.BBPCLIENTAPI.API\BBPClientApi\BBPClientApi.csproj" />
+    <ProjectReference Include="..\..\Dependencies\BMSCommon\BMSCommon\BMSCommon.csproj" />
+    <ProjectReference Include="..\..\Dependencies\NBitcoin-master\NBitcoin\NBitcoin.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\Retired\" />
+    <Folder Include="Views\Upload\" />
+    <Folder Include="wwwroot\Downloads\" />
+    <Folder Include="wwwroot\media\JesusChrist\Jesus\aspnet_client\system_web\4_0_30319\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Utilities\Helpers.cshtml" />
+    <None Include="Views\Utilities\ResponsiveGrid.cshtml" />
+    <None Include="Views\Utilities\Spacing.cshtml" />
+    <None Include="wwwroot\bbp\1000.m3u8" />
+    <None Include="wwwroot\bbp\chartist.min.js" />
+    <None Include="wwwroot\bbp\hls.js" />
+    <None Include="wwwroot\bbp\jquery.min.js" />
+    <None Include="wwwroot\bbp\pb.js" />
+    <None Include="wwwroot\bbp\playicon.svg" />
+    <None Include="wwwroot\bbp\plyr-plugin-thumbnail.js" />
+    <None Include="wwwroot\bbp\plyr-vr.js" />
+    <None Include="wwwroot\bbp\plyr.polyfilled.js" />
+    <None Include="wwwroot\css\datagrid\datatables\datatables.bundle.css.map" />
+    <None Include="wwwroot\css\formplugins\bootstrap-colorpicker\bootstrap-colorpicker.css.map" />
+    <None Include="wwwroot\css\formplugins\bootstrap-datepicker\bootstrap-datepicker.css.map" />
+    <None Include="wwwroot\css\formplugins\bootstrap-daterangepicker\bootstrap-daterangepicker.css.map" />
+    <None Include="wwwroot\css\formplugins\bootstrap-markdown\bootstrap-markdown.css.map" />
+    <None Include="wwwroot\css\formplugins\cropperjs\cropper.css.map" />
+    <None Include="wwwroot\css\formplugins\dropzone\dropzone.css.map" />
+    <None Include="wwwroot\css\formplugins\ion-rangeslider\ion-rangeslider.css.map" />
+    <None Include="wwwroot\css\formplugins\nouislider\nouislider.css.map" />
+    <None Include="wwwroot\css\formplugins\select2\select2.bundle.css.map" />
+    <None Include="wwwroot\css\formplugins\smartwizard\smartwizard.css.map" />
+    <None Include="wwwroot\css\formplugins\summernote\summernote.css.map" />
+    <None Include="wwwroot\css\json-path-picker\json-path-picker.css.map" />
+    <None Include="wwwroot\css\miscellaneous\fullcalendar\fullcalendar.bundle.css.map" />
+    <None Include="wwwroot\css\miscellaneous\jqvmap\jqvmap.bundle.css.map" />
+    <None Include="wwwroot\css\miscellaneous\lightgallery\lightgallery.bundle.css.map" />
+    <None Include="wwwroot\css\miscellaneous\nestable\nestable.css.map" />
+    <None Include="wwwroot\css\miscellaneous\reactions\reactions.css.map" />
+    <None Include="wwwroot\css\miscellaneous\treeview\treeview.css.map" />
+    <None Include="wwwroot\css\notifications\sweetalert2\sweetalert2.bundle.css.map" />
+    <None Include="wwwroot\css\notifications\toastr\toastr.css.map" />
+    <None Include="wwwroot\css\skins\skin-master.css.map" />
+    <None Include="wwwroot\css\statistics\c3\c3.css.map" />
+    <None Include="wwwroot\css\statistics\chartist\chartist.css.map" />
+    <None Include="wwwroot\css\statistics\chartjs\chartjs.css.map" />
+    <None Include="wwwroot\css\statistics\dygraph\dygraph.css.map" />
+    <None Include="wwwroot\css\themes\cust-theme-1.css.map" />
+    <None Include="wwwroot\css\themes\cust-theme-10.css.map" />
+    <None Include="wwwroot\css\themes\cust-theme-11.css.map" />
+    <None Include="wwwroot\css\themes\cust-theme-12.css.map" />
+    <None Include="wwwroot\css\themes\cust-theme-13.css.map" />
+    <None Include="wwwroot\css\themes\cust-theme-14.css.map" />
+    <None Include="wwwroot\css\themes\cust-theme-15.css.map" />
+    <None Include="wwwroot\css\themes\cust-theme-2.css.map" />
+    <None Include="wwwroot\css\themes\cust-theme-3.css.map" />
+    <None Include="wwwroot\css\themes\cust-theme-4.css.map" />
+    <None Include="wwwroot\css\themes\cust-theme-5.css.map" />
+    <None Include="wwwroot\css\themes\cust-theme-6.css.map" />
+    <None Include="wwwroot\css\themes\cust-theme-7.css.map" />
+    <None Include="wwwroot\css\themes\cust-theme-8.css.map" />
+    <None Include="wwwroot\css\themes\cust-theme-9.css.map" />
+    <None Include="wwwroot\img\favicon\safari-pinned-tab.svg" />
+    <None Include="wwwroot\img\favicon\site.webmanifest" />
+    <None Include="wwwroot\img\logo-flat.svg" />
+    <None Include="wwwroot\img\logo-gradient.svg" />
+    <None Include="wwwroot\img\logo.svg" />
+    <None Include="wwwroot\img\NKJV.pdf" />
+    <None Include="wwwroot\img\scope2.pdf" />
+    <None Include="wwwroot\img\svg\pattern-1.svg" />
+    <None Include="wwwroot\img\svg\pattern-2.svg" />
+    <None Include="wwwroot\img\svg\pattern-3.svg" />
+    <None Include="wwwroot\img\svg\pattern-4.svg" />
+    <None Include="wwwroot\js\app.bundle.js" />
+    <None Include="wwwroot\js\charting.js" />
+    <None Include="wwwroot\js\charting_after.js" />
+    <None Include="wwwroot\js\codemirrorlang.js" />
+    <None Include="wwwroot\js\datagrid\datatables\datatables.bundle.js" />
+    <None Include="wwwroot\js\datagrid\datatables\datatables.export.js" />
+    <None Include="wwwroot\js\dependency\moment\moment.js" />
+    <None Include="wwwroot\js\formplugins\bootstrap-colorpicker\bootstrap-colorpicker.js" />
+    <None Include="wwwroot\js\formplugins\bootstrap-datepicker\bootstrap-datepicker.js" />
+    <None Include="wwwroot\js\formplugins\bootstrap-daterangepicker\bootstrap-daterangepicker.js" />
+    <None Include="wwwroot\js\formplugins\bootstrap-markdown\bootstrap-markdown.js" />
+    <None Include="wwwroot\js\formplugins\cropperjs\cropper.js" />
+    <None Include="wwwroot\js\formplugins\dropzone\dropzone.js" />
+    <None Include="wwwroot\js\formplugins\inputmask\inputmask.bundle.js" />
+    <None Include="wwwroot\js\formplugins\ion-rangeslider\ion-rangeslider.js" />
+    <None Include="wwwroot\js\formplugins\nouislider\nouislider.js" />
+    <None Include="wwwroot\js\formplugins\select2\select2.bundle.js" />
+    <None Include="wwwroot\js\formplugins\smartwizard\smartwizard.js" />
+    <None Include="wwwroot\js\formplugins\summernote\summernote.js" />
+    <None Include="wwwroot\js\i18n\i18n.js" />
+    <None Include="wwwroot\js\json-path-picker\json-path-picker.js" />
+    <None Include="wwwroot\js\miscellaneous\fullcalendar\fullcalendar.bundle.js" />
+    <None Include="wwwroot\js\miscellaneous\jqvmap\jqvmap.bundle.js" />
+    <None Include="wwwroot\js\miscellaneous\jqvmap\maps\jquery.vmap.algeria.js" />
+    <None Include="wwwroot\js\miscellaneous\jqvmap\maps\jquery.vmap.argentina.js" />
+    <None Include="wwwroot\js\miscellaneous\jqvmap\maps\jquery.vmap.brazil.js" />
+    <None Include="wwwroot\js\miscellaneous\jqvmap\maps\jquery.vmap.canada.js" />
+    <None Include="wwwroot\js\miscellaneous\jqvmap\maps\jquery.vmap.europe.js" />
+    <None Include="wwwroot\js\miscellaneous\jqvmap\maps\jquery.vmap.france.js" />
+    <None Include="wwwroot\js\miscellaneous\jqvmap\maps\jquery.vmap.germany.js" />
+    <None Include="wwwroot\js\miscellaneous\jqvmap\maps\jquery.vmap.greece.js" />
+    <None Include="wwwroot\js\miscellaneous\jqvmap\maps\jquery.vmap.iran.js" />
+    <None Include="wwwroot\js\miscellaneous\jqvmap\maps\jquery.vmap.iraq.js" />
+    <None Include="wwwroot\js\miscellaneous\jqvmap\maps\jquery.vmap.russia.js" />
+    <None Include="wwwroot\js\miscellaneous\jqvmap\maps\jquery.vmap.tunisia.js" />
+    <None Include="wwwroot\js\miscellaneous\jqvmap\maps\jquery.vmap.turkey.js" />
+    <None Include="wwwroot\js\miscellaneous\jqvmap\maps\jquery.vmap.usa.js" />
+    <None Include="wwwroot\js\miscellaneous\lightgallery\lightgallery.bundle.js" />
+    <None Include="wwwroot\js\miscellaneous\lightgallery\smartvoice.bundle.js" />
+    <None Include="wwwroot\js\miscellaneous\nestable\nestable.js" />
+    <None Include="wwwroot\js\miscellaneous\treeview\treeview.js" />
+    <None Include="wwwroot\js\notifications\sweetalert2\sweetalert2.bundle.js" />
+    <None Include="wwwroot\js\notifications\toastr\toastr.js" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\js\statistics\c3\c3.js" />
+    <None Include="wwwroot\js\statistics\chartist\chartist.js" />
+    <None Include="wwwroot\js\statistics\chartjs\chartjs.bundle.js" />
+    <None Include="wwwroot\js\statistics\d3\d3.js" />
+    <None Include="wwwroot\js\statistics\demo-data\demo-c3.js" />
+    <None Include="wwwroot\js\statistics\demo-data\demo-data-dygraph.js" />
+    <None Include="wwwroot\js\statistics\dygraph\dygraph.js" />
+    <None Include="wwwroot\js\statistics\easypiechart\easypiechart.bundle.js" />
+    <None Include="wwwroot\js\statistics\flot\flot.bundle.js" />
+    <None Include="wwwroot\js\statistics\peity\peity.bundle.js" />
+    <None Include="wwwroot\js\statistics\sparkline\sparkline.bundle.js" />
+    <None Include="wwwroot\js\UploadFile.js" />
+    <None Include="wwwroot\js\vendors.bundle.js" />
+    <None Include="wwwroot\lib\bbp\bbpcore.js" />
+    <None Include="wwwroot\lib\bbp\bbpstandard.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+    <None Include="wwwroot\media\JesusChrist\JesusBothManAndGod\ManAndGod_files\3687066.js" />
+    <None Include="wwwroot\media\JesusChrist\JesusBothManAndGod\ManAndGod_files\application-de92ba31f25cc393b0abb7f6a45eca33a989715b3775a4aba114e006c0cf2976.js" />
+    <None Include="wwwroot\media\JesusChrist\JesusBothManAndGod\ManAndGod_files\dat4456.tmp" />
+    <None Include="wwwroot\media\JesusChrist\JesusBothManAndGod\ManAndGod_files\M6V0ZNHY.aspx" />
+    <None Include="wwwroot\media\JesusChrist\JesusBothManAndGod\ManAndGod_files\M6V0ZNHY.js" />
+    <None Include="wwwroot\media\JesusChrist\Jesus\index_files\image056.wmz" />
+    <None Include="wwwroot\media\JesusChrist\Jesus\Jesus Christ_files\image056.wmz" />
+    <None Include="wwwroot\media\JesusChrist\Jesus\JesusChrist_files\image056.wmz" />
+    <None Include="wwwroot\media\JesusChrist\Jesus\web.config" />
+    <None Include="wwwroot\media\JesusChrist\KJV8.aspx" />
+    <None Include="wwwroot\media\JesusChrist\KJV8.pdf" />
+    <None Include="wwwroot\media\JesusChrist\mobile.asp" />
+    <None Include="wwwroot\media\JesusChrist\NKJV.pdf" />
+    <None Include="wwwroot\media\JesusChrist\web.config" />
+    <None Include="wwwroot\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\webfonts\fa-duotone-900.svg" />
+    <None Include="wwwroot\webfonts\fa-duotone-900.woff2" />
+    <None Include="wwwroot\webfonts\fa-light-300.svg" />
+    <None Include="wwwroot\webfonts\fa-light-300.woff2" />
+    <None Include="wwwroot\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\webfonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\webfonts\nextgen-icons.svg" />
+    <None Include="wwwroot\webfonts\nextgen-icons.woff2" />
+    <None Include="wwwroot\webfonts\summernote.woff2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Views\Shared\_LeftPanel.cshtml" />
+  </ItemGroup>
+
+</Project>

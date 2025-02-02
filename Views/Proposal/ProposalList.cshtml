@@ -1,0 +1,14 @@
+﻿@{ ViewData["Title"] = "Proposal List";
+    ViewData["PageName"] = "proposal_proposallist";
+    ViewData["Heading"] = "<i class='fal fa-vote-yea'></i> &nbsp;Proposal List";
+    ViewData["Category1"] = "Governance";
+    ViewData["PageDescription"] = "10% to Orphan Charity"; }
+@section HeadBlock {
+    
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    @Html.Raw(ViewBag.ProposalList)
+
+</div>
+@section ScriptsBlock {}

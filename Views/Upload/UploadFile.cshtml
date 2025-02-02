@@ -1,0 +1,118 @@
+﻿
+@{ ViewData["Title"] = "Upload File";
+    ViewData["PageName"] = "upload_uploadfile";
+    ViewData["Heading"] = "<i class='fal fa-cross'></i> &nbsp;Upload File";
+    ViewData["Category1"] = "Upload";
+    ViewData["PageDescription"] = "Tithing 10% of all Block Chain Emissions to Orphan Charity"; }
+
+@section HeadBlock {
+<script>
+    function mechanged() {
+        document.getElementById("f1").submit();
+    };
+</script>
+
+}
+
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+ <h3>Upload a new Video now to our Decentralized Sanctuary Streaming Network</h3>
+
+    <form id="f1" action="" method="post" enctype="multipart/form-data">
+
+        <br>
+        Title:
+        <br />
+        <input id='txtTitle' name="txtTitle" class="form-control" value='@ViewBag.txtTitle' />
+
+        <br />
+
+        Description:
+        <br />
+        <textarea id='txtDescription' name="txtDescription" cols=120 class="form-control" rows=7>@ViewBag.txtDescription</textarea>
+        <br />
+
+
+        <button class="btn btn-primary" onclick="document.getElementById('file').click(); return false;">Upload Now</button>
+        <input style="visibility:hidden;" type="file" name="file" id="file" onchange="mechanged();" />
+        <div>
+            <input style="visibility:hidden;" type="submit" value="Upload" />
+        </div>
+    </form>
+
+    <div>
+        <h4><font color="red">        @ViewBag.Message</font></h4>
+    </div>
+
+
+</div>
+
+@section ScriptsBlock
+    {
+
+    <script>
+
+
+
+        function UploadFile() {
+            var file = document.getElementById('file').files[0];
+            var title = document.getElementById('txtTitle').value;
+            var desc = document.getElementById('txtDescription').value;
+            console.log(title);
+            console.log(desc);
+
+            var fileName = file.name;
+            var fd = new FormData();
+            fd.append("file", file);
+            fd.append("txtTitle", title);
+            fd.append("txtDescription", desc);
+            var xhr = new XMLHttpRequest();
+            xhr.addEventListener("load", function (evt) { UploadComplete(evt); }, false);
+            xhr.addEventListener("error", function (evt) { UploadFailed(evt); }, false);
+            xhr.addEventListener("abort", function (evt) { UploadCanceled(evt); }, false);
+            xhr.open("POST", "upload/uploadfile", true);
+            xhr.send(fd);
+        }
+
+
+        function UploadComplete(evt) {
+            if (evt.target.status == 200) {
+                console.log(evt.target.responseText);
+                if (evt.target.responseText != null && evt.target.responseText.length > 1) {
+                    var ob1 = JSON.parse(evt.target.responseText);
+                    var obj = JSON.parse(ob1);
+                    if (obj.returntype == "uploadsuccess") {
+                    }
+                    else if (obj.returntype == "modal") {
+                        var implant = document.getElementById("implant");
+                        try {
+                            removeAllChildNodes(implant);
+                        }
+                        catch (e) {
+
+                        }
+                        var div = document.createElement('div');
+                        div.innerHTML = obj.returnbody;
+                        implant.appendChild(div);
+                        $('#modalid1').modal('show');
+                    }
+                }
+            }
+            else {
+                alert("Error Uploading File");
+            }
+        }
+
+        function UploadFailed(evt) {
+            alert("There was an error attempting to upload the file.");
+        }
+
+        function UploadCanceled(evt) {
+            alert("The upload has been canceled by the user or the browser dropped the connection.");
+        }
+
+
+    </script>
+}
+
+

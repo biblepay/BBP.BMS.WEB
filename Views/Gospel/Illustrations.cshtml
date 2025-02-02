@@ -1,0 +1,13 @@
+﻿@{ ViewData["Title"] = "Illustrations";
+                ViewData["PageName"] = "gospel_illustrations";
+                ViewData["Heading"] = "<i class='fal fa-cross'></i> &nbsp;Illustrations";
+                ViewData["Category1"] = "Gospel";
+                ViewData["PageDescription"] = "Sharing the Gospel of Jesus Christ"; }
+@section HeadBlock {}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+    
+@Html.Raw(ViewBag.Illustrations)
+
+
+</div>
+@section ScriptsBlock {}

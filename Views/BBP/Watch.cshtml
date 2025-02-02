@@ -1,0 +1,14 @@
+﻿@{ ViewData["Title"] = "Watch";
+    ViewData["PageName"] = "bbp_watch";
+    ViewData["Heading"] = ""; // "<i class='fal fa-tachometer'></i> &nbsp;Watch";
+    ViewData["Category1"] = "BBP";
+    ViewData["PageDescription"] = "Christian Videos"; }
+@section HeadBlock {
+  
+}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    @Html.Raw(ViewBag.WatchVideo)
+
+</div>
+@section ScriptsBlock {}
