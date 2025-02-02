@@ -12,11 +12,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BiblePay.BMS.Web", "BiblePa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBitcoin", "..\..\Dependencies\Dependencies\NBitcoin-master\NBitcoin\NBitcoin.csproj", "{120208A2-523B-4661-96EA-0656E340FE60}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BBPClientApi", "..\..\BBP.BBPCLIENTAPI.API\BBP.BBPCLIENTAPI.API\BBPClientApi\BBPClientApi.csproj", "{A6551662-4259-4CC8-B297-F0FEDA3DE655}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BMSCommon", "..\..\Dependencies\Dependencies\BMSCommon\BMSCommon\BMSCommon.csproj", "{D7E142A6-0A39-4B13-B4BD-CE2F689E1C98}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BBPModelShared", "..\..\Dependencies\Dependencies\BBP.Model.Shared\BBPModelShared.csproj", "{49AC7C06-F32E-4A26-B2BD-DBE29DAFE46B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BBPClientApi", "..\..\BBP.BBPAPI.API\BBP.BBPCLIENTAPI.API\BBPClientApi\BBPClientApi.csproj", "{3AE899ED-05BE-4518-8E4F-FF7E80DF344C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,18 +52,6 @@ Global
 		{120208A2-523B-4661-96EA-0656E340FE60}.Release|x64.Build.0 = Release|Any CPU
 		{120208A2-523B-4661-96EA-0656E340FE60}.Release|x86.ActiveCfg = Release|Any CPU
 		{120208A2-523B-4661-96EA-0656E340FE60}.Release|x86.Build.0 = Release|Any CPU
-		{A6551662-4259-4CC8-B297-F0FEDA3DE655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A6551662-4259-4CC8-B297-F0FEDA3DE655}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A6551662-4259-4CC8-B297-F0FEDA3DE655}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{A6551662-4259-4CC8-B297-F0FEDA3DE655}.Debug|x64.Build.0 = Debug|Any CPU
-		{A6551662-4259-4CC8-B297-F0FEDA3DE655}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{A6551662-4259-4CC8-B297-F0FEDA3DE655}.Debug|x86.Build.0 = Debug|Any CPU
-		{A6551662-4259-4CC8-B297-F0FEDA3DE655}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A6551662-4259-4CC8-B297-F0FEDA3DE655}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A6551662-4259-4CC8-B297-F0FEDA3DE655}.Release|x64.ActiveCfg = Release|Any CPU
-		{A6551662-4259-4CC8-B297-F0FEDA3DE655}.Release|x64.Build.0 = Release|Any CPU
-		{A6551662-4259-4CC8-B297-F0FEDA3DE655}.Release|x86.ActiveCfg = Release|Any CPU
-		{A6551662-4259-4CC8-B297-F0FEDA3DE655}.Release|x86.Build.0 = Release|Any CPU
 		{D7E142A6-0A39-4B13-B4BD-CE2F689E1C98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D7E142A6-0A39-4B13-B4BD-CE2F689E1C98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7E142A6-0A39-4B13-B4BD-CE2F689E1C98}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -88,6 +76,18 @@ Global
 		{49AC7C06-F32E-4A26-B2BD-DBE29DAFE46B}.Release|x64.Build.0 = Release|Any CPU
 		{49AC7C06-F32E-4A26-B2BD-DBE29DAFE46B}.Release|x86.ActiveCfg = Release|Any CPU
 		{49AC7C06-F32E-4A26-B2BD-DBE29DAFE46B}.Release|x86.Build.0 = Release|Any CPU
+		{3AE899ED-05BE-4518-8E4F-FF7E80DF344C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AE899ED-05BE-4518-8E4F-FF7E80DF344C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AE899ED-05BE-4518-8E4F-FF7E80DF344C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3AE899ED-05BE-4518-8E4F-FF7E80DF344C}.Debug|x64.Build.0 = Debug|Any CPU
+		{3AE899ED-05BE-4518-8E4F-FF7E80DF344C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3AE899ED-05BE-4518-8E4F-FF7E80DF344C}.Debug|x86.Build.0 = Debug|Any CPU
+		{3AE899ED-05BE-4518-8E4F-FF7E80DF344C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AE899ED-05BE-4518-8E4F-FF7E80DF344C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AE899ED-05BE-4518-8E4F-FF7E80DF344C}.Release|x64.ActiveCfg = Release|Any CPU
+		{3AE899ED-05BE-4518-8E4F-FF7E80DF344C}.Release|x64.Build.0 = Release|Any CPU
+		{3AE899ED-05BE-4518-8E4F-FF7E80DF344C}.Release|x86.ActiveCfg = Release|Any CPU
+		{3AE899ED-05BE-4518-8E4F-FF7E80DF344C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

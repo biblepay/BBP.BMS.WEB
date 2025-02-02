@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using static BiblePay.BMS.DSQL.ControllerExtensions;
 using static BiblePay.BMS.DSQL.DOMItem;
 using static BiblePay.BMS.DSQL.SessionHelper;
-using static BiblePay.BMS.DSQL.UI;
+using static BiblePay.BMS.DSQL.UI; 
 using static BMSCommon.Extensions;
 
 namespace BiblePay.BMS.Controllers

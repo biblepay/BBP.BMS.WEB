@@ -416,7 +416,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\BBP.BBPCLIENTAPI.API\BBP.BBPCLIENTAPI.API\BBPClientApi\BBPClientApi.csproj" />
+    <ProjectReference Include="..\..\BBP.BBPAPI.API\BBP.BBPCLIENTAPI.API\BBPClientApi\BBPClientApi.csproj" />
     <ProjectReference Include="..\..\Dependencies\Dependencies\BMSCommon\BMSCommon\BMSCommon.csproj" />
     <ProjectReference Include="..\..\Dependencies\Dependencies\NBitcoin-master\NBitcoin\NBitcoin.csproj" />
   </ItemGroup>
